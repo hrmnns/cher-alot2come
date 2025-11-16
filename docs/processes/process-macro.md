@@ -415,42 +415,435 @@ Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
 --- 
 
 ## Phase 5 – Persistenz / Überführung ins Repository
-**Ziel:**  
-**Input:**  
-**Output:**  
-**Rollen:**  
-**Aktivitäten:**  
-**Übergabepunkte:**  
+
+In dieser Phase werden die konsolidierten Inhalte final und dauerhaft in das Repository überführt.  
+Ziel ist eine stabile, versionierte und nachvollziehbare Dokumentation, die unabhängig vom Chat-Verlauf nutzbar bleibt.  
+Die Persistenz dient als „Single Source of Truth“ und schützt Ergebnisse vor Kontextverlust, Drift oder Überschreibung.
+
+### Ziel
+Dieser Abschnitt beschreibt, was am Ende dieser Phase erreicht sein muss: stabile, versionierte und öffentlich oder intern nutzbare Dokumente.
+
+| Ziel | Beschreibung |
+|------|--------------|
+| Ergebnisse dauerhaft sichern | Konsolidierte Inhalte werden final ins Repository überführt. |
+| Versionierung herstellen | Ergebnisse werden sauber versioniert und dokumentiert. |
+| Nachvollziehbarkeit sichern | Änderungen und Entscheidungen werden nachvollziehbar abgelegt. |
+| Wiederverwendbarkeit ermöglichen | Ergebnisse sind klar strukturiert und unabhängig vom Chat nutzbar. |
+| Operationalisierung unterstützen | Dokumentation ist so gestaltet, dass andere sie direkt anwenden können. |
+
+### Input
+Dieser Abschnitt beschreibt, welche Vorleistungen aus Phase 4 benötigt werden, damit Persistenz erfolgen kann.
+
+| Kategorie | Beschreibung | Zweck / Warum relevant? | Beispiele |
+|----------|--------------|--------------------------|-----------|
+| Konsolidierte Inhalte | Finale Versionen aller Dokumente, Tabellen, Definitionen. | Grundlage für Persistenz. | Makroprozess-Tabellen, Glossar, Strukturachsen. |
+| Strukturierte Ablageorte | Definierte Verzeichnisstruktur aus Phase 1. | Sichert Ordnung und Auffindbarkeit. | `docs/processes/`, `docs/meta/`. |
+| Dokumentierte Entscheidungen | Begründungen für Varianten und Strukturentscheidungen. | Erhöht die Nachvollziehbarkeit. | Entscheidungstabellen, Commit-Notizen. |
+| Offene Restpunkte | Markierte Punkte, die später adressiert werden. | Verhindert, dass unfertige Inhalte verloren gehen. | Issue-Liste für spätere Phasen. |
+| Repository-Standards | Regeln für Dateiformate, Naming, Commit-Nachrichten. | Sicherstellung konsistenter Ablage. | README-Anforderungen, Conventions. |
+
+### Output
+Dieser Abschnitt definiert, was das Ergebnis der Persistenzphase ist.
+
+| Output | Beschreibung | Zweck |
+|--------|--------------|--------|
+| Finalisierte Dokumente | Ergebnisse liegen in klarer, versionierter Form vor. | „Single Source of Truth“ für das Projekt. |
+| Commit-Historie | Versionierte Änderungen mit klaren Commit-Messages. | Revisionssicherheit. |
+| Veröffentlichte Artefakte | Falls relevant: Artefakte auf GitHub Pages, Wiki oder Releases. | Nutzbarkeit für Dritte. |
+| Aktualisierte Issues | Offene Punkte dokumentiert oder geschlossen. | Transparenz und Planbarkeit. |
+| Freigabe für Phase 6 | Persistenzphase ist abgeschlossen und übergabefähig. | Start der Abschlussphase. |
+
+### Rollen
+Dieser Abschnitt beschreibt, wer für welche Aufgaben in der Persistenz verantwortlich ist.
+
+| Rolle | Verantwortung | Bedeutung |
+|-------|----------------|-----------|
+| Dokumentationsverantwortlicher | Überträgt konsolidierte Inhalte ins Repository. | Verhindert Wissensverlust. |
+| LLM-Methodiker | Prüft, ob Inhalte korrekt und vollständig übertragen wurden. | Sichert methodische Integrität. |
+| Reviewer | Prüft Qualität, Formate, Struktur. | Abschlusskontrolle vor finaler Freigabe. |
+| Projektverantwortlicher | Gibt Persistenz final frei. | Stellt sicher, dass Inhalte dem Projektziel entsprechen. |
+
+### Aktivitäten
+Dieser Abschnitt beschreibt den praktischen Ablauf der Überführung.
+
+| Aktivität | Beschreibung | Ergebnis |
+|-----------|--------------|----------|
+| Dateien anlegen/aktualisieren | Inhalte in die richtigen Verzeichnisse übertragen. | Vollständige, saubere Dokumentation. |
+| Struktur prüfen | Einheitliche Dateinamen, saubere Formatierung, klare Übersicht. | Konsistenter Repository-Aufbau. |
+| Committen & Versionieren | Commits mit klaren, technischen Nachrichten erstellen. | Revisionssicherheit. |
+| ggf. Release setzen | Bei größeren Milestones ein GitHub-Release anlegen. | Offizielle Publikation. |
+| Wiki / Pages aktualisieren | Falls genutzt: Publikation außerhalb des `docs/`-Ordners. | Breiter zugängliche Ergebnisse. |
+| Issues aktualisieren | Offene Punkte schließen, neue Aufgaben erfassen. | Ordnung und Transparenz. |
+
+### Übergabepunkte
+Dieser Abschnitt definiert, wann Phase 5 abgeschlossen ist.
+
+| Übergabepunkt | Beschreibung |
+|---------------|--------------|
+| Inhalte final im Repository | Strukturierte Dokumente liegen vollständig vor. |
+| Commit-Historie sauber | Relevante Änderungen versioniert mit aussagekräftigen Nachrichten. |
+| Keine logischen Lücken | Konsolidierung ist korrekt und vollständig persistiert. |
+| Restpunkte dokumentiert | Offene Punkte als Issues erfasst. |
+| Veröffentlichung erfolgt | Inhalte liegen nutzbar und abrufbar vor. |
+| Freigabe dokumentiert | Übergang zu Phase 6 bestätigt. |
+
+### Beispiel
+
+Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+
+**Beispielhafte Durchführung von Phase 5 im Projektkontext**
+
+1. **Repositoriumsstruktur wird genutzt**  
+   Die konsolidierten Prozessbeschreibungen aus Phase 4 werden in die zugehörigen Unterordner (`docs/processes/`) übertragen.
+
+2. **Dateien final formatiert**  
+   Tabellen für Phase 1–4 werden vereinheitlicht (gleiche Markdown-Struktur, gleiche Spaltenlogik).
+
+3. **Commit & Versionierung**  
+   Für jede neue oder aktualisierte Datei wird ein klarer Commit erstellt, z. B.:  
+   `Add consolidated version of process-macro.md (Phases 1–4)`
+
+4. **Teilergebnis als v0.2 markiert**  
+   Ein Release wird erstellt, das den Stand des Makroprozesses dokumentiert.
+
+5. **Wiki/Praxisleitfäden aktualisiert**  
+   Eine vereinfachte Version der Makroprozessphasen wird ins Wiki übernommen.
+
+6. **Issues aktualisiert**  
+   - Aus Phase 4 offene Punkte werden in eigene Issues überführt.  
+   - Das Issue „Persistenz vorbereiten“ wird geschlossen.
+
+7. **Freigabe durch Projektverantwortlichen**  
+   Persistenz ist abgeschlossen – das Projekt kann in Phase 6 übergehen.
+
 
 --- 
 
 ## Phase 6 – Abschluss & Übergabe
-**Ziel:**  
-**Input:**  
-**Output:**  
-**Rollen:**  
-**Aktivitäten:**  
-**Übergabepunkte:**  
+
+In dieser Phase wird das Projekt oder Teilprojekt formal abgeschlossen. Die erarbeiteten Inhalte werden final geprüft, übergeben und dokumentiert. Ziel ist es, sicherzustellen, dass die Ergebnisse klar abgeschlossen, nachvollziehbar und übergabefähig sind – sei es an ein anderes Team, an eine nachfolgende Phase, oder an die spätere Pilotierung bzw. den operativen Einsatz.
+
+### Ziel
+Dieser Abschnitt beschreibt, was am Ende der Abschlussphase erreicht sein muss.
+
+| Ziel | Beschreibung |
+|------|--------------|
+| Projektformalitäten abschließen | Das Projekt (oder ein Teilprojekt) wird verbindlich abgeschlossen. |
+| Ergebnisse übergeben | Finalisierte Inhalte werden an Stakeholder, Folgeprojekte oder Nutzer übergeben. |
+| Dokumentation sichern | Abschluss- und Übergabedokumentation bereitstellen. |
+| Transparenz herstellen | Klar kommunizieren, was erreicht wurde – und was bewusst offen bleibt. |
+| Grundlage für spätere Pilotierung schaffen | Ergebnisse sind nutzbar für Phase 7 (Pilotierung) oder Phase 8 (Monitoring). |
+
+### Input
+Dieser Abschnitt zeigt, was aus Phase 5 (Persistenz) vorliegen muss.
+
+| Kategorie | Beschreibung | Zweck / Warum relevant? | Beispiele |
+|----------|--------------|--------------------------|-----------|
+| Finalisierte Repository-Inhalte | Persistierte Versionen aller Ergebnisse. | Grundlage für Abschluss und Übergabe. | Finales `process-macro.md`, Glossar, Strukturen. |
+| Commit- & Release-Historie | Dokumentierte Versionierung. | Nachvollziehbarkeit der Entwicklung. | Release v0.2, Commit-Liste. |
+| Restpunkte | Offene, bewusst nicht umgesetzte Aspekte. | Klarheit über offenen Bedarf. | Issue-Liste „Open Questions“. |
+| Entscheidungsdokumentation | Warum wurden bestimmte Varianten gewählt? | Transparenz und spätere Rückverfolgbarkeit. | Entscheidungslog, Architekturvarianten. |
+| Stakeholder-Anforderungen | Erwartungen an Übergabe und Abschluss. | Sicherstellung der Abnahme. | Fachabteilung, Projektleitung. |
+
+### Output
+Der Abschnitt definiert, was konkret am Ende der Abschlussphase erzeugt werden muss.
+
+| Output | Beschreibung | Zweck |
+|--------|--------------|--------|
+| Abschlussdokument | Zusammenfassung des Erreichten, inkl. Entscheidungen und Ergebnissen. | Verständlichkeit für Stakeholder. |
+| Übergabepaket | Alle relevanten Dokumente, Strukturen und Links. | Direkte Nutzung der Ergebnisse. |
+| Kommunikationsartefakte | Stakeholder-Updates, Changelogs, Release Notes. | Transparente Kommunikation. |
+| Aktualisierte oder geschlossene Issues | Offene Punkte sind dokumentiert oder abgeschlossen. | Ordnung und Klarheit. |
+| Freigabe & Abnahme | Formale Bestätigung über den Abschluss. | Grundlage für Phase 7 oder Projektende. |
+
+### Rollen
+Dieser Abschnitt zeigt, wer in dieser Phase beteiligt ist.
+
+| Rolle | Verantwortung | Bedeutung |
+|-------|----------------|-----------|
+| Projektverantwortlicher | Gibt Abschluss frei, kommuniziert Ergebnisse. | Verantwortet Gesamtprojekt. |
+| LLM-Methodiker | Sicherstellt, dass der methodische Anspruch erfüllt ist. | Qualität & Struktur. |
+| Dokumentationsverantwortlicher | Kuratierte und finalisiert Dokumente. | Vollständigkeit der Dokumentation. |
+| Reviewer | Prüft Abschlussartefakte. | Qualitätssicherung. |
+| Stakeholder | Nehmen Ergebnisse entgegen, geben Feedback. | Nutzung der Ergebnisse. |
+
+### Aktivitäten
+Dieser Abschnitt beschreibt, wie die Abschlussphase praktisch abläuft.
+
+| Aktivität | Beschreibung | Ergebnis |
+|-----------|--------------|----------|
+| Final Review | Letzte Prüfung der Inhalte auf Konsistenz, Vollständigkeit und Qualität. | Abnahmefähige Dokumente. |
+| Übergabepaket schnüren | Zusammenstellung aller relevanten Materialien. | Strukturierte Übergabe. |
+| Abschlussdokumentation erstellen | Zusammenfassung des Projektverlaufs und der Resultate. | Transparenz und Nachvollziehbarkeit. |
+| Kommunikation | Stakeholder informieren, Release Notes erzeugen. | Klarer Abschluss. |
+| Issues bearbeiten | Offene Issues schließen oder neu priorisieren. | Ordnung & Zukunftsorientierung. |
+| Offizielle Freigabe | Dokumentation der Projektabnahme. | Übergang in Phase 7/8 oder Projektende. |
+
+### Übergabepunkte
+Dieser Abschnitt definiert, wann Phase 6 abgeschlossen ist.
+
+| Übergabepunkt | Beschreibung |
+|---------------|--------------|
+| Abschlussdokument vorliegend | Zusammenfassung + Entscheidungen dokumentiert. |
+| Alle relevanten Ergebnisse persistiert | Repository vollständig und final. |
+| Übergabepaket bereitgestellt | Alle Stakeholder können die Ergebnisse nutzen. |
+| Kommunikation erfolgt | Stakeholder informiert, Release Notes erstellt. |
+| Offene Punkte dokumentiert | Klar definierte Restpunkte für spätere Phasen. |
+| Freigabe erfolgt | Abschluss ist formal bestätigt. |
+
+### Beispiel
+
+Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+
+**Beispielhafte Durchführung von Phase 6 im Projektkontext**
+
+1. **Final Review**  
+   Alle Prozessphasen (1–6) werden noch einmal überprüft: Struktur, Tabellen, Einleitungen, Konsistenz mit der Informationsarchitektur.
+
+2. **Erstellung eines Übergabepakets**  
+   Enthält u. a.:  
+   - finalisiertes `process-macro.md`  
+   - zugehörige Meta- und Begleitdokumente  
+   - Glossar / Terminologie  
+   - Roadmap-Aktualisierung  
+   - Referenzen auf Issues und Versionsstände
+
+3. **Release Notes erzeugen**  
+   Ein Release „v0.3 – Makroprozess initial abgeschlossen“ wird erstellt.
+
+4. **Stakeholder-Kommunikation**  
+   Projektverantwortlicher und Methodiker kommunizieren die fertige Struktur und den Nutzen für künftige Arbeiten.
+
+5. **Issues aktualisieren**  
+   - „Makroprozess definieren“ → geschlossen  
+   - „Feintuning Phase 3/4“ → neu priorisiert  
+   - „Pilotierung vorbereiten“ → neu angelegt
+
+6. **Offizielle Freigabe**  
+   Der Projektverantwortliche bestätigt den Abschluss von Phase 6, damit die Ergebnisse in Phase 7 (Pilotierung) operational genutzt werden können.
+
 
 --- 
 
-## Optionale Phase 7 – Pilotierung
-**Ziel:**  
-**Input:**  
-**Output:**  
-**Rollen:**  
-**Aktivitäten:**  
-**Übergabepunkte:**  
+## Phase 7 – Pilotierung
+
+In dieser optionalen Phase wird das Ergebnis des Projekts erstmals in einer realen Anwendungssituation getestet.  Ziel ist es, die erarbeitete Methode, Struktur oder das Artefakt unter echten Bedingungen einzusetzen, um Wirksamkeit, Praxistauglichkeit und mögliche Schwachstellen sichtbar zu machen.
+
+### Ziel
+Dieser Abschnitt beschreibt, was mit einer Pilotierung erreicht werden soll.
+
+| Ziel | Beschreibung |
+|------|--------------|
+| Reale Anwendbarkeit testen | Überprüfung, ob die Methode in der Praxis wie geplant funktioniert. |
+| Schwachstellen identifizieren | Herausfinden, wo Unklarheiten, Lücken oder Probleme bestehen. |
+| Validierung sicherstellen | Bewerten, ob Ergebnisse robust und übertragbar sind. |
+| Verbesserungspunkte ableiten | Konkrete Vorschläge zur Optimierung gewinnen. |
+| Entscheidung vorbereiten | Festlegen, ob Methode übernommen, angepasst oder verworfen wird. |
+
+### Input
+Dieser Abschnitt zeigt, was aus Phase 6 benötigt wird.
+
+| Kategorie | Beschreibung | Zweck / Warum relevant? | Beispiele |
+|-----------|--------------|--------------------------|-----------|
+| Finalisierte Inhalte | Ergebnisse aus Phase 6, die pilotiert werden sollen. | Grundlage der Erprobung. | `process-macro.md`, Glossar, Roadmap. |
+| Übergabepaket | Dokumente, Links, Strukturübersichten. | Sichert vollständige Testbasis. | ZIP/Ordnerstruktur, Release v0.3. |
+| Pilotplan | Definition des Umfangs: Szenarien, Dauer, Zielgruppe. | Strukturierter Ablauf der Pilotierung. | „Pilotierung in kleinem Team über 2 Wochen.“ |
+| Erfolgskriterien | Kriterien, wann der Pilot als erfolgreich gilt. | Objektive Bewertungsgrundlage. | „Verständlichkeit“, „Anwendbarkeit“, „Nutzerfeedback“. |
+| Stakeholder-Kontext | Wer pilotiert die Methode und warum. | Sichert Relevanz der Erprobung. | IT-Architekten, Projektleiter, Autoren. |
+
+### Output
+Dieser Abschnitt definiert die Ergebnisse, die am Ende der Pilotierung vorliegen müssen.
+
+| Output | Beschreibung | Zweck |
+|--------|--------------|--------|
+| Pilotbericht | Dokumentation der Ergebnisse, Erfahrungen und Erkenntnisse. | Grundlage für Optimierung oder Freigabe. |
+| Identifizierte Schwachstellen | Konkrete Probleme oder Unklarheiten. | Basis für Phase 8 oder erneute Konsolidierung. |
+| Validierte Inhalte | Bestätigte Elemente der Methode. | Vertrauensbasis für Einsatz. |
+| Änderungsvorschläge | Empfehlungen für Anpassungen. | Verbesserungspotenzial sichtbar machen. |
+| Entscheidungsvorlage | Übernahme, Anpassung oder Ablehnung der Methode. | Grundlage für Stakeholder-Entscheidung. |
+
+### Rollen
+Dieser Abschnitt beschreibt die Beteiligten in der Pilotphase.
+
+| Rolle | Verantwortung | Bedeutung |
+|-------|----------------|-----------|
+| Pilotanwender (Fachexperten) | Setzen Methode im realen Kontext ein. | Praktische Rückmeldungen. |
+| LLM-Methodiker | Beobachtet, moderiert, analysiert Ergebnisse. | Sicherstellung der methodischen Qualität. |
+| Projektverantwortlicher | Bewertet Pilotbericht und trifft Entscheidung. | Strategische Verantwortung. |
+| Reviewer | Prüft Erkenntnisse und Empfehlungen. | Qualitätssicherung der Ableitungen. |
+
+### Aktivitäten
+Dieser Abschnitt beschreibt den praktischen Ablauf der Pilotierung.
+
+| Aktivität | Beschreibung | Ergebnis |
+|-----------|--------------|----------|
+| Pilot-Scope definieren | Umfang, Szenarien, Rollen festlegen. | Klarer Rahmen. |
+| Pilot durchführen | Methode real anwenden und beobachten. | Praxisergebnisse. |
+| Feedback einsammeln | Strukturierte Rückmeldungen der Pilotanwender. | Qualitative und quantitative Erkenntnisse. |
+| Probleme klassifizieren | Schwachstellen, Risiken, Missverständnisse dokumentieren. | Transparente Problemübersicht. |
+| Empfehlungen ableiten | Konkrete Vorschläge für Anpassungen formulieren. | Grundlage für Phase 8. |
+| Entscheidung vorbereiten | Abschließend bewerten, ob Methode übernommen wird. | Entscheidungsvorlage. |
+
+### Übergabepunkte
+Dieser Abschnitt definiert, wann die Pilotphase abgeschlossen ist.
+
+| Übergabepunkt | Beschreibung |
+|---------------|--------------|
+| Pilotbericht erstellt | Ergebnisse und Erkenntnisse dokumentiert. |
+| Schwachstellen analysiert | Probleme sauber beschrieben und kategorisiert. |
+| Empfehlungen formuliert | Verbesserungen klar definiert. |
+| Entscheidung vorbereitet | Übernahme/Anpassung/Verwerfung strukturiert. |
+| Kommuniziert an Stakeholder | Ergebnisse sind allen relevanten Personen bekannt. |
+| Freigabe erfolgt | Übergang in Phase 8 oder zurück zu Phase 3/4. |
+
+### Beispiel
+
+Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+
+**Beispielhafte Durchführung von Phase 7 im Projektkontext**
+
+1. **Pilot-Scope definieren**  
+   Die neue Makroprozess-Struktur (Phasen 1–8) wird in einem kleinen Team von 3 Personen pilotiert.  
+   Szenario: „LLM-gestützte Erarbeitung eines Architektur-Patterns“.
+
+2. **Reale Anwendung**  
+   Das Team nutzt die Makroprozessphasen 1–3, um ein reales Problem zu bearbeiten.  
+   Dokumentation erfolgt parallel im Repo.
+
+3. **Feedback sammeln**  
+   Nach 3 Arbeitstagen geben die Pilotanwender Rückmeldungen zu:  
+   - Verständlichkeit der Tabellen  
+   - Klarheit der Phasen  
+   - gefühlter Mehrwert  
+   - Aufwand/Nutzen-Verhältnis  
+   - Lücken in der Struktur
+
+4. **Schwachstellen identifizieren**  
+   - Phase 3 wirkte teilweise zu breit  
+   - Beispiele halfen sehr, werden aber noch nicht überall benötigt  
+   - Glossar sollte weiter ausgebaut werden
+
+5. **Empfehlungen ableiten**  
+   - Präzisierung der Rollen in Phase 3  
+   - Ergänzung eines Mini-Index der wichtigsten Dokumente  
+   - Verbesserung der Navigierbarkeit (Inhaltsverzeichnis)
+
+6. **Pilotbericht erstellen**  
+   Die Erkenntnisse werden strukturiert dokumentiert und als Issue-Paket ins Repo übertragen.
+
+7. **Entscheidung**  
+   Das Projektteam entscheidet, die Methode anzupassen und dann in Phase 8 zu überführen.
+
 
 --- 
 
-## Optionale Phase 8 – Monitoring & kontinuierliche Verbesserung
-**Ziel:**  
-**Input:**  
-**Output:**  
-**Rollen:**  
-**Aktivitäten:**  
-**Übergabepunkte:**  
+## Phase 8 – Monitoring & kontinuierliche Verbesserung
+
+Diese optionale Phase dient der langfristigen Qualitätssicherung und Weiterentwicklung der Methode oder des Artefakts.  Während die Pilotierung einen einmaligen Test darstellt, sorgt das Monitoring dafür, dass die Methode über längere Zeit stabil, konsistent und wirksam bleibt. Die Phase ist zyklisch und kann dauerhaft parallel zu realen Einsätzen laufen.
+
+### Ziel
+Dieser Abschnitt beschreibt, was mit dieser Phase erreicht wird: ein dauerhaft verlässlicher, gepflegter und weiterentwickelter Methodensatz.
+
+| Ziel | Beschreibung |
+|------|--------------|
+| Qualität langfristig sichern | Regelmäßige Prüfung, ob Methode stabil und wirksam bleibt. |
+| Weiterentwicklung steuern | Anpassungsbedarfe identifizieren und priorisieren. |
+| Veränderungen erfassen | Dokumentieren, wie sich Anforderungen und Rahmenbedingungen ändern. |
+| Kontinuierliche Verbesserung etablieren | Plattform für kleine, iterative Aktualisierungen. |
+| Drift verhindern | Verhindert Kontext-, Struktur- und Wissensdrift über längere Zeiträume. |
+
+### Input
+Dieser Abschnitt zeigt, welche Vorleistungen nötig sind, um effektives Monitoring zu ermöglichen.
+
+| Kategorie | Beschreibung | Zweck / Warum relevant? | Beispiele |
+|-----------|--------------|--------------------------|-----------|
+| Pilotbericht | Erkenntnisse aus Phase 7. | Ausgangspunkt für Monitoring. | Schwachstellen, Nutzerfeedback. |
+| Finalisierte Methode | Persistierte Inhalte ab Phase 5/6. | Basis der langfristigen Qualitätssicherung. | `process-macro.md`, Glossar. |
+| Feedback-Kanäle | Mechanismen, wie Nutzer Rückmeldungen geben. | Laufende Verbesserungen. | Issue-Tracker, Feedback-Formular. |
+| Nutzungsdaten | Einblicke in reale Nutzungsszenarien. | Identifizierung von Verbesserungspotenzial. | Anzahl Einsätze, Problemfälle. |
+| Neue Anforderungen | Veränderungen im Umfeld, Stakeholder-Bedarf. | Anpassungsnotwendigkeit erkennen. | Technische oder organisatorische Änderungen. |
+
+### Output
+Dieser Abschnitt definiert, was am Ende eines Monitoring-Zyklus entstehen muss.
+
+| Output | Beschreibung | Zweck |
+|--------|--------------|--------|
+| Monitoring-Bericht | Zusammenfassung der beobachteten Entwicklungen. | Grundlage für Verbesserungen. |
+| Änderungsbedarf | Konkretisierte Anpassungsvorschläge. | Steuert Weiterentwicklung. |
+| Aktualisierte Dokumentation | Kleinere oder größere Anpassungen der Methode. | Verbesserte Qualität & Stabilität. |
+| Neue Issues | Strukturierte Aufgaben für kommende Zyklen. | Transparenz & Planbarkeit. |
+| Entscheidung über Maßnahmen | Welche Anpassungen werden umgesetzt? | Projektsteuerung. |
+
+### Rollen
+Dieser Abschnitt zeigt, wer für die Monitoring-Phase verantwortlich ist.
+
+| Rolle | Verantwortung | Bedeutung |
+|-------|----------------|-----------|
+| LLM-Methodiker | Bewertung der Wirksamkeit & Ableitung von Anpassungen. | Sicherstellung methodischer Qualität. |
+| Dokumentationsverantwortlicher | Pflege der Änderungen im Repository. | Garantiert persistente Weiterentwicklung. |
+| Reviewer | Prüft, ob Änderungen sinnvoll und konsistent sind. | Qualitätssicherung. |
+| Stakeholder | Feedbackgeber im realen Einsatz. | Basis für Praxiserkenntnisse. |
+| Projektverantwortlicher | Priorisiert & entscheidet über größere Anpassungen. | Strategische Steuerung. |
+
+### Aktivitäten
+Dieser Abschnitt beschreibt, wie Monitoring und kontinuierliche Verbesserungen praktisch ablaufen.
+
+| Aktivität | Beschreibung | Ergebnis |
+|-----------|--------------|----------|
+| Regelmäßiges Monitoring | Methodennutzung beobachten, Feedback sammeln. | Aktuelles Bild der Methodennutzung. |
+| Probleme klassifizieren | Identifizierte Schwachstellen kategorisieren. | Strukturiertes Verständnis. |
+| Auswirkungen bewerten | Welche Bedeutung haben die Probleme? | Priorisierung. |
+| Verbesserungen definieren | Konkrete Vorschläge formulieren. | Grundlage für Issues. |
+| Dokumentation aktualisieren | Inhalte im Repository anpassen. | Aktualisierte, stabile Methode. |
+| Zyklus dokumentieren | Monitoring-Protokoll erstellen. | Transparenz über Entwicklung. |
+
+### Übergabepunkte
+Dieser Abschnitt definiert, wann ein Monitoring-Zyklus abgeschlossen ist.
+
+| Übergabepunkt | Beschreibung |
+|---------------|--------------|
+| Monitoring-Bericht erstellt | Ergebnisse aus aktuellem Zyklus sind dokumentiert. |
+| Anpassungen priorisiert | Klar definiert, welche Änderungen notwendig sind. |
+| Repository aktualisiert | Falls Anpassungen nötig waren. |
+| Neue Issues erfasst | Offene oder zukünftige Anpassungen strukturiert abgelegt. |
+| Stakeholder informiert | Transparente Kommunikation erfolgt. |
+| Zyklus abgeschlossen | Nächster Zyklus kann beginnen. |
+
+### Beispiel
+
+Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+
+**Beispielhafte Durchführung von Phase 8 im Projektkontext**
+
+1. **Monitoring im laufenden Einsatz**  
+   Die Methode wird über mehrere Wochen in verschiedenen Projekten genutzt (z. B. WebApp-Core, Compliance-Tools, Architekturentscheidungen).
+
+2. **Feedback sammeln**  
+   Nutzer geben Rückmeldungen:  
+   - Phase 3 sei in manchen Projekten zu umfangreich  
+   - Beispiele seien sehr hilfreich  
+   - Manche Tabellen seien etwas redundant  
+   - Wunsch nach Visualisierungen
+
+3. **Probleme klassifizieren**  
+   - kleine Formatierungsverbesserungen  
+   - mittlere strukturelle Anpassungen  
+   - größere inhaltliche Klarstellungen (z. B. Rollenbeschreibung)
+
+4. **Verbesserungen definieren**  
+   - Phase 3 tabellarisch kompakter darstellen  
+   - Glossar erweitern  
+   - Ergänzung eines „Quickstart“-Abschnitts  
+   - kleine inhaltliche Präzisierungen bei Phase 4
+
+5. **Dokumente aktualisieren**  
+   Das `process-macro.md` wird überarbeitet, Tabellen aktualisiert, Beispiele ergänzt.
+
+6. **Monitoring-Bericht erstellen**  
+   Ein Bericht fasst die Erkenntnisse zusammen und wird im Repo als neue Datei `monitoring-report-v01.md` abgelegt.
+
+7. **Neuer Zyklus beginnt**  
+   Die nächste Monitoring-Runde wird für den Folgemonat geplant.
 
 ---
 
