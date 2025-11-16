@@ -109,12 +109,106 @@ Dieser Abschnitt definiert die formalen Bedingungen, die erfüllt sein müssen, 
 ---
 
 ## Phase 2 – Problemrahmen definieren
-**Ziel:**  
-**Input:**  
-**Output:**  
-**Rollen:**  
-**Aktivitäten:**  
-**Übergabepunkte:**  
+
+In dieser Phase wird das Vorhaben so weit geschärft, dass das LLM in der operativen Bearbeitung präzise, konsistent und zielgerichtet arbeiten kann.  
+Es geht darum, das Problem einzugrenzen, zentrale Begriffe zu definieren und einen strukturierten Rahmen festzulegen.
+
+### Ziel
+Dieser Abschnitt beschreibt, was am Ende von Phase 2 erreicht sein muss: ein klar definierter, verständlicher und ausreichend präziser Problemrahmen.
+
+| Ziel | Beschreibung |
+|------|--------------|
+| Problem eingrenzen | Präzise definieren, worum es *konkret* geht und was explizit nicht Teil des Vorhabens ist. |
+| Begriffe klären | Zentrale Begriffe, Rollen und Konzepte definieren, um Missverständnisse zu vermeiden. |
+| Arbeitsdimensionen festlegen | Welche Perspektiven, Fragestellungen oder Teilbereiche das Vorhaben strukturell umfasst. |
+| Erwartetes Ergebnisbild skizzieren | Klar definieren, wie ein „gutes Ergebnis“ aussieht und wie es genutzt wird. |
+
+### Input
+Dieser Abschnitt zeigt, welche Informationen aus Phase 1 benötigt werden, damit ein sauber definiertes Problemprofil entstehen kann.
+
+| Kategorie | Beschreibung | Zweck / Warum relevant? | Beispiele |
+|-----------|--------------|--------------------------|-----------|
+| Projektbeschreibung | Ergebnis aus Phase 1: Was soll erreicht werden? | Dient als Ausgangspunkt für die inhaltliche Schärfung. | „Methode für LLM-Zusammenarbeit entwickeln.“ |
+| Kontext-Informationen | Rollen, Stakeholder, organisatorisches Umfeld. | Bestimmt, für wen das Ergebnis relevant sein muss. | Projektteam, Fachabteilung. |
+| Erste Annahmen | Vermutungen, Hypothesen, mögliche Risiken. | Dient zur Strukturierung der Problemklärung. | „LLM-Kontextdrift ist ein Kernproblem.“ |
+| Dokumentationsstruktur | Ablageort und Struktur aus Phase 1. | Verhindert Informationsverlust bei der Ausarbeitung. | `docs/processes/`, `docs/meta/`. |
+| Projektanweisung | Steuerlogik aus Phase 1. | Sichert methodische Konsistenz der Ausarbeitung. | ChatGPT-Projektanweisung. |
+
+### Output
+Hier wird definiert, welche Ergebnisse am Ende der Phase vorliegen müssen, um mit der operativen Bearbeitung beginnen zu können.
+
+| Output | Beschreibung | Zweck |
+|--------|--------------|--------|
+| Problemprofil | Präzise Beschreibung des Problems, seiner Grenzen und Hintergründe. | Grundlage für die operative Bearbeitung. |
+| Abgrenzung | Dokumentierte Nicht-Ziele und Ausschlüsse. | Verhindert Scope-Creep. |
+| Glossar / Begriffsdefinitionen | Zentrale Begriffe klar definiert. | Reduziert Missverständnisse im LLM-Dialog. |
+| Strukturierungsachsen | Dimensionen, entlang derer später gearbeitet wird. | Bietet Orientierung für Struktur und Dokumente. |
+| Qualitätskriterien | Definition, wann ein Ergebnis „gut genug“ ist. | Ermöglicht zielgerichtete Optimierung. |
+| Übergabe an Phase 3 | Formale Bestätigung, dass Problemrahmen ausreichend ist. | Start der operativen Bearbeitung. |
+
+### Rollen
+Dieser Abschnitt erklärt, wer in dieser Phase beteiligt ist und welche Verantwortung besteht.
+
+| Rolle | Verantwortung | Bedeutung |
+|-------|----------------|-----------|
+| Auftraggeber | Präzisiert Erwartungen und Abgrenzungen. | Sichert Relevanz und Zielausrichtung. |
+| LLM-Methodiker | Schärft den problemorientierten Rahmen methodisch. | Garantiert klare Struktur. |
+| Fachexperten | Stellen inhaltliche Klarheit sicher. | Vermeiden fachliche Fehlannahmen. |
+| Reviewer | Prüft Lesbarkeit, Präzision und Konsistenz. | Qualitätssicherung. |
+
+### Aktivitäten
+Dieser Abschnitt beschreibt die wesentlichen Schritte, um einen vollständigen Problemrahmen zu erstellen.
+
+| Aktivität | Beschreibung | Ergebnis |
+|-----------|--------------|----------|
+| Problem präzise formulieren | Was genau ist das Problem? Was nicht? | Klar abgegrenzte Aufgabenstellung. |
+| Ziele operationalisieren | Was soll erreicht werden? Wie soll das Ergebnis aussehen? | Verständliches Zielbild. |
+| Begriffe definieren | Glossar oder Definitionsliste erstellen. | Gemeinsame Sprache. |
+| Dimensionen herausarbeiten | Strukturachsen festlegen (z. B. Prozess, Rollen, Artefakte). | Ordnung für die spätere Ausarbeitung. |
+| Risiken/Annahmen erfassen | Frühzeitige Erkennung kritischer Punkte. | Vorbereitung für Phase 3. |
+| Review & Freigabe | Prüfen, ob Problemrahmen vollständig und präzise ist. | Startsignal für Phase 3. |
+
+### Übergabepunkte
+Dieser Abschnitt definiert, welche Bedingungen erfüllt sein müssen, bevor Phase 3 beginnen kann.
+
+| Übergabepunkt | Beschreibung |
+|---------------|--------------|
+| Problem klar formuliert | Kurz, präzise, verständlich. |
+| Zielbild definiert | Erwartetes Ergebnis skizziert. |
+| Abgrenzung dokumentiert | „Nicht-Ziele“ explizit festgehalten. |
+| Glossar erstellt | Begriffe klar definiert. |
+| Strukturierungsachsen festgelegt | Dimensionen, an denen Phase 3 sich orientiert. |
+| Freigabe dokumentiert | Start der operativen Bearbeitung ist beschlossen. |
+
+### Beispiel
+Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“, das zeigt, wie Phase 2 aussieht.
+
+**Beispielhafte Durchführung von Phase 2 im Projektkontext**
+
+1. **Problem präzisieren**  
+   Das Kernproblem wird formuliert:    „Komplexe Projekte verlieren im Verlauf der LLM-Nutzung an Struktur, Konsistenz und Nachvollziehbarkeit.“
+
+2. **Zielbild definieren**  
+   Erwartetes Ergebnis: „Eine reproduzierbare, dokumentierte Methodik, mit der Menschen gemeinsam mit einem LLM strukturiert an komplexen Problemen arbeiten können.“
+
+3. **Abgrenzung festhalten**  
+   Nicht umfasst sind:  
+   - technische Modellvergleiche  
+   - regulatorische oder ethische KI-Bewertungen  
+   - Implementierungsdetails einzelner Softwareprojekte
+
+4. **Glossar erstellen**  
+   Wichtige Begriffe wie „Makroprozess“, „Projektanweisung“, „Konsolidierung“, „Kontextdrift“ werden definiert.
+
+5. **Strukturierungsachsen festlegen**  
+   - Prozessebene (Phasen, Übergänge)  
+   - Rollenebene (Methodiker, Reviewer, Dokumentierende)  
+   - Artefakte (Dokumente, Chat-Strukturen, Issues)
+
+6. **Freigabe**  
+   Die Problemdefinition ist akzeptiert und dient als Grundlage für Phase 3 – operative Bearbeitung.
+
+---
 
 ## Phase 3 – Operative Bearbeitung
 **Ziel:**  
