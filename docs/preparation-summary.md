@@ -70,13 +70,7 @@ Diese Zusammenfassung markiert den Übergang in die Hauptphase der Arbeit.
 
 ## 5. Ausblick auf Phase 1
 
-Die kommenden Aufgaben umfassen unter anderem:
-
-- Dokumentation von Prompting-Strategien  
-- Aufbau eines methodischen Playbooks  
-- Definition von Rollenmodellen für LLM-Arbeit  
-- Erstellung strukturierter Checklisten  
-- Sammlung praktischer Beispiele (z. B. cher-webapp-core als Fallstudie)
+Nach Abschluss der Vorbereitungsphase beginnt Phase 1 mit der Konkretisierung der Planungen zur systematischen Ausarbeitung der Methodologie. Ziel dieser Phase ist es, die grundlegenden Bausteine der Zusammenarbeit mit LLMs zu definieren und in praktikable, versionierte Dokumente zu überführen.
 
 Diese Phase wird über neue Issues organisiert und im ChatGPT-Projekt begleitet.
 
