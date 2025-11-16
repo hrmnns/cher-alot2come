@@ -15,17 +15,6 @@ Die Roadmap folgt zwei Prinzipien:
 1. **Von grob → fein**: Zuerst das große Ganze, dann Details.  
 2. **Von Grundlagen → Ableitungen**: Erst Strukturen, dann Mechanismen, dann Templates.
 
-Die empfohlene Reihenfolge umfasst acht Schritte:
-
-1. #11
-2. #12
-3. #9
-4. #15
-5. #10
-6. #13
-7. #14
-8. #16
-
 ## 3. Schrittweiser Ablauf
 
 ### **Schritt 1 – Makroprozess definieren (Issue #11)** 
