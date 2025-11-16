@@ -5,6 +5,45 @@ Er definiert die übergreifenden Phasen, Ziele, Übergänge und Kernaktivitäten
 
 Die hier beschriebenen Phasen sind die Grundlage für alle weiteren Methoden-Bausteine.
 
+## Executive Summary
+
+Der Makroprozess beschreibt einen strukturierten Ablauf in **6 Kernphasen** (optional erweitert auf 8), mit dem komplexe Vorhaben gemeinsam mit einem LLM **über längere Zeiträume hinweg** konsistent, nachvollziehbar und reproduzierbar bearbeitet werden können.
+
+Er ist speziell dafür entwickelt, Projekte und Themenkomplexe zu unterstützen, bei denen das LLM **kontinuierlich auf bereits gewonnenen Erkenntnissen aufbauen muss** — ohne dass diese im Verlauf verloren gehen, verwässern oder neu erarbeitet werden müssen.
+
+Die Phasen stellen sicher, dass:
+
+* das Projekt sauber vorbereitet wird,
+* Problem, Ziele und Begriffe klar definiert sind,
+* Inhalte iterativ und strukturiert erarbeitet werden,
+* Ergebnisse konsolidiert und dauerhaft gesichert sind,
+* Wissen über Wochen oder Monate hinweg stabil bleibt,
+* und der Abschluss eindeutig dokumentiert erfolgt.
+
+Optional ermöglichen **Pilotierung** und **Monitoring**, die Methode real zu testen und langfristig weiterzuentwickeln.
+
+**Warum ist das nötig?**
+Bei langfristiger LLM-Nutzung entstehen leicht Kontextdrift, Wissensverluste, Inkonsistenzen und unklare Zuständigkeiten. Der Makroprozess verhindert genau diese Probleme, indem er die Zusammenarbeit in klare, aufeinander aufbauende Schritte gliedert.
+
+**Kernaussage:**
+
+> Mit diesen Phasen wird die LLM-Zusammenarbeit auf lange Sicht kontrolliert, effizient und nachhaltig — und komplexe Projekte können reproduzierbar und mit stabilem Wissensstand über viele Iterationen hinweg durchgeführt werden.
+
+## Inhaltsverzeichnis
+
+- [Executive Summary](#executive-summary)
+- [Phase 1 – Vorbereitung](#phase-1--vorbereitung)
+- [Phase 2 – Problemrahmen definieren](#phase-2--problemrahmen-definieren)
+- [Phase 3 – Operative Bearbeitung](#phase-3--operative-bearbeitung)
+- [Phase 4 – Konsolidierung](#phase-4--konsolidierung)
+- [Phase 5 – Persistenz / Überführung ins Repository](#phase-5--persistenz--%C3%BCberf%C3%BChrung-ins-repository) 
+- [Phase 6 – Abschluss & Übergabe](#phase-6--abschluss--%C3%BCbergabe)
+- [Phase 7 – Pilotierung (optional)](#phase-7--pilotierung) 
+- [Phase 8 – Monitoring & kontinuierliche Verbesserung (optional)](#phase-8--monitoring--kontinuierliche-verbesserung)
+- [Rollenübersicht (prozessübergreifend)](#rollen%C3%BCbersicht-prozess%C3%BCbergreifend)
+- [Diagramme](#diagramme)
+- [Gesamtzusammenfassung](#abschluss-und-gesamtzusammenfassung)
+
 ## Phase 1 – Vorbereitung
 
 Die Vorbereitungsphase legt das Fundament für eine strukturierte, nachvollziehbare und reproduzierbare Zusammenarbeit mit dem LLM.  
@@ -844,6 +883,105 @@ Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
 
 7. **Neuer Zyklus beginnt**  
    Die nächste Monitoring-Runde wird für den Folgemonat geplant.
+
+## Rollenübersicht (prozessübergreifend)
+
+Die folgenden Rollen werden im gesamten Makroprozess verwendet. Sie können von einzelnen Personen mehrfach wahrgenommen oder im Team verteilt werden.
+
+### Fachliche Rollen
+| Rolle | Beschreibung |
+|-------|--------------|
+| **Auftraggeber / Projektverantwortlicher** | Definiert Ziel, Scope und Prioritäten des Vorhabens; trifft zentrale Entscheidungen. |
+| **Fachexperten / Domain Experts** | Bringen fachliches Wissen ein, prüfen Inhalte auf Korrektheit und Relevanz. |
+
+### Methodische Rollen
+| Rolle | Beschreibung |
+|-------|--------------|
+| **LLM-Methodiker** | Verantwortet Struktur, Vorgehensweise und methodische Qualität der LLM-Zusammenarbeit. Moderiert den Prozess. |
+| **Reviewer** | Prüft Ergebnisse auf Konsistenz, Lesbarkeit, logische Qualität und Anschlussfähigkeit. |
+
+### Dokumentations- und Strukturrollen
+| Rolle | Beschreibung |
+|-------|--------------|
+| **Dokumentationsverantwortlicher** | Überführt Ergebnisse ins Repository, pflegt Versionen und stellt langfristige Nachvollziehbarkeit sicher. |
+| **Stakeholder** | Empfangen Ergebnisse, geben Feedback oder beurteilen die Anwendbarkeit (z. B. in Pilotierung). |
+
+### Rollen im erweiterten Kontext
+| Rolle | Beschreibung |
+|-------|--------------|
+| **Pilotanwender** | Testen die Methode oder das Artefakt unter realen Bedingungen; liefern wertvolles Praxisfeedback. |
+| **Monitoring-Verantwortlicher** | Beobachtet die Nutzung über längere Zeiträume hinweg und leitet Verbesserungen ein (oft deckungsgleich mit dem Methodiker). |
+
+Diese Rollen bilden gemeinsam das organisatorische Fundament, das für eine strukturierte, nachhaltige und qualitätsgesicherte LLM-Zusammenarbeit notwendig ist.
+
+## Diagramme
+
+Nachfolgend ist der prozess als einfaches PlantUML-Diagramm dargestellt, das die 8 Phasen des Makroprozesses übersichtlich als Flowchart darstellt. Die Darstellung entspricht dem inhaltlichen Modell:
+- Phasen 1–6 linear
+- Phase 7 optional
+- Phase 8 optional, zyklisch
+
+```@startuml
+skinparam rectangle {
+  BackgroundColor<<core>> #ddeeff
+  BackgroundColor<<optional>> #e8e8e8
+  BorderColor #333388
+  RoundCorner 15
+}
+skinparam arrow {
+  Color #333388
+  Thickness 1.2
+}
+
+title Makroprozess der strukturierten LLM-Zusammenarbeit (8 Phasen)
+
+rectangle "Phase 1\nVorbereitung" <<core>> as P1
+rectangle "Phase 2\nProblemrahmen definieren" <<core>> as P2
+rectangle "Phase 3\nOperative Bearbeitung" <<core>> as P3
+rectangle "Phase 4\nKonsolidierung" <<core>> as P4
+rectangle "Phase 5\nPersistenz /\nÜberführung ins Repo" <<core>> as P5
+rectangle "Phase 6\nAbschluss & Übergabe" <<core>> as P6
+
+rectangle "Phase 7\nPilotierung\n(optional)" <<optional>> as P7
+rectangle "Phase 8\nMonitoring &\nkontinuierliche Verbesserung\n(optional, zyklisch)" <<optional>> as P8
+
+' Linearer Hauptfluss
+P1 --> P2
+P2 --> P3
+P3 --> P4
+P4 --> P5
+P5 --> P6
+
+' Optionale Erweiterungen
+P6 --> P7 : optional
+P7 --> P8 : optional
+
+' Zyklischer Charakter von Monitoring
+P8 --> P3 : Rückkopplung\n(z. B. neue Aufgaben)\noptional
+
+@enduml
+
+```
+
+Das Diagramm nutzt PlantUML-typische Farben, abgerundete Ecken und Rollenmarkierungen (<<core>> vs. <<optional>>).
+Es zeigt klar:
+- den linearen Kernprozess (1–6),
+- die optionalen Erweiterungen (7–8),
+- den Rückkopplungszyklus im Monitoring (P8 → P3).
+
+## Abschluss und Gesamtzusammenfassung
+
+Der Makroprozess bietet einen vollständigen, klar strukturierten Rahmen, um komplexe Vorhaben gemeinsam mit einem LLM über längere Zeiträume hinweg erfolgreich zu bearbeiten. Durch die konsequente Trennung in definierte Phasen entsteht ein Arbeitsmodell, das:
+
+- Orientierung gibt,  
+- Ergebnisse stabilisiert,  
+- Wissensverlust vermeidet,  
+- Qualität langfristig sicherstellt  
+- und die Zusammenarbeit zwischen Menschen und LLMs reproduzierbar macht.
+
+Die optionalen Phasen Pilotierung und Monitoring erweitern den Prozess zusätzlich um reale Erprobung und kontinuierliche Weiterentwicklung.
+
+Damit stellt der Makroprozess eine belastbare Grundlage dar, auf der sowohl einzelne Projekte als auch ganze Themenkomplexe nachhaltig aufgebaut und fortgeführt werden können.
 
 ---
 
