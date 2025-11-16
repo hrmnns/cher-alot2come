@@ -916,12 +916,13 @@ Diese Rollen bilden gemeinsam das organisatorische Fundament, das für eine stru
 
 ## Diagramme
 
-Nachfolgend ist der prozess als einfaches PlantUML-Diagramm dargestellt, das die 8 Phasen des Makroprozesses übersichtlich als Flowchart darstellt. Die Darstellung entspricht dem inhaltlichen Modell:
+Nachfolgend ist der prozess als einfaches PlantUML-Diagramm (vgl. [PlantUML Web Server}(https://www.plantuml.com/)) dargestellt, das die 8 Phasen des Makroprozesses übersichtlich als Flowchart darstellt. Die Darstellung entspricht dem inhaltlichen Modell:
 - Phasen 1–6 linear
 - Phase 7 optional
 - Phase 8 optional, zyklisch
 
-```@startuml
+```plantuml
+@startuml
 skinparam rectangle {
   BackgroundColor<<core>> #ddeeff
   BackgroundColor<<optional>> #e8e8e8
@@ -986,7 +987,9 @@ Damit stellt der Makroprozess eine belastbare Grundlage dar, auf der sowohl einz
 ---
 
 ## Versionierung
-Version: v0.1 (Skeleton)
+**Version:** v1.0  
+**Status:** Erste vollständige und geprüfte Fassung des Makroprozesses  
+**Datum:** 2025-11-16  
 
 ## Weiterführende Dokumente
 – (werden im Verlauf ergänzt)
