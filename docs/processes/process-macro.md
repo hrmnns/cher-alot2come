@@ -41,16 +41,15 @@ Bei langfristiger LLM-Nutzung entstehen leicht Kontextdrift, Wissensverluste, In
 - [Phase 7 – Pilotierung (optional)](#phase-7--pilotierung) 
 - [Phase 8 – Monitoring & kontinuierliche Verbesserung (optional)](#phase-8--monitoring--kontinuierliche-verbesserung)
 - [Übergeordnete Zusammenhänge](#%C3%BCberordnete-zusammenh%C3%A4nge)
-  - [Rollenübersicht (prozessübergreifend)](#rollen%C3%BCbersicht-prozess%C3%BCbergreifend)
-  - [Visualisierung](#visualisierung)
 - [Zusammenfassung und Fazit](#zusammenfassung-und-fazit)
 
 ## Prozessbeschreibung
 
+Der folgende Abschnitt beschreibt den Makroprozess zunächst aus einer Gesamtperspektive, bevor die einzelnen Phasen im Detail betrachtet werden. Dazu werden zwei grundlegende Elemente vorgestellt: das Rollenmodell und der übergreifende Prozessablauf. Das Rollenmodell definiert, welche Rollen im Prozess beteiligt sind und wie ihre Verantwortlichkeiten verteilt sind. Der anschließende Prozessablauf zeigt, wie diese Rollen in den acht Phasen zusammenwirken, wo Übergaben stattfinden und wie der Gesamtprozess strukturell abläuft. Gemeinsam vermitteln beide Komponenten ein klares Verständnis des methodischen Rahmens, auf dem der weitere Deep Dive in die einzelnen Phasen aufbaut.
+
 ### Rollenmodell
 
-Der Makroprozess nutzt ein klares Rollenmodell, das über alle Phasen hinweg stabil bleibt.  
-Es definiert Verantwortlichkeiten, Schnittstellen und Zuständigkeiten und ist damit die Grundlage für eine strukturierte Zusammenarbeit.
+Der Makroprozess nutzt ein klares Rollenmodell, das über alle Phasen hinweg stabil bleibt. Es definiert Verantwortlichkeiten, Schnittstellen und Zuständigkeiten und ist damit die Grundlage für eine strukturierte Zusammenarbeit.
 
 | Rollenkategorie | Rolle | Beschreibung |
 |-----------------|--------|--------------|
@@ -64,6 +63,21 @@ Es definiert Verantwortlichkeiten, Schnittstellen und Zuständigkeiten und ist d
 | **Erweiterte Rollen (optional)** | Monitoring-Verantwortlicher | Beobachtet die Methode im langfristigen Einsatz, identifiziert Drift, bewertet Wirksamkeit und leitet Verbesserungen ab. |
 
 ### Prozessablauf
+
+In diesem Unterabschnitt wird der Makroprozess zunächst in seiner Gesamtheit dargestellt. Das folgende Swimlane-Diagramm veranschaulicht, wie die beteiligten Rollen über alle acht Phasen hinweg zusammenwirken und an welchen Stellen Übergaben stattfinden. Danach folgt eine zusammenhängende Prozessbeschreibung, die die Logik des Diagramms in einen durchgehenden Fließtext überträgt. Beide Darstellungen vermitteln ein vollständiges Bild des Gesamtprozesses und schaffen eine klare Orientierung, bevor im weiteren Verlauf die einzelnen Phasen im Detail betrachtet werden.
+
+![Prozessablauf](./data/processes_macro.png)
+(vgl. [Prozessablauf](./data/processes_macro.uml))
+
+Der Makroprozess beginnt damit, dass der Projektverantwortliche das Vorhaben initiiert und erste Rahmenbedingungen definiert. In dieser frühen Phase werden grundlegende Ziele, der grobe Scope und der organisatorische Kontext festgelegt. Dies schafft eine solide Ausgangsbasis für die weitere Strukturierung des Projekts. Anschließend wird der Problemrahmen geschärft: Der Projektverantwortliche konkretisiert Erwartungen und Prioritäten, während der LLM-Methodiker diese Vorgaben methodisch aufbereitet. Er entwickelt präzise Zielbilder, definiert zentrale Begriffe und Strukturachsen und legt fest, welche Qualitätskriterien später eingehalten werden müssen. Dadurch entsteht ein klarer, gemeinsam getragener Rahmen für die operative Zusammenarbeit mit dem LLM.
+
+Auf dieser Grundlage beginnt die operative Bearbeitung. Der LLM-Methodiker moderiert nun die eigentliche inhaltliche Arbeit mit dem LLM. Er führt iterative Arbeitsphasen durch, stellt Struktur und Konsistenz sicher, beantwortet Rückfragen und entwickelt gemeinsam mit dem Modell erste Entwürfe, Varianten und Entscheidungsgrundlagen. In dieser Phase entstehen die inhaltlichen Artefakte, die später weiterverarbeitet und verfeinert werden. Sobald eine ausreichende Reife erreicht ist, übernimmt der Dokumentationsverantwortliche die Ergebnisse und führt sie in der Konsolidierungsphase zusammen. Er sammelt alle Entwürfe, bereinigt Widersprüche, harmonisiert Struktur und Begrifflichkeit und formt daraus eine konsistente Gesamtdokumentation. Diese bildet die Grundlage für die langfristige Ablage und Weiterverwendung.
+
+In der darauffolgenden Persistenzphase werden die konsolidierten Inhalte dauerhaft im Repository gespeichert. Der Dokumentationsverantwortliche sorgt dafür, dass alle Artefakte korrekt versioniert, strukturiert abgelegt und mit der Informationsarchitektur in Einklang gebracht werden. So entsteht eine stabile „Single Source of Truth“, auf die das Projekt jederzeit zurückgreifen kann. Anschließend führt der Reviewer einen finalen Qualitätscheck durch. Er prüft die Ergebnisse auf Vollständigkeit, Konsistenz und methodische Qualität und spricht auf dieser Grundlage eine Abnahmeempfehlung aus. Der Projektverantwortliche kann das Ergebnis nun formal freigeben und an Stakeholder übergeben.
+
+Optional kann der Prozess durch eine Pilotierungsphase erweitert werden. Pilotanwender setzen die Methode oder das erzeugte Artefakt erstmals in realen Anwendungsszenarien ein, identifizieren Stärken und Schwächen und geben wertvolles Praxisfeedback. Dieses fließt in einer weiteren optionalen Phase, dem Monitoring, in die langfristige Weiterentwicklung ein. Der Monitoring-Verantwortliche beobachtet die Nutzung über einen längeren Zeitraum hinweg, erkennt neue Anforderungen, trackt mögliche Drift und leitet daraus konkrete Verbesserungsvorschläge ab. Diese fließen bei Bedarf zurück in die operative Bearbeitung oder Konsolidierung, wodurch ein zyklischer Verbesserungsprozess entsteht.
+
+Insgesamt beschreibt der Makroprozess einen klar strukturierten, schrittweisen Ablauf, der sicherstellt, dass komplexe Arbeiten mit einem LLM nachvollziehbar, stabil und langfristig nutzbar durchgeführt werden können. Durch die klare Rollenverteilung und die definierten Phasen entsteht ein Ablauf, der sowohl Orientierung als auch Qualität in der Zusammenarbeit gewährleistet — von der ersten Idee bis zur langfristigen Weiterentwicklung.
 
 ## Phase 1 – Vorbereitung
 
