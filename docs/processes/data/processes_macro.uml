@@ -1,0 +1,76 @@
+@startuml
+title Makroprozess der LLM-Zusammenarbeit – Swimlanes mit Phasenmarkern
+
+skinparam activity {
+  BackgroundColor #eef5ff
+  BorderColor #333388
+  FontColor #000000
+}
+skinparam arrow {
+  Color #333388
+  Thickness 1.2
+}
+skinparam partition {
+  BackgroundColor #f7f7f7
+  BorderColor #555555
+  FontStyle bold
+}
+
+|Projektverantwortlicher|
+start
+
+floating note left
+  Phase 1 – Vorbereitung
+end note
+:Projekt initiieren und Rahmen grob definieren;
+
+floating note left
+  Phase 2 – Problemrahmen definieren
+end note
+:Zielbild und Erwartungen schärfen;
+
+|LLM-Methodiker|
+:Problemrahmen strukturiert ausarbeiten;
+:Begriffe, Strukturachsen und Qualitätskriterien definieren;
+
+floating note left
+  Phase 3 – Operative Bearbeitung
+end note
+:LLM-gestützte Ausarbeitung moderieren;
+:Struktur- und Qualitätschecks durchführen;
+
+|Dokumentationsverantwortlicher|
+floating note left
+  Phase 4 – Konsolidierung
+end note
+:Ergebnisse sammeln, bereinigen und zusammenführen;
+
+floating note left
+  Phase 5 – Persistenz
+end note
+:Konsolidierte Inhalte ins Repository überführen;
+:Versionierung und Ablage prüfen;
+
+|Reviewer|
+floating note left
+  Phase 6 – Abschluss & Übergabe
+end note
+:Final Review durchführen;
+:Abnahmeempfehlung geben;
+
+|Pilotanwender|
+floating note left
+  Phase 7 – Pilotierung (optional)
+end note
+:Prozess/Methode in realen Szenarien testen;
+:Feedback und Verbesserungsvorschläge liefern;
+
+|Monitoring-Verantwortlicher|
+floating note left
+  Phase 8 – Monitoring & kontinuierliche Verbesserung (optional)
+end note
+:Nutzung über längere Zeit beobachten;
+:Verbesserungsbedarfe identifizieren und zurückspielen;
+
+stop
+@enduml
