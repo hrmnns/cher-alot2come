@@ -164,30 +164,43 @@ Diese Templates werden **am Ende eines Chats** genutzt oder können als **erster
 
 ## 4. Format für strukturierte Zwischenstände
 
-Ein Zwischenstand hat immer die gleiche Form:
+Ein Zwischenstand dient dazu, den aktuellen Arbeitsfortschritt präzise festzuhalten und ihn für weitere Chats, Issues oder Persistenzschritte nutzbar zu machen. Damit diese Zwischenstände konsistent bleiben, folgen sie immer derselben Grundstruktur.
 
 ### Pflichtfelder
-- **Titel / Arbeitseinheit**  
-- **Ziel des Zwischenstands** (1–2 Sätze)  
-- **Ergebnisse** (Listen, Tabellen, Modelle)  
-- **Offene Punkte**  
-- **Empfehlung für nächsten Schritt**  
-- **Speicherort / Bezug zu Dokumenten**
+
+Ein vollständiger Zwischenstand enthält:
+
+* **Titel / Arbeitseinheit:** eine kurze, eindeutige Bezeichnung.
+* **Ziel des Zwischenstands:** 1–2 Sätze, die erklären, warum dieser Zwischenstand erstellt wird und welchen Zweck er erfüllt.
+* **Ergebnisse:** die zentralen Inhalte in klarer Form, z. B. als Listen, Tabellen oder Modelle.
+* **Offene Punkte:** alles, was bewusst noch ungeklärt ist oder in einer nächsten Einheit bearbeitet werden soll.
+* **Empfehlung für den nächsten Schritt:** klare Orientierung, wie weitergearbeitet werden sollte.
+* **Speicherort / Dokumentenbezug:** Hinweise darauf, wo die Inhalte später im Repository landen oder welche Dateien betroffen sind.
 
 ### Optionale Felder
-- Risiken  
-- Varianten  
-- Entscheidungsvorlagen  
-- Betroffene Rollen  
+
+Falls relevant, können zusätzlich enthalten sein:
+
+* **Risiken:** mögliche Unklarheiten, Abhängigkeiten oder Problemstellen.
+* **Varianten:** alternative Lösungswege, die bereits diskutiert oder angedeutet wurden.
+* **Entscheidungsvorlagen:** strukturierte Vorbereitung für anstehende Entscheidungen.
+* **Betroffene Rollen:** wer in der nächsten Einheit benötigt wird (Methodiker, Reviewer, Fachexperten usw.).
 
 ### Abgrenzung
-- Kein finaler Abschnitt → Persistenz erfolgt erst in Phase 5  
-- Keine redundanten Inhalte → Fokus auf „strukturierte Verdichtung“  
+
+Ein Zwischenstand ersetzt **keine Persistenz**. Er dokumentiert den aktuellen Stand, ist aber noch nicht die finale Version eines Dokuments.
+
+Zwei Regeln sind entscheidend:
+
+* Ein Zwischenstand enthält **keine finalen oder konsolidierten Inhalte** – diese werden erst in Phase 5 in das Repository überführt.
+* Er vermeidet **Redundanzen** und konzentriert sich auf eine präzise Verdichtung des bisherigen Fortschritts.
+
+
+
 
 ## 5. Speicherorte & Versionierung
 
-Übergaben und Abschlüsse erzeugen Ergebnisse, die **dauerhaft gesichert**, **auffindbar**, **versioniert** und **wiederverwendbar** sein müssen.  
-Damit diese Ergebnisse nicht im Chat „verloren“ gehen, sondern korrekt in das Dokumentationssystem überführt werden, definiert dieser Abschnitt:
+Übergaben und Abschlüsse erzeugen Ergebnisse, die **dauerhaft gesichert**, **auffindbar**, **versioniert** und **wiederverwendbar** sein müssen. Damit diese Ergebnisse nicht im Chat „verloren“ gehen, sondern korrekt in das Dokumentationssystem überführt werden, definiert dieser Abschnitt:
 
 - **wo** bestimmte Typen von Informationen abgelegt werden  
 - **wie** sie versioniert werden  
@@ -211,12 +224,15 @@ Damit alle Ergebnisse aus Übergaben **immer am richtigen Ort landen** und die S
 
 ## 5.2 Regeln für Versionierung & Dokumentation
 
-Jede Übergabe erzeugt ein **dauerhaftes Artefakt**. Damit diese Artefakte zuverlässig nachvollziehbar bleiben, gelten folgende Regeln:
+Übergaben erzeugen Inhalte, die dauerhaft erhalten bleiben müssen. Damit diese Ergebnisse nachvollziehbar, sauber versioniert und konsistent in die Dokumentation eingebettet sind, gelten die folgenden Leitlinien. Sie bilden gemeinsam den Standard für jede Form von Persistenz im Projekt.
 
-### 1. **Jeder Übergabeprozess erzeugt mindestens einen Commit**  
-Nichts bleibt im Chat – jede bestätigte Übergabe führt zu einer Repository-Aktualisierung.
+### Veränderungen müssen commitbar sein
 
-### 2. **Commit-Messages folgen einem klaren Format**
+Jede bestätigte Übergabe führt zu mindestens einem Commit im Repository. Nichts bleibt ausschließlich im Chat – alle relevanten Ergebnisse werden schriftlich festgehalten und versioniert. So entsteht eine verlässliche Chronologie der Entwicklung.
+
+### Commit-Messages folgen einem klaren Format
+
+Damit die Commit-Historie verständlich bleibt, werden Commit-Messages nach einem einheitlichen Muster formuliert:
 
 ```
 Add/update <datei>: <kurze Beschreibung>
@@ -228,103 +244,59 @@ Beispiele:
 - `Update process-macro.md: phase 3 consolidated`
 - `Add persistence rules: new quality section`
 
-Damit bleibt die Commit-Historie eindeutig und maschinen-/menschenlesbar.
+Diese Standardisierung ist wichtig, damit sowohl Menschen als auch das LLM schnell erkennen, worum es im jeweiligen Commit geht.
 
-### 3. **Datei-Header (Metadaten) aktualisieren**
+### Metadaten müssen aktuell sein
 
-Jede Datei enthält zu Beginn einen standardisierten Block mit:
+Jedes Dokument beginnt mit einem Header (Titel, Kategorie, Version, Status, verwandte Dateien). Dieser Block ist Teil der Informationsarchitektur und muss bei jeder Änderung aktualisiert werden – beispielsweise durch Anheben der Version oder Ergänzen der Verweise.  So bleibt jedes Dokument eindeutig einzuordnen und korrekt verlinkt.
 
-- Titel  
-- Kategorie  
-- Version  
-- Status  
-- Zuordnung/Links  
+### Backlinks gehören ans Ende jeder Datei
 
-Dieser Header muss bei jeder Änderung aktualisiert werden (z. B. Version anheben).
+Am Ende jeder Datei steht ein Abschnitt **„Weiterführende Dokumente“**. Dieser dient als Navigations- und Strukturanker und ist wesentlich für die methodische Kohärenz:
 
-Hier sind die beiden Abschnitte **klarer, präziser und ausführlicher formuliert**, ohne die Struktur aufzublähen.
-Wenn du willst, kann ich sie anschließend direkt in deine Markdown-Datei einbauen.
+- Er ermöglicht dem LLM, Zusammenhänge zwischen Dokumenten zuverlässig zu erkennen.  
+- Er verhindert, dass Dateien isoliert stehen oder Informationen doppelt entstehen.  
+- Er erleichtert Menschen die Orientierung, indem verwandte Dokumente sichtbar verbunden bleiben.
 
-### 4. **Backlinks setzen**
+Mindestens **2–4 Backlinks** sollten gesetzt werden, idealerweise innerhalb desselben Themenbereichs (z. B. Prozesse, Struktur, Qualität).
 
-Jede Datei im `docs/`-Verzeichnis muss am Ende einen Abschnitt **„Weiterführende Dokumente“** enthalten.
-Dieser Abschnitt ist nicht optional, sondern ein **zentrales Steuerungsinstrument**, das drei Funktionen erfüllt:
+### Größere Arbeitspakete müssen separat erfasst und versioniert werden
 
-1. **Navigationslogik für das LLM**
-   LLMs können nicht wie Menschen „durch das Repo blättern“.
-   Backlinks erzeugen einen expliziten, textbasierten **Navigationsgraphen**, der es dem Modell ermöglicht:
+Nicht jede Übergabe ist klein. Sobald mehrere Dateien betroffen sind oder ein Arbeitsschritt über Prozessphasen hinweg wirkt, gelten verschärfte Regeln.
 
-   * Zusammenhänge korrekt zu erkennen
-   * Inhalte über mehrere Dateien hinweg konsistent zu nutzen
-   * kontextbezogen weiterzuarbeiten
+Ein Arbeitspaket gilt als „größer“, wenn zum Beispiel:
 
-2. **Vermeidung von Wissensinseln**
-   Durch Backlinks wird sichergestellt, dass kein Dokument „verwaist“ bleibt.
-   Das verhindert:
+- mehrere Dokumente gleichzeitig angepasst werden,
+- konsolidierte Inhalte mehrere Prozessphasen betreffen,
+- neue Dokumente entstehen, die die Gesamtstruktur beeinflussen,
+- die Änderung schwer rückgängig zu machen wäre,
+- ein klarer Meilenstein dokumentiert werden soll.
 
-   * Doppelungen von Inhalten
-   * Redundanzen
-   * Abweichende Begriffsverwendung
+In solchen Fällen erfolgt der Umgang zweistufig:
 
-3. **Orientierung für Menschen und Methode**
-   Backlinks helfen nicht nur dem LLM, sondern auch Menschen.
-   Sie machen transparent:
+#### 1. Ein neues Issue anlegen
 
-   * wo Dokumente thematisch hingehören
-   * welche Dokumente logisch zusammenhängen
-   * wo weitergelesen werden sollte
+Das Issue dokumentiert:
 
-**Regel:**
-Mindestens **2–4 Backlinks** pro Datei müssen gesetzt sein – idealerweise zu Dokumenten im selben Themenbereich (z. B. Prozesse, Struktur, Qualität).
+- Inhalt und Ziel des Arbeitspakets  
+- alle betroffenen Dateien  
+- die erforderlichen Schritte  
+- die logische Zuordnung zu Commits  
 
-### 5. **Bei größeren Arbeitspaketen: neues Issue + Mini-Release**
+So bleibt die Bearbeitung transparent und zuweisbar.
 
-Nicht jede Übergabe ist klein.
-Wenn ein Chat oder eine Konsolidierung **größere Mengen an Inhalten erzeugt**, gelten strengere Regeln, um Nachvollziehbarkeit und Stabilität zu sichern.
+#### 2. Ein Mini-Release erstellen
 
-Ein Arbeitspaket gilt als „größer“, wenn mindestens eines zutrifft:
+Ein Mini-Release (z. B. `v0.3.1`) markiert den Zustand nach Abschluss des Arbeitspakets. Das ist wichtig, weil:
 
-* Mehrere Dateien müssen angepasst werden
-* Konsolidierte Inhalte betreffen **mehr als eine Prozessphase**
-* Neue Dokumente entstehen mit übergreifendem Einfluss
-* Die Änderung wäre schwer rückgängig zu machen
-* Der Chat-Verlauf soll klar dokumentiert als Meilenstein erhalten bleiben
+- größere Änderungen sauber versioniert sein müssen,
+- spätere Arbeitsschritte darauf aufbauen können,
+- der Projektverlauf klar nachvollziehbar bleibt,
+- der Zustand jederzeit reproduzierbar ist.
 
-In solchen Fällen muss:
+**Kurz gesagt:**  
+Größere Übergaben → eigenes Issue + Mini-Release → volle Nachvollziehbarkeit und Stabilität.
 
-#### 1. **Ein neues Issue angelegt werden**
-
-Beispiel:  `Persistenz: Konsolidierte Phase-3-Dokumente finalisieren`
-
-Dieses Issue beschreibt:
-
-* Worum es geht
-* Welche Dateien betroffen sind
-* Welche Schritte notwendig sind
-* Welcher Commit zu welchem Teil gehört
-
-Das erhöht die **Transparenz** und ermöglicht eine **klare Zuweisung** von Verantwortlichkeiten.
-
-#### 2. **Ein Mini-Release erstellt werden**
-
-Beispiel:
-`v0.3.1 – Konsolidierte Prozessphase 3`
-
-Ein Mini-Release ist notwendig, weil:
-
-* größere Schritte sauber versioniert sein müssen
-* andere Personen (oder das LLM) später darauf zurückgreifen können
-* der Zustand jederzeit reproduzierbar bleibt
-* es eine klare Markierung im Projektverlauf gibt
-
-Diese Regel schützt das Projekt vor:
-
-* Änderungen „unter dem Radar“
-* schwer nachvollziehbaren Versionsständen
-* versehentlichen Inkonsistenzen
-
-**Kurz:**
-Größere Übergaben → eigenes Issue + Mini-Release → vollständige Nachvollziehbarkeit.
 
 
 
