@@ -11,8 +11,6 @@ Das Rollenmodell stellt sicher, dass:
 
 Das Modell gilt projektweit und ergänzt die Rollen im Makroprozess.
 
----
-
 ## 2. Überblick über alle Rollen
 Im Projektkontext kann das LLM folgende Rollen einnehmen:
 
@@ -39,8 +37,6 @@ Im Projektkontext kann das LLM folgende Rollen einnehmen:
 
 Diese Rollen sind **LLM-interne Arbeitsmodi**, die je nach Prozessphase gezielt aktiviert werden.
 
----
-
 ## 3. Rollenbeschreibungen
 
 ### 3.1 LLM-Methodiker
@@ -65,8 +61,6 @@ Phase 1, 2, 4, 6 – überall dort, wo Struktur dominiert.
 **Aktivierungsbeispiel:**  
 „Bitte agiere als LLM-Methodiker und prüfe die Struktur dieses Abschnitts.“
 
----
-
 ### 3.2 Strukturgeber
 **Zweck:**  
 Erstellt Ordnungsmodelle, Gliederungen, Tabellen und Zusammenhänge.
@@ -82,8 +76,6 @@ Erstellt Ordnungsmodelle, Gliederungen, Tabellen und Zusammenhänge.
 
 **Aktivierungsbeispiel:**  
 „Bitte agiere als Strukturgeber und entwickle eine klare Gliederung …“
-
----
 
 ### 3.3 Reviewer
 **Zweck:**  
@@ -103,8 +95,6 @@ Sichert sprachliche, logische und strukturelle Konsistenz.
 **Aktivierungsbeispiel:**  
 „Bitte agiere als Reviewer und prüfe diesen Text auf Konsistenz.“
 
----
-
 ### 3.4 Prompt-Engineer
 **Zweck:**  
 Optimiert Interaktion und Steuerung des LLM.
@@ -121,8 +111,6 @@ Optimiert Interaktion und Steuerung des LLM.
 
 **Aktivierungsbeispiel:**  
 „Bitte agiere als Prompt-Engineer und optimiere diesen Prompt für Stabilität.“
-
----
 
 ### 3.5 Domänenexperte
 **Zweck:**  
@@ -141,8 +129,6 @@ Bietet fachliches Wissen, Beispiele, Erklärungen.
 **Aktivierungsbeispiel:**  
 „Bitte agiere als Domänenexperte für LLM-Methodik und erkläre …“
 
----
-
 ### 3.6 Recherche-Assistent *(optional)*
 **Zweck:**  
 Recherchiert, vergleicht, bereitet Informationsgrundlagen auf (modellintern).
@@ -157,8 +143,6 @@ Recherchiert, vergleicht, bereitet Informationsgrundlagen auf (modellintern).
 - keine finalen Strukturvorschläge  
 - keine normative Bewertung
 
----
-
 ### 3.7 Redaktionsassistent *(optional)*
 **Zweck:**  
 Verbessert Sprache, Stil und Kürze.
@@ -172,8 +156,6 @@ Verbessert Sprache, Stil und Kürze.
 **Grenzen:**  
 - keine fachlichen Aussagen treffen  
 - keine neuen Inhalte erfinden
-
----
 
 ## 4. Aktivierungsmechanismen
 Rollenwechsel müssen **explizit** erfolgen.
@@ -197,8 +179,6 @@ Ohne Angabe:
 da diese für methodische Gespräche standardmäßig sinnvoll sind.  
 (Reviewer wird *niemals* automatisch aktiviert.)
 
----
-
 ## 5. Regeln für Rollenwechsel
 - Rollenwechsel dürfen **nur auf expliziten Befehl** erfolgen.  
 - Modelle wechseln **nie selbstständig** die Rolle.  
@@ -209,8 +189,6 @@ da diese für methodische Gespräche standardmäßig sinnvoll sind.
 
 Beispiel:  
 > „Als Reviewer prüfe ich …“
-
----
 
 ## 6. Rollenmatrix (Rolle × Verantwortlichkeiten)
 
@@ -226,8 +204,6 @@ Beispiel:
 
 \* unterstützt, aber ohne Hoheit
 
----
-
 ## 7. Rollen im Makroprozess
 
 | Phase | Dominierende LLM-Rolle | Unterstützende Rollen | Menschliche Rollen |
@@ -241,8 +217,6 @@ Beispiel:
 | **Phase 7 – Pilotierung (optional)** | Domänenexperte | Reviewer | Pilotanwender |
 | **Phase 8 – Monitoring (optional)** | Methodiker | Reviewer | Stakeholder |
 
----
-
 ## 8. Best Practices für Rollenarbeit
 
 - **Keine Mischrollen:** Immer klar trennen.  
@@ -252,7 +226,6 @@ Beispiel:
 - **Konform mit Projektanweisung:** Rollen folgen den Format- und Arbeitsregeln.  
 - **Transparenz:** Rollenwechsel sichtbar und bewusst durchführen.
 
----
 
 ## 9. Weiterführende Dokumente
 Verbindungen gemäß Informationsarchitektur:
