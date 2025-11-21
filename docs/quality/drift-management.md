@@ -244,7 +244,23 @@ Es sorgt dafür, dass die Methode stabil bleibt – unabhängig davon, wie lange
 - Rollenwechsel werden kontrolliert,  
 - Strukturabweichungen werden früh erkannt.
 
-## 10. Weiterführende Dokumente
+## 10. Visualisierungen
+
+Die folgenden Diagramme stellen die zentralen Mechanismen des Drift-Managements visuell dar. Sie können direkt in PlantUML gerendert oder in GitHub mit einem geeigneten Plugin angezeigt werden.
+
+### 10.1 Übersicht der Drift-Arten und ihrer Beziehungen
+
+Dieses Diagramm zeigt, wie die verschiedenen Drift-Typen (Begriffs-, Struktur-, Rollen-, Kontextdrift) mit den drei zentralen Maßnahmenbereichen Erkennen, Vermeiden und Korrigieren zusammenhängen. Zudem wird dargestellt, an welchen Stellen Makroprozess, Mikroprozess und die stabilisierenden Repository-Dokumente die Drift-Kontrolle unterstützen.
+
+![Drift Management](./data/drift-management.png)
+
+## 10.2 Drift-Workflow (Schritt-für-Schritt)
+
+Dieses Diagramm visualisiert den kompletten Ablauf bei der Behandlung von Drift: Vom ersten Hinweis über Diagnose und Klassifikation bis hin zu Korrektur, Validierung und Persistenz. Es dient insbesondere als operativer Leitfaden für Nutzer, Reviewer und Methodiker.
+
+![Drift Workflow](./data/drift-workflow.png)
+
+## 11. Weiterführende Dokumente
 - persistence-mechanisms.md  
 - process-macro.md  
 - roles-llm.md  
