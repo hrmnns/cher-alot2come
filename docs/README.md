@@ -25,6 +25,7 @@ Bausteine, Begriffe, Rollen und grundlegende Strukturprinzipien der Methodik.
 - [methodology-building-blocks.md](structure/methodology-building-blocks.md)
 - [roles-llm.md](structure/roles-llm.md)
 - [document-types-and-storage.md](structure/document-types-and-storage.md)
+- **Erweiterte Fassung:** [document-types-and-storage-extended.md](structure/document-types-and-storage-extended.md)
 
 ## Qualitätssicherung  
 Mechanismen zur Sicherstellung von Konsistenz, Persistenz und Driftkontrolle.
@@ -66,4 +67,4 @@ Bitte bei jeder Änderung folgende Schritte beachten:
 
 ---
 
-*Version: v0.2 – aktualisiert nach Ergänzung des Rollenmodells (`roles-llm.md`)*
+*Version: v0.3 – aktualisiert nach Ergänzung der erweiterten Dokumenttypen-Datei*
