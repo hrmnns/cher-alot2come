@@ -1,208 +1,252 @@
-# Drift Management
+# Drift Management (Überarbeitete und erweiterte Fassung)
 
 ## 1. Zweck und Einordnung
 
-Ziel dieses Dokuments ist es, ein operationales Regelwerk zur Erkennung, Vermeidung und Korrektur von **semantischer Drift** in LLM-gestützten Projekten bereitzustellen.  
-Drift bezeichnet jede Form der unbeabsichtigten Abweichung von zuvor definierten Begriffen, Strukturen, Rollen oder Kontexten.
+Dieses Dokument beschreibt ein praktisches, alltagstaugliches Drift-Management für LLM-gestützte Projekte. „Drift“ bezeichnet jede ungewollte Veränderung von Begriffen, Strukturen, Rollen oder Kontexten, die dazu führt, dass das LLM schrittweise von der ursprünglichen Problemdefinition abweicht. Je länger ein Projekt läuft und je mehr Chats stattfinden, desto größer ist das Risiko, dass Inhalte verwässern oder sich in feinen, aber entscheidenden Details verändern.
 
-Das Drift-Management ergänzt:
-- die Persistenzmechanismen (dauerhafte Wissensspeicherung),
-- die Qualitätssicherung,
-- den Makro- und Mikroprozess der LLM-Zusammenarbeit.
+Drift-Management verfolgt daher drei Kernziele:
 
-Es stellt sicher, dass die Ergebnisse über längere Chat-Sequenzen hinweg **stabil**, **konsistent** und **reproduzierbar** bleiben.
+1. **Früh erkennen**, wenn sich Abweichungen anbahnen.  
+2. **Aktiv verhindern**, dass Abweichungen unkontrolliert wachsen.  
+3. **Gezielt korrigieren**, um den Projektzustand stabil zu halten.
+
+Es ergänzt die Persistenzmechanismen, sorgt für methodische Stabilität und ist integraler Bestandteil des Makroprozesses.
 
 ## 2. Arten von Drift
 
-### **2.1 Begriffsdrift**
-Eine zuvor klar definierte Terminologie wird schrittweise verändert, verwässert oder inkonsistent verwendet.  
-**Beispiel:** „Projektanweisung“ wird später als „Steuerprompt“ bezeichnet, obwohl die Begriffe unterschiedliche Bedeutung haben.
+### 2.1 Begriffsdrift
+Begriffe verlieren ihre definierte Bedeutung oder werden plötzlich in anderer Bedeutung verwendet.
 
-### **2.2 Strukturdrift**
-Elemente verändern ihre Position, Reihenfolge oder logische Beziehung zueinander.  
-**Beispiel:** Im Makroprozess entspricht Phase 4 nicht mehr der Konsolidierungsphase, sondern wird zur Persistenzphase umgedeutet.
+**Beispiel:**  
+„Methodologie-Baustein“ wird im Verlauf zu „Modul“, „Element“ oder „Arbeitskomponente“, obwohl im Glossar klar definiert ist, was ein Baustein ist und wie er sich abgrenzt.
 
-### **2.3 Rollendrift**
-Die Rollen des LLM oder von Personen im Projekt verlieren ihre Klarheit oder werden unbewusst überschrieben.  
-**Beispiel:** „Reviewer“ liefert plötzlich operative Inhalte statt Qualitätsprüfung.
+### 2.2 Strukturdrift
+Die Gliederung eines Dokuments oder eines Prozesses verändert sich unmerklich über Zeit.
 
-### **2.4 Kontextdrift**
-Der inhaltliche Rahmen des Projekts verschiebt sich, weil Inhalte aus alten Chats unbeabsichtigt einfließen oder Auslassungen entstehen.
+**Beispiel:**  
+Der Makroprozess umfasst sechs Kernphasen. Im Verlauf beginnt das LLM, Phase 3 in zwei Teilphasen zu zerlegen – ohne Beschluss.
 
-### **2.5 Ergänzende Formen**
-- **Intent-Drift:** Die Zielsetzung der Aufgabe wird ungewollt verändert.  
-- **Wissensdrift:** Inhalte aus dem Repository werden nicht mehr korrekt angewendet.
+### 2.3 Rollendrift
+Rollen verlieren eindeutige Verantwortlichkeiten. Das LLM übernimmt Aufgaben anderer Rollen oder wechselt „inoffiziell“.
+
+**Beispiel:**  
+Der „Reviewer“ beginnt plötzlich, operative Inhalte zu erzeugen, obwohl seine Rolle auf die Qualitätsprüfung beschränkt ist.
+
+### 2.4 Kontextdrift
+Der thematische Rahmen verschiebt sich – oft unbewusst.
+
+**Beispiel:**  
+Das Projekt behandelt die Entwicklung einer LLM-Methodologie. Nach mehreren Chats antwortet das LLM plötzlich aus einer allgemeinen KI-Perspektive und vergisst, dass es sich um eine projektspezifische Methodik handelt.
+
+### 2.5 Ergänzende Formen
+- **Intent-Drift:** Die Zielsetzung verändert sich („Wir wollten eigentlich X, aber jetzt reden wir über Y“).
+- **Wissensdrift:** Repository-Informationen werden zunehmend unpräzise wiedergegeben.
+- **Dokumenten-Drift:** Inhalte verschiedener Dokumente werden vermischt oder überlagert.
 
 ## 3. Ursachen von Drift
 
-### **3.1 Modellinterne Faktoren**
-- Wahrscheinlichkeitsbasierte Generierung
-- Tendenz zur Generalisierung
-- Überschreiben von Kontext bei langen Interaktionen
+### 3.1 Modellinterne Ursachen
+LLMs erzeugen Antworten probabilistisch. Dadurch entstehen leichte Variationen, die sich kumulieren können. Dies tritt besonders häufig auf, wenn:
 
-### **3.2 Externe Faktoren**
-- Unpräzise oder sich wandelnde Benutzerprompts
-- Wechsel zwischen Themen ohne explizite Kontextrekonstruktion
+- der Chat lang ist,
+- verschiedene Aufgaben vermischt werden,
+- oder das Modell Rückschlüsse aus früheren Teilen des Gesprächs falsch gewichtet.
 
-### **3.3 Prozess- und Dokumentationsfaktoren**
-- Fehlende Persistenz
-- Unklare Dokumentation
-- Rollenwechsel ohne explizite Aktivierung
+### 3.2 Prozessbezogene Ursachen
+Drift entsteht besonders dann, wenn:
 
-### **3.4 Interaktionsbezogene Faktoren**
-- Fehlende Konsistenzprüfungen während der Arbeit
-- Zu wenig Bezug auf stabilisierte Repository-Inhalte
+- keine regelmäßigen Konsistenzprüfungen stattfinden,
+- lange ohne Bezug zum Repository gearbeitet wird,
+- Kontext nicht explizit erneuert wird.
+
+### 3.3 Interaktionsbedingte Ursachen
+Drift wird häufig durch den Nutzer ausgelöst, etwa durch:
+
+- implizite Themenwechsel,
+- vage Promptformulierung,
+- Nutzung von Synonymen für zentrale Begriffe.
+
+### 3.4 Dokumentationslücken
+Wenn nicht sauber persistiert wird, divergieren Chat-Inhalte und Repository-Versionen. Diese Lücke ist ein häufiger Auslöser für Drift im weiteren Verlauf.
 
 ## 4. Maßnahmenkatalog zur Drifterkennung
 
-### **4.1 Frühindikatoren**
-- Begriffe tauchen in neuer Bedeutung auf.
-- Rollenbeschreibung wird nicht mehr eingehalten.
-- Antworten widersprechen früheren Strukturen.
-- Inhalte verlieren Präzision oder Detailtiefe.
+### 4.1 Frühindikatoren
+Typische Frühzeichen, die ernst genommen werden sollten:
 
-### **4.2 Diagnose-Methoden**
-- Vergleich der aktuellen Antwort mit Repository-Dokumenten
-- Gegenprüfung zentraler Definitionen
-- Cross-Check mit Glossar, Rollenbeschreibung, Makroprozess
+- Das LLM schlägt andere Begriffe vor, obwohl bereits definierte existieren.
+- Rollen werden ohne Aktivierung gewechselt.
+- Die Struktur weicht leicht ab (z. B. andere Überschriften).
+- Antworten wirken weniger präzise oder stärker verallgemeinert.
 
-### **4.3 Checklisten für schnelle Identifikation**
-- Wird Terminologie konsistent verwendet?
-- Stimmen Strukturen mit `process-macro.md` überein?
-- Entspricht die Rollenaktivierung der Projektanweisung?
-- Gibt es Brüche im Zielbild?
+### 4.2 Diagnosetechniken
 
-### **4.4 Automatisierbare Prüfungen**
-- „Drift-Check am Chat-Start“
-- „Quick Alignment Check“ bei Themenwechseln
-- „Repository-Referenzierung“ bei allen kritischen Abschnitten
+**Glossar-Check:**  
+Kurz prüfen, ob zentrale Begriffe noch exakt so verwendet werden wie definiert.
+
+**Strukturabgleich:**  
+Die aktuelle Antwort wird mit den korrespondierenden Repository-Dokumenten verglichen.
+
+**Mini-Regressionstest:**  
+Das LLM wird gebeten, die wichtigsten Regeln oder Begriffe kurz wiederzugeben.
+
+### 4.3 Checkliste zur Drifterkennung
+1. Stimmen die Begriffe mit dem Glossar überein?  
+2. Entspricht die Struktur dem Makroprozess?  
+3. Werden Rollen korrekt aktiviert und angewendet?  
+4. Weicht die Antwort stilistisch oder inhaltlich von früheren Mustern ab?
+
+### 4.4 Automatisierbare Methoden
+- Kurzabfrage: „Welche zentralen Begriffe gelten hier?“  
+- Kontextrekonstruktion: „Was ist der Zustand der Arbeitseinheit?“  
+- Strukturvalidierung: „Bitte fasse die definierte Phasenstruktur zusammen.“
 
 ## 5. Regeln zur Driftvermeidung
 
-### **5.1 Strukturregeln**
-- Alle methodischen Inhalte müssen sich auf Makro- und Mikroprozess beziehen.
-- Strukturänderungen nur nach expliziter Freigabe im Chat.
+### 5.1 Strukturregeln
+- Prozessstrukturen dürfen nur nach expliziter Freigabe geändert werden.
+- Dokumente müssen mit identischen Abschnittslogiken geführt werden.
 
-### **5.2 Begriffs- und Terminologieregeln**
-- Glossar als verbindliche Quelle
-- Neue Begriffe müssen explizit eingeführt werden
-- Keine Synonyme für zentrale Begriffe (z. B. „Projektanweisung“)
+### 5.2 Terminologieregeln
+- Keine Synonyme für zentrale Begriffe.  
+- Neue Begriffe nur nach expliziter Definition.
 
-### **5.3 Prompting-Regeln**
-- Jede neue Arbeitseinheit beginnt mit einem Kontextabriss.
-- LLM-Rollen müssen explizit aktiviert werden.
-- Austausch von Themen nur nach „Kontext-Reset“.
+### 5.3 Prompting-Regeln
+- Jede Arbeitseinheit beginnt mit einem eindeutigen Kontextabriss.  
+- Rollen müssen explizit aktiviert werden.  
+- Themenwechsel müssen angekündigt werden.
 
-### **5.4 Rollen- und Aufgabenklarheit**
-- Jede LLM-Rolle arbeitet nur innerhalb ihres Mandats.
-- Rollenwechsel sind zu markieren.
-
-### **5.5 Dokumentationsregeln**
-- Wichtige Ergebnisse müssen sofort ins Repository überführt werden.
-- Entscheidungen sind nachvollziehbar zu dokumentieren.
-- Persistenzmechanismen (siehe eigenes Dokument) gelten immer.
+### 5.4 Dokumentationsregeln
+- Ergebnisse zeitnah persistieren.  
+- Änderungen müssen nachvollziehbar formuliert werden.  
+- Redundante Inhalte vermeiden oder zentralisieren.
 
 ## 6. Routinen zur Konsistenzprüfung
 
-### **6.1 Drift-Check beim Chat-Start**
-Ein strukturierter Schnellcheck:
-1. Ziel der aktuellen Arbeitseinheit wiederholen  
-2. Projektanweisung referenzieren  
-3. Relevante Dokumente laden  
-4. Begriffe, Rollen, Strukturen bestätigen  
-5. Abgleich mit letzter persistierter Version
+### 6.1 Drift-Check beim Chat-Start
 
-### **6.2 Drift-Check während der Arbeit**
-- Nach 5–8 Interaktionen kurzer Abgleich:
-  - Terminologie konsistent?
-  - Struktur unverändert?
-  - Rollen eingehalten?
+Ein effektiver Start-Check umfasst:
 
-### **6.3 Drift-Check vor Persistenz (Makroprozess Phase 5)**
-- Vollständigkeitsprüfung
-- Konsistenz zu allen verwandten Dokumenten
-- Explizite Rollenprüfung (Reviewer > Methodiker > Dokumentation)
+1. Ziel der Arbeitseinheit wiederholen  
+2. Relevante Dokumente referenzieren  
+3. Begriffe bestätigen  
+4. Rollen aktivieren  
+5. Offene Punkte prüfen  
 
-### **6.4 Integration in den Mikroprozess**
-- Drift-Check ist Bestandteil der Schleifenstruktur
-- Kontrollpunkt vor „Deep Dive“
-- Kontrollpunkt nach Variantenbildung
+**Beispiel:**  
+„Wir starten mit der nächsten Iteration. Bitte bestätige die gültigen Begriffe für Drift und erläutere kurz den aktuellen Stand.“
+
+### 6.2 Drift-Check während der Arbeit
+
+Nach etwa 5–8 Nachrichten:
+
+- Sind die Rollen noch korrekt?  
+- Wurde der Zielrahmen eingehalten?  
+- Stimmt die Struktur der Antwort?  
+
+**Beispiel:**  
+„Bitte bestätige, ob wir weiterhin entlang der definierten Drift-Arten arbeiten.“
+
+### 6.3 Drift-Check vor Persistenz
+
+Ein verpflichtender Schritt vor jeder Ablage:
+
+- Terminologie gegen Glossar abgleichen  
+- Struktur gegen Makroprozess prüfen  
+- Offene Fragen markieren  
+
+### 6.4 Integration in den Mikroprozess
+
+Der Mikroprozess enthält zwei feste Driftpunkte:
+
+- **Drift-Check vor der Iteration** – Stabilisierung vor dem Arbeiten  
+- **Drift-Check nach dem Entwurf** – Prüfung vor Persistenz
 
 ## 7. Korrekturmechanismen bei Drift
 
-### **7.1 Sofortmaßnahmen**
-- Drift benennen  
-- Den betroffenen Abschnitt neu formulieren  
-- Auf Repository-Inhalte referenzieren
+### 7.1 Sofortmaßnahmen
 
-### **7.2 Wiederherstellung des Projektkontextes**
-- Re-Load der Projektanweisung
-- Re-Load aller relevanten Dokumente
-- Präzisierung der Zielsetzung
+- Drift explizit benennen  
+- Klarstellung der betroffenen Stelle  
+- Neuer Bezug zu Repository-Inhalten  
 
-### **7.3 Rekalibrierung mit Repository-Inhalten**
-- Korrekte Terminologie aus zentralen Dokumenten übernehmen
-- Strukturen aus Makroprozess erneut verankern
-- Rollen explizit reaktivieren
+### 7.2 Wiederherstellung des Projektkontextes
 
-### **7.4 Reparatur-Workflow bei schwerwiegender Drift**
-1. Drift benennen  
-2. Ursache bestimmen  
-3. Betroffene Stellen identifizieren  
-4. Strukturelle Korrektur  
-5. Persistenz aktualisieren  
-6. Dokumentieren, was und warum korrigiert wurde  
+- Projektanweisung neu laden  
+- Glossar erneut referenzieren  
+- Zielsetzung korrigieren  
 
-### **7.5 Dokumentation der Korrekturen**
-- Änderung im Dokument selbst
-- Commit-Message mit Hinweis auf Drift-Korrektur
-- Verweis auf betroffene Issues
+**Beispiel:**  
+„Wir haben eine leichte Strukturdrift. Bitte stelle die Phasennummerierung gemäß Makroprozess wieder her.“
+
+### 7.3 Rekalibrierung
+
+- Abgleich mit der zuletzt persistierten Version  
+- Neuformulierung fehlerhafter Passagen  
+- Klarere Strukturierung zur Stabilisierung
+
+### 7.4 Reparatur-Workflow
+
+1. Drift identifizieren  
+2. Ursache benennen  
+3. Alle betroffenen Stellen markieren  
+4. Konsistente Neuformulierung  
+5. Reviewer-Prüfung  
+6. Persistenz und Commit  
 
 ## 8. Beispiel-Workflows
 
-### **8.1 Drift-Check im operativen Chat-Ablauf**
-1. User startet neuen Arbeitsblock → LLM bestätigt Problemrahmen  
-2. LLM cross-checkt Terminologie aus Glossar  
-3. Bei Abweichungen: Sofortkorrektur  
-4. Ergebnis wird konsolidiert  
+### 8.1 Drift-Check im operativen Ablauf
 
-### **8.2 Drift-Korrektur im Mikroprozess**
-- Bei Rollenabweichung  
-- Bei Strukturveränderungen  
-- Bei unklarer Zielrichtung  
-→ Korrekturmechanismus aus Kapitel 7 anwenden
+**Ablaufbeispiel:**
 
-### **8.3 Drift-Prüfung im Makroprozess**
-- Phase 1: Begriffe & Rollen prüfen  
-- Phase 2: Strukturachsen gegen Drift sichern  
-- Phase 3: iterativer Driftcheck  
-- Phase 4: Widersprüche bereinigen  
-- Phase 5: Persistenz gegen Drift stabilisieren  
+1. User startet neue Aufgabe  
+2. LLM bestätigt Glossar + Struktur  
+3. Kleine Abweichung wird bemerkt  
+4. LLM korrigiert Terminologie  
+5. Arbeit beginnt erst danach  
 
-### **8.4 Eskalationspfad bei persistenter Drift**
-1. Drift nicht behebbar  
-2. Kontext neu initialisieren  
-3. Letztpersistierte Version verwenden  
-4. Neu aufsetzen der Arbeitseinheit  
+### 8.2 Drift-Korrektur im Mikroprozess
+
+**Beispiel:**
+
+Ein Dokument wird überarbeitet und das LLM schlägt plötzlich neue Rollen vor.  
+Vorgehen:
+
+- Rollendrift benennen  
+- bestehende Rollen nachladen  
+- Antwort neu erzeugen  
+- Reviewer prüfen lassen  
+- Persistieren  
+
+### 8.3 Drift-Prüfung im Makroprozess
+
+Phasenspezifische Driftpunkte:
+
+- **Phase 1:** Begriffe stabilisieren  
+- **Phase 2:** Strukturachsen fixieren  
+- **Phase 3:** Iterative Driftkontrolle  
+- **Phase 4:** Widerspruchsbereinigung  
+- **Phase 5:** Drift-Schutz durch Persistenz  
 
 ## 9. Integration in Makro- und Mikroprozess
 
-### **Makroprozess**
-- Phase 1: Baseline-Definition, zentrale Begriffe stabilisieren  
-- Phase 2: Driftanfällige Begriffe identifizieren  
-- Phase 3: operative Driftkontrolle  
-- Phase 4: Widerspruchsprüfung  
-- Phase 5: Persistenz als Drift-Schutz  
-- Phase 8: Monitoring (Langzeitdrift)
+Drift-Management ist ein Querschnittsprinzip.  
+Es sorgt dafür, dass die Methode stabil bleibt – unabhängig davon, wie lange ein Projekt dauert.
 
-### **Mikroprozess**
-- Drift-Checks an zwei Stellen: Start & Pre-Persistenz  
-- Rollenprüfung bei jedem Rollenwechsel  
-- Strukturprüfung vor jedem Deep Dive  
+### Im Makroprozess
+- schützt Phase 1 vor unklaren Definitionen,  
+- stabilisiert Phase 3 gegen operative Drift,  
+- sichert Phase 5 als endgültigen Drift-Schutz.
+
+### Im Mikroprozess
+- Driftchecks fixieren den Rahmen jeder Iteration,  
+- Rollenwechsel werden kontrolliert,  
+- Strukturabweichungen werden früh erkannt.
 
 ## 10. Weiterführende Dokumente
-- `persistence-mechanisms.md`  
-- `process-macro.md`  
-- `roles-llm.md`  
-- `methodology-building-blocks.md`
+- persistence-mechanisms.md  
+- process-macro.md  
+- roles-llm.md  
+- methodology-building-blocks.md  
 
