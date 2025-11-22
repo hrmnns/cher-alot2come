@@ -1,5 +1,5 @@
 # Document Types and Storage  
-Dieses Dokument definiert alle im Projekt *cher-llm-methodology* verwendeten Dokumenttypen, ihren Zweck, Speicherort, Formatvorgaben sowie Regeln für Versionierung und Aktualisierung. Es dient als verbindlicher Referenzrahmen der Dokumentationsarchitektur.
+Dieses Dokument definiert alle im Projekt *cher-alot2come* verwendeten Dokumenttypen, ihren Zweck, Speicherort, Formatvorgaben sowie Regeln für Versionierung und Aktualisierung. Es dient als verbindlicher Referenzrahmen der Dokumentationsarchitektur.
 
 # 1. Zweck des Dokuments
 Eine klare Struktur der Dokumenttypen ist notwendig, um:

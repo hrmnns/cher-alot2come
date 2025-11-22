@@ -1,7 +1,7 @@
 # Rollenmodell des LLM
 
 ## 1. Zweck des Rollenmodells
-Dieses Dokument definiert alle Rollen, die das LLM innerhalb der Methodik *cher-llm-methodology* übernehmen kann.  
+Dieses Dokument definiert alle Rollen, die das LLM innerhalb der Methodik *cher-alot2come* übernehmen kann.  
 Das Rollenmodell stellt sicher, dass:
 
 - die Zusammenarbeit klar strukturiert erfolgt,

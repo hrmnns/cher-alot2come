@@ -28,7 +28,7 @@ Gerade bei größeren Vorhaben – z. B. der Entwicklung einer Software – ist 
 
 ## 3. Ziel des Vorhabens
 
-Ziel des Projekts **„cher-llm-methodology“** ist es, eine **klare, wiederverwendbare Methodik** zu entwickeln, mit der:
+Ziel des Projekts **„cher-alot2come“** ist es, eine **klare, wiederverwendbare Methodik** zu entwickeln, mit der:
 
 - komplexe Themen über viele Chat-Sitzungen hinweg konsistent bearbeitet werden können,
 - gewonnene Erkenntnisse und Ergebnisse **nicht verwässern**, sondern gezielt gesichert werden,

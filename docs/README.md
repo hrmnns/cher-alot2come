@@ -1,4 +1,4 @@
-# Dokumentationsübersicht – cher-llm-methodology
+# Dokumentationsübersicht – cher-alot2come
 
 Dieses Verzeichnis enthält die interne Projektdokumentation der Methodik.  
 Die Struktur folgt der definierten Informationsarchitektur aus  

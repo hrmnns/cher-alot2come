@@ -2,7 +2,7 @@
 
 ## v0.1.0 – Initial Foundation Release
 
-Dieses Release markiert den offiziellen Abschluss der Vorbereitungsphase des Projekts *cher-llm-methodology*.  Es definiert den ersten stabilen Ausgangspunkt für die methodische Weiterentwicklung (Phase 1).
+Dieses Release markiert den offiziellen Abschluss der Vorbereitungsphase des Projekts *cher-alot2come*.  Es definiert den ersten stabilen Ausgangspunkt für die methodische Weiterentwicklung (Phase 1).
 
 ### Ziele dieses Releases
 - Bereitstellung eines soliden methodischen Fundaments  

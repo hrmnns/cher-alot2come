@@ -5,7 +5,7 @@ v0.1 – Erstfassung der Informationsarchitektur
 
 ## 1. Zweck dieses Dokuments
 
-Dieses Dokument beschreibt die Informationsarchitektur für das `docs/`-Verzeichnis des Projekts *cher-llm-methodology*. Es legt fest, wie die Dokumentation strukturiert, gruppiert, versioniert und navigierbar gehalten wird, um auch bei wachsender Anzahl von Markdown-Dateien dauerhaft Übersicht und Konsistenz sicherzustellen.
+Dieses Dokument beschreibt die Informationsarchitektur für das `docs/`-Verzeichnis des Projekts *cher-alot2come*. Es legt fest, wie die Dokumentation strukturiert, gruppiert, versioniert und navigierbar gehalten wird, um auch bei wachsender Anzahl von Markdown-Dateien dauerhaft Übersicht und Konsistenz sicherzustellen.
 
 
 ## 2. Anforderungen an die Informationsarchitektur

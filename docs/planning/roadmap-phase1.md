@@ -6,7 +6,7 @@ v0.1 – Strukturierte Bearbeitungsreihenfolge für Phase 1 (Ideensammlung)
 
 ## 1. Zweck dieses Dokuments
 
-Dieses Dokument beschreibt die empfohlene Reihenfolge der Bearbeitung aller Kern-Issues der Phase 1 des Projekts *cher-llm-methodology*.  
+Dieses Dokument beschreibt die empfohlene Reihenfolge der Bearbeitung aller Kern-Issues der Phase 1 des Projekts *cher-alot2come*.  
 Die Reihenfolge ist so gewählt, dass Abhängigkeiten berücksichtigt und methodische Grundlagen zuerst geschaffen werden.
 
 ## 2. Gesamtübersicht der Bearbeitungsreihenfolge
@@ -21,7 +21,7 @@ Die Roadmap folgt zwei Prinzipien:
 ### **Schritt 1 – Makroprozess definieren (Issue #11)** 
 Ziel: Gesamtphasen der LLM-Zusammenarbeit definieren.  
 Begründung: Der Makroprozess gibt den strukturellen Rahmen vor, an dem sich alle weiteren Elemente orientieren.
-Link: https://github.com/hrmnns/cher-llm-methodology/blob/main/docs/processes/process-macro.md (Version 1.0)
+Link: https://github.com/hrmnns/cher-alot2come/blob/main/docs/processes/process-macro.md (Version 1.0)
 
 ### **Schritt 2 – Mikroprozess definieren (Issue #12)**  
 Ziel: Struktur für jeden einzelnen Chat entwickeln.  

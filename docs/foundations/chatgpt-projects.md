@@ -104,7 +104,7 @@ Don’t:
 – lange Dokumente in die Projektanweisung integrieren
 – Kontext aus alten Chats annehmen
 ```
-Die in diesem Dokument beschriebene Methodik wird im Rahmen des Projekts „cher-llm-methodology“ selbst angewendet.  Dazu wurde ein dediziertes ChatGPT-Projekt mit einer kompakten Projektanweisung eingerichtet, das als stabiler konzeptioneller Rahmen für alle weiteren Chats dient.
+Die in diesem Dokument beschriebene Methodik wird im Rahmen des Projekts „cher-alot2come“ selbst angewendet.  Dazu wurde ein dediziertes ChatGPT-Projekt mit einer kompakten Projektanweisung eingerichtet, das als stabiler konzeptioneller Rahmen für alle weiteren Chats dient.
 
 ## 8. Best Practices aus diesem Projekt
 

@@ -155,13 +155,13 @@ Dieser Abschnitt definiert die formalen Bedingungen, die erfüllt sein müssen, 
 
 ### Beispiel
 
-**Beispielhafte Durchführung von Phase 1 im Projekt `cher-llm-methodology`**
+**Beispielhafte Durchführung von Phase 1 im Projekt `cher-alot2come`**
 
 1. **Fachliche Ausgangslage**  
    Christoph möchte eine belastbare Methode entwickeln, wie komplexe Projekte strukturiert zusammen mit einem LLM durchgeführt werden können. Daraus entsteht die erste Formulierung für die Projektbeschreibung.
 
 2. **Grundlegender Kontext**  
-   Die Arbeit findet im GitHub-Repository `cher-llm-methodology` statt.  
+   Die Arbeit findet im GitHub-Repository `cher-alot2come` statt.  
    Zielgruppe sind Personen, die selbst mit LLMs an komplexen Vorhaben arbeiten, z. B. in IT-Management, Architektur, Compliance oder Softwareprojekten.
 
 3. **Dokumentationsumgebung**  
@@ -256,7 +256,7 @@ Dieser Abschnitt definiert, welche Bedingungen erfüllt sein müssen, bevor Phas
 | Freigabe dokumentiert | Start der operativen Bearbeitung ist beschlossen. |
 
 ### Beispiel
-Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“, das zeigt, wie Phase 2 aussieht.
+Ein konkretes Beispiel aus dem Projekt „cher-alot2come“, das zeigt, wie Phase 2 aussieht.
 
 **Beispielhafte Durchführung von Phase 2 im Projektkontext**
 
@@ -360,7 +360,7 @@ Dieser Abschnitt definiert die Kriterien, die erfüllt sein müssen, bevor konso
 
 ### Beispiel
 
-Ein konkretes Beispiel aus der Arbeit an der „cher-llm-methodology“.
+Ein konkretes Beispiel aus der Arbeit an der „cher-alot2come“.
 
 **Beispielhafte Durchführung von Phase 3 im Projektkontext**
 
@@ -459,7 +459,7 @@ Dieser Abschnitt beschreibt, wann die Konsolidierung abgeschlossen ist und die n
 
 ### Beispiel
 
-Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+Ein konkretes Beispiel aus dem Projekt „cher-alot2come“.
 
 **Beispielhafte Durchführung von Phase 4 im Projektkontext**
 
@@ -565,7 +565,7 @@ Dieser Abschnitt definiert, wann Phase 5 abgeschlossen ist.
 
 ### Beispiel
 
-Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+Ein konkretes Beispiel aus dem Projekt „cher-alot2come“.
 
 **Beispielhafte Durchführung von Phase 5 im Projektkontext**
 
@@ -669,7 +669,7 @@ Dieser Abschnitt definiert, wann Phase 6 abgeschlossen ist.
 
 ### Beispiel
 
-Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+Ein konkretes Beispiel aus dem Projekt „cher-alot2come“.
 
 **Beispielhafte Durchführung von Phase 6 im Projektkontext**
 
@@ -774,7 +774,7 @@ Dieser Abschnitt definiert, wann die Pilotphase abgeschlossen ist.
 
 ### Beispiel
 
-Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+Ein konkretes Beispiel aus dem Projekt „cher-alot2come“.
 
 **Beispielhafte Durchführung von Phase 7 im Projektkontext**
 
@@ -884,7 +884,7 @@ Dieser Abschnitt definiert, wann ein Monitoring-Zyklus abgeschlossen ist.
 
 ### Beispiel
 
-Ein konkretes Beispiel aus dem Projekt „cher-llm-methodology“.
+Ein konkretes Beispiel aus dem Projekt „cher-alot2come“.
 
 **Beispielhafte Durchführung von Phase 8 im Projektkontext**
 

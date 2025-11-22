@@ -1,6 +1,6 @@
 # Zusammenfassung der Vorbereitungsphase
 
-Dieses Dokument fasst die vorbereitenden Arbeiten zusammen, die notwendig waren, um das Projekt *cher-llm-methodology* methodisch und strukturell sauber aufzusetzen.  Mit Abschluss dieser Phase beginnt das eigentliche Hauptprojekt: die Entwicklung und Ausarbeitung der Methodik.
+Dieses Dokument fasst die vorbereitenden Arbeiten zusammen, die notwendig waren, um das Projekt *cher-alot2come* methodisch und strukturell sauber aufzusetzen.  Mit Abschluss dieser Phase beginnt das eigentliche Hauptprojekt: die Entwicklung und Ausarbeitung der Methodik.
 
 ## 1. Ziel der Vorbereitungsphase
 
@@ -18,12 +18,12 @@ Diese Ziele wurden vollständig erreicht.
 ### ✔ Definition von Mission und Scope  
 Motivation, Problemstellung, Zielsetzung und Rahmenbedingungen wurden dokumentiert unter:  
 **Mission & Scope:**  
-https://github.com/hrmnns/cher-llm-methodology/blob/main/docs/mission-and-scope.md
+https://github.com/hrmnns/cher-alot2come/blob/main/docs/mission-and-scope.md
 
 ### ✔ Klärung der Nutzung von ChatGPT-Projekten  
 Die Funktionsweise, Einrichtung und methodische Nutzung von ChatGPT-Projekten wurde dokumentiert unter:  
 **ChatGPT-Projekte:**  
-https://github.com/hrmnns/cher-llm-methodology/blob/main/docs/chatgpt-projects.md
+https://github.com/hrmnns/cher-alot2come/blob/main/docs/chatgpt-projects.md
 
 ### ✔ Repository angelegt und Grundstruktur definiert  
 Das Repository wurde erstellt und enthält nun:  
@@ -32,7 +32,7 @@ Das Repository wurde erstellt und enthält nun:
 - erste zentrale Dokumente zur Methodik
 
 Repository-Link:  
-https://github.com/hrmnns/cher-llm-methodology
+https://github.com/hrmnns/cher-alot2come
 
 ### ✔ Einrichtung eines eigenen ChatGPT-Projekts  
 Ein dediziertes ChatGPT-Projekt wurde eingerichtet, das als stabiler konzeptioneller Rahmen für die methodische Zusammenarbeit dient.
@@ -46,14 +46,14 @@ Es enthält:
 ## 3. Erledigte Issues
 
 - **Issue #2** – Vorhaben definieren  
-  → abgeschlossen durch: https://github.com/hrmnns/cher-llm-methodology/blob/main/docs/mission-and-scope.md
+  → abgeschlossen durch: https://github.com/hrmnns/cher-alot2come/blob/main/docs/mission-and-scope.md
 
 - **Issue #3** – Nutzung von ChatGPT-Projekten klären  
-  → abgeschlossen durch: https://github.com/hrmnns/cher-llm-methodology/blob/main/docs/chatgpt-projects.md
+  → abgeschlossen durch: https://github.com/hrmnns/cher-alot2come/blob/main/docs/chatgpt-projects.md
 
 - **Issue #4** – Repository vorbereiten  
   → abgeschlossen durch Struktur + aktualisierte README  
-    README: https://github.com/hrmnns/cher-llm-methodology/blob/main/README.md
+    README: https://github.com/hrmnns/cher-alot2come/blob/main/README.md
 
 Damit ist die gesamte *Phase 0* abgeschlossen.
 

@@ -1,4 +1,4 @@
-# cher-llm-methodology
+# cher-alot2come
 
 Eine strukturierte Methodik für die Zusammenarbeit mit Large Language Models (LLMs) wie ChatGPT in komplexen, mehrschrittigen Projekten.  
 Ziel dieses Repositories ist es, eine klare, reproduzierbare und nachvollziehbare Arbeitsweise zu entwickeln, mit der LLM-basierte Projekte über längere Zeiträume hinweg stabil, konsistent und dokumentiert durchgeführt werden können.
