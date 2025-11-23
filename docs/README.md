@@ -2,7 +2,7 @@
 
 Dieses Verzeichnis enthält die interne Projektdokumentation der Methodik.  
 Die Struktur folgt der definierten Informationsarchitektur aus  
-[meta/information-architecture.md](meta/information-architecture.md).
+[structure/information-architecture.md](structure/information-architecture.md).
 
 ## Foundations  
 Grundlagen, Kontext und vorbereitende Arbeiten.
@@ -22,6 +22,7 @@ Makro- und Mikroprozesse der strukturierten Zusammenarbeit mit dem LLM.
 ## Struktur & Rollen  
 Bausteine, Begriffe, Rollen und grundlegende Strukturprinzipien der Methodik.
 
+- [information-architecture.md](meta/information-architecture.md)
 - [methodology-building-blocks.md](structure/methodology-building-blocks.md)
 - [roles-llm.md](structure/roles-llm.md)
 - [document-types-and-storage.md](structure/document-types-and-storage.md)
@@ -37,9 +38,6 @@ Mechanismen zur Sicherstellung von Konsistenz, Persistenz und Driftkontrolle.
 Governance, Standards und Regeln für Pflege & Weiterentwicklung.
 
 - [decision-log-method.md](meta/decision-log-method.md)
-- [document-metadata-standard.md](meta/document-metadata-standard.md)
-- [maintenance-rules.md](meta/maintenance-rules.md)
-- [information-architecture.md](meta/information-architecture.md)
 
 # Pflege- und Aktualisierungsregeln
 
