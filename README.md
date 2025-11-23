@@ -93,7 +93,7 @@ Diese Trennung folgt der Informationsarchitektur und stellt sicher, dass Inhalte
 
 ### **Struktur & Organisation**
 - Informationsarchitektur [`/docs/structure/information-architecture.md`](/docs/structure/information-architecture.md)
-- Methodische Bausteine  [`/docs/structure/information-architecture.md`](/docs/structure/methodology-building-blocks.md)
+- Methodische Bausteine  [`/docs/structure/methodology-building-blocks.md`](/docs/structure/methodology-building-blocks.md)
 
 ### **Qualitätssicherung**
 - Persistenzmechanismen [`/docs/quality/persistence-mechanisms.md`](/docs/quality/persistence-mechanisms.md)
