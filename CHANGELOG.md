@@ -52,8 +52,9 @@ Mit v0.2.0 ist das methodische Fundament gelegt. Das Projekt besitzt jetzt:
 - harmonisierte Grunddokumente,  
 - und eine skalierbare Basis für die Ausarbeitung der weiteren Methodikbausteine.
 
-**Release-Status:** ✔ abgeschlossen  
-**Milestone:** Start der Phase 1 – Methodische Ausarbeitung
+### Abschluss der Phase 1
+
+Mit dieser Version ist Projektphase 1 (vgl. [`methodology-foundations.md`](/docs/foundations/methodology-foundations.md)) mit der methodischen Ausarbeitung abgeschlossen.
 
 ---
 
