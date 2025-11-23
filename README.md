@@ -92,7 +92,7 @@ Diese Trennung folgt der Informationsarchitektur und stellt sicher, dass Inhalte
 - Mikroprozess (Chat-Prozess) [`/docs/processes/process-micro-chat.md`](/docs/processes/process-micro-chat.md)
 
 ### **Struktur & Organisation**
-- Informationsarchitektur [`/docs/meta/information-architecture.md`](/docs/meta/information-architecture.md)
+- Informationsarchitektur [`/docs/structure/information-architecture.md`](/docs/structure/information-architecture.md)
 - Methodische Bausteine  [`/docs/structure/information-architecture.md`](/docs/structure/methodology-building-blocks.md)
 
 ### **Qualitätssicherung**
