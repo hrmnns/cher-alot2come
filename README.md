@@ -26,22 +26,6 @@ Ein Dokumentations- und Organisationsrahmen:
 
 Ziel: **Stabile, wiederverwendbare Ergebnisse über Wochen oder Monate**.
 
-## **Quickstart – erster Einstieg**
-
-1. **Mission & Scope lesen**  
-   → Motivation, Problemstellung, Zielsetzung  
-2. **Projektanweisung verwenden**  
-   → Rolle, Arbeitsweise, Formatvorgaben  
-3. **Makroprozess verstehen**  
-   → Überblick über die Phasen der LLM-Zusammenarbeit  
-4. **Mikroprozess anwenden**  
-   → Vorgehen innerhalb eines einzelnen Chats  
-5. **Ergebnisse persistieren**  
-   → sauber ins Repository übertragen (Dokumenttypen + Ablageregeln)  
-
-**→ Danach kann das erste Teilprojekt strukturiert starten.**
-
-
 # **Schnellübersicht: Sinn & Bedeutung der Repository-Dateien**
 
 Die Struktur folgt der offiziellen Informationsarchitektur (Quelle: `information-architecture.md`).
@@ -126,6 +110,21 @@ Die Verzeichnisse dieser Struktur werden nachfolgend noch etwas genauer beschrie
 Steuert das Verhalten des LLM über alle Chats
 → Rollen, Formatregeln, Iterationsprinzip  
 → Muss stabil und kurz bleiben  
+
+## **Quickstart – erster Einstieg**
+
+1. **Mission & Scope lesen**  
+   → Motivation, Problemstellung, Zielsetzung  
+2. **Projektanweisung verwenden**  
+   → Rolle, Arbeitsweise, Formatvorgaben  
+3. **Makroprozess verstehen**  
+   → Überblick über die Phasen der LLM-Zusammenarbeit  
+4. **Mikroprozess anwenden**  
+   → Vorgehen innerhalb eines einzelnen Chats  
+5. **Ergebnisse persistieren**  
+   → sauber ins Repository übertragen (Dokumenttypen + Ablageregeln)  
+
+**→ Danach kann das erste Teilprojekt strukturiert starten.**
 
 ## **Motivation**
 
