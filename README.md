@@ -4,18 +4,7 @@
 
 Die Methode entstand aus der Erfahrung, dass LLM-basierte Projekte schnell an Grenzen stoßen: Kontextverlust, Drift, Inkonsistenzen und schwer wiederzufindende Teilergebnisse. ALOT2COME bietet dafür eine **klar definierte, versionierbare Arbeitsweise**.
 
-## **1. Zweck der README**
-
-Dieses Dokument ist der **Einstiegspunkt** des Projekts. Es soll:
-
-- das Projekt kurz und verständlich erklären  
-- Orientierung für neue Nutzer bieten  
-- auf die wichtigsten Dokumente verweisen  
-- den Start mit der Methode erleichtern  
-
-**Nicht** enthalten sind ausführliche Erläuterungen oder Detaildokumente – diese stehen im `docs/`-Ordner und im Wiki.
-
-## **2. Kurzbeschreibung – Was ist ALOT2COME?**
+## **Kurzbeschreibung – Was ist ALOT2COME?**
 
 **ALOT2COME** besteht aus zwei Ebenen:
 
@@ -37,7 +26,7 @@ Ein Dokumentations- und Organisationsrahmen:
 
 Ziel: **Stabile, wiederverwendbare Ergebnisse über Wochen oder Monate**.
 
-## **3. Quickstart – erster Einstieg**
+## **Quickstart – erster Einstieg**
 
 1. **Mission & Scope lesen**  
    → Motivation, Problemstellung, Zielsetzung  
@@ -52,57 +41,93 @@ Ziel: **Stabile, wiederverwendbare Ergebnisse über Wochen oder Monate**.
 
 **→ Danach kann das erste Teilprojekt strukturiert starten.**
 
-## **4. Repository-Struktur (Überblick)**
 
-Gemäß Informationsarchitektur:
+# **Schnellübersicht: Sinn & Bedeutung der Repository-Dateien**
+
+Die Struktur folgt der offiziellen Informationsarchitektur (Quelle: `information-architecture.md`).
 
 ```
-docs/
+docs/                   # Arbeitsdokumentation, detaillierte Inhalte, Versionierung
 │
-├── foundations/        # Grundlagen & Begriffe
-├── processes/          # Makro- und Mikroprozesse, Handover
-├── structure/          # Rollen, Bausteine, Dokumenttypen
-├── quality/            # Persistenz, Drift-Management
-└── meta/               # Entscheidungen & Logs
-README.md               # Einstiegspunkt (dieses Dokument)
+├── foundations/        # Grundlagen & Begriffe: Warum es die Methode gibt & welche Probleme sie löst
+├── processes/          # Makro- und Mikroprozesse, Handover: Wie Projekte und Chats strukturiert ablaufen 
+├── structure/          # Rollen, Bausteine, Dokumenttypen: Wie die Methode gebaut ist (Bausteine, Rollen, Dokumenttypen) 
+├── quality/            # Persistenz, Drift-Management: Wie wir Stabilität sichern: Persistenz & Drift
+└── meta/               # Entscheidungen & Logs: Warum Entscheidungen getroffen wurden
+README.md               # Einstieg, Orientierung, Quickstart, Links (dieses Dokument)
 CHANGELOG.md            # Dokumentation der Releases
 LICENSE                 # Lizenz
 
-wiki/                   # Finale Dokumentation
+wiki/                   # tabile Enddokumentation, nutzerorientierte Darstellung
 ```
 
-## **5. Abgrenzung: README ↔ docs ↔ Wiki**
+Die Verzeichnisse dieser Struktur werden nachfolgend noch etwas genauer beschrieben.
 
-| Bereich | Zweck |
-|--------|-------|
-| **README.md** | Einstieg, Orientierung, Quickstart, Links |
-| **docs/** | Arbeitsdokumentation, detaillierte Inhalte, Versionierung |
-| **Wiki** | stabile Enddokumentation, nutzerorientierte Darstellung |
+### 📁 **Foundations (Grundlagen)**
 
-Diese Trennung folgt der Informationsarchitektur und stellt sicher, dass Inhalte strukturiert wachsen können.
+**Grundlagen & Begriffe** ([docs/foundations/methodology-foundations.md](docs/foundations/methodology-foundations.md)):  
+→ Warum gibt es die Methode überhaupt? Welche Probleme löst sie? Auf welche Annahmen stützt sie sich?  
+→ Legt das *Fundament* der gesamten Methodologie und erklärt Motivation, Problemraum und zentrale Anforderungen.  
+→ Muss selten geändert werden.
 
-## **6. Wichtigste Dokumente (direkte Links)**
+### 📁 **Prozesse (Makro & Mikro)**
 
-### **Grundlagen**
-- Mission & Scope [`/docs/foundations/mission-and-scope.md`](https://github.com/hrmnns/cher-alot2come/blob/main/docs/foundations/mission-and-scope.md)
-- ChatGPT-Projekte: Steuerung & Projektanweisung [`/docs/foundations/chatgpt-projects.md`](https://github.com/hrmnns/cher-alot2come/blob/main/docs/foundations/chatgpt-projects.md)
+**Die 8 Phasen eines gesamten Vorhabens** ([docs/processes/process-macro.md](docs/processes/process-macro.md)):  
+→ Zeigt den *End-to-End-Ablauf*: Vorbereitung → Abschluss → Monitoring.  
+→ Stabil und als Orientierungsrahmen genutzt.
 
-### **Prozesse**
-- Makroprozess [`/docs/processes/process-macro.md`](https://github.com/hrmnns/cher-alot2come/blob/main/docs/processes/process-macro.md)
-- Mikroprozess (Chat-Prozess) [`/docs/processes/process-micro-chat.md`](/docs/processes/process-micro-chat.md)
+**Der Ablauf eines einzelnen Chats (Phasen A–E)** ([docs/processes/process-micro-chat.md](docs/processes/process-micro-chat.md)):  
+→ Herzstück des täglichen Arbeitens mit dem LLM.  
+→ Definiert: Start-Prompt, iterativer Arbeitszyklus, Ergebnissicherung, Übergabe, Abschluss.
 
-### **Struktur & Organisation**
-- Informationsarchitektur [`/docs/structure/information-architecture.md`](/docs/structure/information-architecture.md)
-- Methodische Bausteine  [`/docs/structure/methodology-building-blocks.md`](/docs/structure/methodology-building-blocks.md)
+**Wie beendet man Chats sauber und übergibt Ergebnisse** ([ddocs/processes/handover-and-closure.md](docs/processes/handover-and-closure.md)):  
+→ Templates für neue Chats, Issues, Übergaben in Repo.  
+→ Verhindert Kontextverlust und Drift.
 
-### **Qualitätssicherung**
-- Persistenzmechanismen [`/docs/quality/persistence-mechanisms.md`](/docs/quality/persistence-mechanisms.md)
-- Drift-Management [`/docs/quality/drift-management.md`](/docs/quality/drift-management.md)
+### 📁 **Struktur (Bausteine, Rollen, Dokumenttypen)**
 
-### **Meta**
-- **Decision Log** [`/docs/meta/decision-log-method.md`](/docs/meta/decision-log-method.md)
+**Die 10 Bausteine der Methodologie** (Steuerlogik, Drift, Persistenz usw.) ([docs/structure/methodology-building-blocks.md](docs/structure/methodology-building-blocks.md)):  
+→ Systematische Einordnung aller Elemente.
 
-## **7. Motivation**
+**Welche Rollen kann das LLM einnehmen?** ([docs/structure/roles-llm.md](docs/structure/roles-llm.md)):  
+→ Methodiker, Reviewer, Strukturgeber, Prompt-Engineer, Domänenexperte usw.  
+→ Regeln für Aktivierung & Rollenwechsel.
+
+**Welche Dokumenttypen gibt es und wofür sind sie da?** ([docs/structure/document-types-and-storage.md](docs/structure/document-types-and-storage.md)):    
+→ Projektanweisung, README, docs/, Wiki, Issues, Decision Logs etc.  
+→ Klärt Speicherorte, Formate, Versionierung.
+
+### 📁 **Qualität (Persistenz, Drift)**
+
+**Wie sichern wir Ergebnisse dauerhaft?** ([docs/quality/persistence-mechanisms.md](docs/quality/persistence-mechanisms.md)):  
+→ Wann persistieren?  
+→ Welche Inhalte gehören ins Repo, welche nicht?  
+→ Versionierung, Commit-Standards, Änderungsprozesse.  
+
+**Wie verhindern wir Drift?** ([docs/quality/drift-management.md](docs/quality/drift-management.md)):  
+→ Arten von Drift (Begriffe, Rollen, Strukturen, Kontext).  
+→ Drift-Checks, Korrekturmechanismen, Beispiele.  
+→ Hohe Relevanz für lange Chats.
+
+### 📁 **Meta (Entscheidungen, Historie)**
+
+**Warum wurde etwas so entschieden?** ([docs/meta/decision-log-method.md](docs/meta/decision-log-method.md):  
+→ Dokumentiert methodische Entscheidungen.  
+→ Erlaubt spätere Nachvollziehbarkeit.  
+→ Niemals rückwirkend ändern.
+
+### 📁 **Weitere zentrale Inhalte (Projektwurzel & ChatGPT-Projekt)**
+
+**Einstieg ins Projekt** ([README.md](README.md)):  
+→ Ziel, Struktur, Links zu allen Dokumenten  
+→ Navigation für neue Mitwirkende  
+
+**ChatGPT-Projektanweisung** (nicht im Repo, aber zentral):    
+Steuert das Verhalten des LLM über alle Chats
+→ Rollen, Formatregeln, Iterationsprinzip  
+→ Muss stabil und kurz bleiben  
+
+## **Motivation**
 
 LLM-gestützte Projekte verlieren häufig:
 - Struktur  
@@ -112,6 +137,6 @@ LLM-gestützte Projekte verlieren häufig:
 
 ALOT2COME stellt sicher, dass Erkenntnisse und Entscheidungen **stabil**, **wiederholbar** und **übertragbar** bleiben – egal wie viele Chats folgen oder wie komplex das Vorhaben ist.
 
-## **8. Status**
+## **Status**
 
 Das Projekt befindet sich in aktiver Weiterentwicklung und nutzt die eigene Methode zur Entwicklung der Methode selbst.
