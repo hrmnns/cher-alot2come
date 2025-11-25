@@ -1,192 +1,175 @@
-# Beispielprojekt: Prompt-Generator WebApp
+# 📘 Beispielprojekt: Prompt-Generator (V1)
 
-Dieses Dokument beschreibt ein vollständiges Beispielprojekt gemäß der cher-alot2come-Methodik.  
-Die technische Umsetzung der WebApp erfolgt **nicht** in diesem Repository, sondern in einem **separaten Projekt-Repository**.  
-Hier werden ausschließlich die **methodischen Schritte, Entscheidungen und Erkenntnisse** dokumentiert.
+Dieses Kapitel beschreibt das vollständige Beispielprojekt **„Prompt-Generator“**, das die Anwendung der cher-alot2come-Methodik exemplarisch demonstriert.
+Der Prompt-Generator ist ein kleines, rein clientseitiges WebTool, mit dem strukturierte Prompts auf Basis der Methodik erzeugt werden können.
 
-## 1. Projektsteckbrief
+Die **technische Umsetzung** befindet sich im separaten Repository:
 
-**Titel:** Prompt-Generator WebApp  
-**Ziel:** Erzeugung strukturierter Prompts gemäß cher-alot2come (z. B. Start-Prompts, Drift-Korrektur-Prompts).  
-**Typ:** Beispielprojekt zur Demonstration der Methode  
-**Technologie:** HTML, Tailwind CSS, JavaScript  
-**Status:** In Arbeit  
+👉 **[https://github.com/hrmnns/cher-prompt-generator](https://github.com/hrmnns/cher-prompt-generator)**  
+👉 **[https://github.com/hrmnns/cher-prompt-generator/src/index.html](https://github.com/hrmnns/cher-prompt-generator/src/index.html)**
 
-**Verlinktes Code-Repository:**  
-*(wird ergänzt, sobald angelegt)*
+Dieses Kapitel konzentriert sich ausschließlich auf die **methodische Durchführung**.
 
-## 2. Zweck des Beispielprojekts
+# 1. Projektsteckbrief
 
-Dieses Projekt dient dazu, die cher-alot2come-Methodik **konkret, nachvollziehbar und vollständig** anhand eines realen Mini-Tools zu demonstrieren.
+**Titel:** Prompt-Generator WebApp
+**Projektart:** Demonstrator / Beispielprojekt
+**Technologie:** HTML, Tailwind CSS, Vanilla JavaScript
+**Ziel:** Zeigen, wie ein reales Mini-Projekt vollständig nach dem Makro- und Mikroprozess der cher-alot2come-Methodik durchgeführt wird.
+**Ergebnis:** Funktionale WebApp, vollständige Dokumentation, Release-Bundle.
 
-Es zeigt exemplarisch:
+# 2. Zweck des Beispielprojekts
 
-- Anwendung des **Makroprozesses**  
-- Anwendung des **Mikroprozesses**  
-- Beispiele für **Drift-Management**  
-- Nutzung von **Persistenzmechanismen**  
-- Übergabe, Dokumentation und Abschluss eines Teilprojekts
+Das Beispielprojekt dient dazu zu demonstrieren:
 
-## 3. Projektumfang (Scope)
+* wie man ein Thema **methodisch sauber** von Phase 1–6 durchführt,
+* wie man **Drift-Kontrolle**, **Persistenz**, **Rollenmodell** und **Startprompts** nutzt,
+* wie man zwei parallele Chats (Meta/Projekt) koordiniert,
+* wie man Ergebnisse sauber ins Repo überführt,
+* und wie aus einem abstrakten Problem eine strukturierte Lösung entsteht.
 
-### 3.1 Funktionaler Umfang
-- Auswahl verschiedener Prompt-Kategorien (Start-Prompt, Drift-Korrektur, Persistenz, Rollenaktivierung, Handover etc.)
-- Dynamische Felder je Prompt-Kategorie
-- Combo-Boxen für eingeschränkte Auswahlfelder (z. B. Rollen, Drift-Arten)
-- Markdown-Preview des fertigen Prompts
-- „Kopieren in Zwischenablage“-Button
-- Optionaler mehrstufiger Workflow mit Fortschrittsbalken
-- Header-/Footer-Bereich für Branding und Metainformationen
+Das Projekt ist bewusst **klein, überschaubar und vollständig dokumentiert**, um als Lern- und Referenzbeispiel zu dienen.
 
-### 3.2 Nicht-Ziele
-- Keine Speicherung von Nutzerdaten  
-- Keine Backend-Logik  
-- Keine Authentifizierung  
-- Kein Deployment innerhalb dieses Repos  
+# 3. Vorgehen gemäß Makroprozess
 
-## 4. Durchführung gemäß Makroprozess
+Das Beispielprojekt wurde vollständig entlang des cher-alot2come-Makroprozesses durchgeführt:
 
-### 4.1 Phase 1 – Vorbereitung
-- Definition des Projektziels
-- Analyse der benötigten Prompt-Kategorien
-- Erstellung eines Start-Prompts  
-- Erstellen von Issues für Unteraufgaben  
+## **Phase 1 – Vorbereitung**
 
-**Ergebnisse:**  
-*(Platzhalter für spätere Dokumentation)*
+* Projektziel geklärt
+* Scope / Nicht-Scope definiert
+* erste funktionale Anforderungen gesammelt
+* Projektanweisung im Projekt-Chat formuliert
+* initialer Projektaufbau erarbeitet
 
-### 4.2 Phase 2 – Problemrahmen definieren
-- Klärung des exakten Scopes  
-- Auflistung relevanter Rollen  
-- Abgrenzung funktionaler und nichtfunktionaler Anforderungen  
+**Persistiert als:**
+`docs/examples/prompt-generator/phase-1.md` *(empfohlen)*
 
-**Ergebnisse:**  
-*(Platzhalter)*
+## **Phase 2 – Problemrahmen definieren**
 
-### 4.3 Phase 3 – Operative Bearbeitung
-**Hier werden alle relevanten Mikroprozess-Chats referenziert.**
+* Definition der Prompt-Typen (5 Typen)
+* Definition aller Felder je Typ
+* Datenmodell (PromptType, Field, PromptInstance)
+* Auswahlwerte (Rollen, Driftarten etc.)
+* UI-Flows und Wizard-Konzept
 
-Beispielhafte Inhalte:
+**Ergebnis:** vollständige funktionale Spezifikation.
 
-- UI-Design und Komponentenliste  
-- Struktur der Prompt-Templates  
-- Erstellung dynamischer Formulare  
-- Logik zur Markdown-Generierung  
-- Copy-to-Clipboard-Funktion  
+## **Phase 3 – Operative Bearbeitung**
 
-**Verweise auf Mikroprozess-Chats:**  
-- Chat 1: Start des Projekts  
-- Chat 2: UI-Design iterativ  
-- Chat 3: Prompt-Template-Schema  
-- Chat 4: Standardisierter Outputblock  
+* Grundstruktur der WebApp angelegt
+* Projektstruktur definiert (`src/`, `js/`, `ui/`)
+* HTML-Skeleton + Header/Footer
+* State-Management eingerichtet
+* dynamische Formfelder & Preview-Placeholder
 
-*(Platzhalter für echte Verlinkungen/Abschnitte)*
+**Ergebnis:** funktionierendes Grundgerüst.
 
-### 4.4 Phase 4 – Konsolidierung
-- Überprüfung gegen Glossar, Rollenmodell und Prompt-Library  
-- Bereinigung von Terminologie  
-- Überarbeitung der Feldbenennungen  
-- Konsistenzprüfung der Prompt-Templates  
+## **Phase 4 – Konsolidierung**
 
-**Ergebnisse:**  
-*(Platzhalter)*
+* Event-Handling
+* Live-State-Updates
+* Markdown-Generator
+* Prompt-Templates
+* Copy-to-Clipboard
+* Modulgrenzen bereinigt
 
-### 4.5 Phase 5 – Persistenz
-- Ablage dieses Dokuments in `docs/examples/`  
-- Ergänzung im Wiki („Beispielprojekt: Prompt-Generator“)  
-- Aufnahme in `docs/README.md`  
-- Verlinkung zum externen Code-Repository  
+**Ergebnis:** voll funktionsfähige Kernlogik.
 
-**Persistierte Artefakte:**  
-- Architekturüberblick  
-- Prompt-Template-Struktur  
-- Spezifikation der Formularfelder  
-- Beispiel-Prompts  
+## **Phase 5 – Feinschliff & Optimierung**
 
-### 4.6 Phase 6 – Abschluss & Übergabe
-- Handover-Block für zukünftige Weiterentwicklung  
-- Verweis auf Code-Repository  
-- Finaler Statusbericht  
-- Lessons Learned  
+* UI-Polishing
+* Responsive Design
+* Markdown-to-HTML-Ansicht
+* Validierung & Error-Handling
+* Wizard-Grundstruktur
 
-**Abschluss:**  
-*(Platzhalter)*
+**Ergebnis:** benutzerfreundliche, stabile App.
 
-## 5. Mikroprozess-Beispiele
+## **Phase 6 – Abschluss & Übergabe**
 
-Hier werden exemplarische Chats dokumentiert, die den Mikroprozess A–E durchlaufen.
+* Finaler UI-Check
+* konsolidierte Templates
+* Dokumentationspaket erstellt
+* Release-Bundle generiert
+* V1.0.0 bereit
 
-### 5.1 Mikroprozess-Chat: UI-Grundstruktur
-*(Platzhalter für späteres Markdown mit Start-Prompt, Iterationen, Ergebnissicherung und Abschlussblock)*
+**Ergebnis:** Projekt abgeschlossen & release-ready.
 
-### 5.2 Mikroprozess-Chat: Prompt-Template-Definition
-*(Platzhalter)*
+# 4. Drift-Management im Beispielprojekt
 
-### 5.3 Mikroprozess-Chat: Drift-Korrektur-Beispiel
-*(z. B. Strukturdrift oder Begriffsdrift)*
+Während des Projekts wurden mehrere Formen von Drift aktiv identifiziert und korrigiert, u. a.:
 
-## 6. Drift-Management im Projekt
+### **Begriffliche Drift**
 
-### 6.1 Beispiele identifizierter Drifts
-- Terminologieabweichung bei Prompt-Typen  
-- Rollenbezeichnungen inkonsistent  
-- Feldnamen im UI vs. in der Dokumentation  
+* unterschiedliche Bezeichnungen für Prompt-Typen
+* wurde korrigiert durch Abgleich mit Phase-2-Datenmodell
 
-### 6.2 Eingesetzte Korrekturmechanismen
-- Drift klar benannt  
-- Bezug zur Prompt-Library hergestellt  
-- Konsolidierter Prompt neu formuliert  
+### **Strukturdrift**
 
-*(Bei Bedarf echte Chat-Beispiele hier einfügen)*
+* UI-Ablauf war uneindeutig (Wizard vs. Single-Page)
+* wurde durch klare Priorisierung (Single-Page als Standard) behoben
 
-## 7. Persistenzmechanismen
+### **Rollen-/Zieldrift**
 
-Beschreibung, wie in diesem Projekt Persistenz angewendet wurde:
+* der Projektchat neigte teilweise dazu, zusätzliche Features vorzuschlagen
+* wurde per Prompt-Korrektur gestoppt („kein Backend, keine neuen Prompt-Typen“)
 
-- stabile Dokumentation in `docs/examples/`  
-- benannte Ergebnisblöcke im Chat  
-- Überführung ins externe Repo  
-- versionierte Ablage von UI-Assets  
-- keine „Chat-Only“-Informationen  
+Das Projekt demonstriert damit aktiv **Erkennung & Reparatur von Drift**, ein zentraler Bestandteil von cher-alot2come.
 
-## 8. Architekturüberblick der WebApp
+# 5. Persistenzmechanismen im Beispielprojekt
 
-*(Abstrakter Überblick, ohne Code – der Code liegt im anderen Repo)*
+Das Projekt zeigt exemplarisch, wie Persistenz funktioniert:
 
-### 8.1 Komponenten
-- Header  
-- Progress-Bar (optional)  
-- Prompt-Typ-Auswahl  
-- Dynamische Formularfelder  
-- Markdown-Preview  
-- Footer  
+* Jede abgeschlossene Phase wurde **in einem Ergebnisblock** festgehalten.
+* Diese Ergebnisblöcke wurden in Markdown-Dateien übernommen.
+* Alle technischen Artefakte liegen im separaten Repository.
+* Die methodischen Teile liegen ausschließlich in diesem Methoden-Repo.
+* Keine Vermischung → klare Trennung zwischen *Methode* und *Beispielprojekt*.
 
-### 8.2 Datenmodell (Prompt-Definition)
-- Prompt-Typ  
-- Felder  
-- Regeln (z. B. „Rolle = ComboBox mit festen Werten“)  
-- Markdown-Template  
+# 6. Lessons Learned
 
-## 9. Lessons Learned
+Das Beispielprojekt hat mehrere wichtige Erkenntnisse geliefert:
 
-*(Platzhalter, später ausfüllen)*
+### **1. Zwei parallele Chats funktionieren hervorragend**
 
-Mögliche Aspekte:
-- Rollenmodell klar bestimmen früh im Prozess  
-- Drift-Management aktiv einsetzen  
-- Prompt-Library als Quelle der Wahrheit  
-- Beispielprojekte funktionieren besser in separaten Repositories  
+* Meta-Chat = Struktur, Methode, Review
+* Projekt-Chat = Implementierung
+  → Eliminierung von Drift & Scope-Creep.
 
-## 10. Fazit
+### **2. Klare Startprompts sind entscheidend**
 
-Kurzfazit zur Demonstration des Makro-/Mikroprozesses anhand eines realen Mini-Projekts.
+Die Qualität eines Arbeitsschritts ist stark abhängig vom Startblock.
 
-*(Platzhalter)*
+### **3. Modulare Ergebnisblöcke beschleunigen Persistenz**
 
-## 11. Weiterführende Links
+Jede Phase hatte ein klares Output-Artefakt → hoher Wiederverwendungswert.
 
-- Methode: cher-alot2come (dieses Repository)  
-- Prompt-Library  
-- Rollenmodell  
-- Drift-Management  
-- Externes Code-Repository der WebApp *(wird ergänzt)*  
+### **4. Kleine Tools eignen sich ideal als Demonstratoren**
+
+Die Methode wird am besten an überschaubaren, aber vollständigen Projekten erklärt.
+
+### **5. Datenmodell + UI-Struktur früh festlegen**
+
+Dies verhindert die häufigste Driftform in Softwareprojekten: strukturelle Drift.
+
+# 7. Fazit
+
+Das Beispielprojekt „Prompt-Generator“ demonstriert die cher-alot2come-Methodik **end-to-end**:
+
+* klare Phasen
+* saubere Ergebnisblöcke
+* Driftkontrolle
+* konsistente Persistenz
+* parallele Arbeitskontexte
+* Release-Fähigkeit
+
+Damit dient es als **vollständiges Referenzprojekt** für alle Anwender, die verstehen wollen, wie die Methode in der Praxis funktioniert.
+
+# 8. Weiterführende Links
+
+* **Methoden-Repo (dieses Repository)**
+* **Prompt-Generator – Code-Repository:**
+  [https://github.com/hrmnns/cher-prompt-generator](https://github.com/hrmnns/cher-prompt-generator)
+* **Beispielhafte Ergebnisblöcke (Phasen 1–6)**
+* **Workflow: Arbeiten mit zwei parallelen Chats**
