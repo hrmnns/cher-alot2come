@@ -1,0 +1,51 @@
+@startuml
+title Parallel Chat Coordination – Meta-Chat & Projekt-Chat
+
+actor User
+
+participant "Meta-Chat\n(Methodik / Struktur)" as META
+participant "Projekt-Chat\n(Umsetzung / Code)" as PROJ
+
+== Phase n: Vorbereitung im Meta-Chat ==
+
+User -> META: Beschreibt Ziel / Phase / Aufgabe
+META -> META: Strukturierung der Aufgabe\n(Ziele, Rollen, Aufgaben, Ergebnisblock)
+META -> User: Liefert Start-Prompt\nfür Projekt-Chat
+
+== Phase n: Umsetzung im Projekt-Chat ==
+
+User -> PROJ: Fügt Start-Prompt ein
+PROJ -> PROJ: Operative Bearbeitung\n(Code, UI, Logik)
+PROJ -> User: Ergebnisblock Phase n
+
+== Review & Steuerung ==
+
+User -> META: Kopiert Ergebnisblock\nzurück in Meta-Chat
+META -> META: Review, Konsistenzcheck,\nDrift-Management, Einordnung
+META -> User: Nächster Start-Prompt\n(Phase n+1 oder nächster Schritt)
+
+== Wiederholung ==
+
+loop Für jede weitere Phase
+  User -> PROJ: Neuer Start-Prompt
+  PROJ -> User: Neuer Ergebnisblock
+  User -> META: Ergebnisblock zur Bewertung
+  META -> User: Nächster Auftrag / Start-Prompt
+end
+
+note over META
+Rolle:
+- Strukturgeber
+- Reviewer
+- Methodische Klarheit
+- Drift-Management
+end note
+
+note over PROJ
+Rolle:
+- Implementierung
+- UI/Code/Logik
+- Operative Ausführung
+end note
+
+@enduml
