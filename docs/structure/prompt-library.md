@@ -64,15 +64,20 @@ Arbeitsmodus: Strukturierung.
 
 ### 2.1 Begriffsdrift korrigieren
 
-**Zweck:** Stoppt semantische Drift.\
-**Wirkung:** Rückführung auf Glossardefinition.\
-**Risiken:** Verwässerte Terminologie.\
-**Prozessbezug:** Drift-Korrektur.
+**Zweck:** Stoppt semantische Drift.  
+**Wirkung:** Rückführung auf Glossardefinition.  
+**Risiken:** Verwässerte Terminologie.  
+**Prozessbezug:** Drift-Korrektur.  
 
 ``` md
 Wir haben eine Begriffsdrift: Der definierte Begriff ist "<Begriff>".
 Bitte korrigiere alle abweichenden Stellen.
 ```
+
+Zweck: Korrigiert sofortige Abweichungen von persistierten Strukturen.  
+Wirkung: LLM richtet Aufbau und Struktur exakt an gespeicherten Dokumenten aus.  
+Risiken: Strukturinkonsistenz, verschobene Kapitel, Fehler beim Persistieren.  
+Prozessbezug: Drift-Management, Mikroprozess D.  
 
 ``` md
 Bitte stelle die Struktur gemäß Repository-Version wieder her (Datei: <Pfad>).
@@ -80,9 +85,19 @@ Bitte stelle die Struktur gemäß Repository-Version wieder her (Datei: <Pfad>).
 
 ### 2.2 Kontextrekalibrierung
 
+Zweck: Reinitialisiert Steuerlogik und Terminologie.  
+Wirkung: LLM setzt Rollen, Regeln und Begriffe neu und stabil.  
+Risiken: Rollenfehler, Terminologiedrift, unklare Formatlogik.  
+Prozessbezug: Drift-Reset, Mikroprozess A/D.  
+
 ``` md
 Bitte lade die Projektanweisung neu und bestätige die gültigen Begriffe aus dem Glossar.
 ```
+
+Zweck: Stellt korrekte Prozessphasen wieder her.   
+Wirkung: LLM synchronisiert mit offizieller Makroprozess-Definition.  
+Risiken: Falsche Prozesslogik, inkorrekte Übergänge.  
+Prozessbezug: Drift-Management, Makroprozess-Validierung.  
 
 ``` md
 Wir haben eine leichte Strukturdrift. Bitte stelle die Phasennummerierung gemäß Makroprozess wieder her.
@@ -90,10 +105,20 @@ Wir haben eine leichte Strukturdrift. Bitte stelle die Phasennummerierung gemä�
 
 ### 2.3 Vergleich mit Repository
 
+Zweck: Identifiziert alle Unterschiede gegenüber der persistierten Version.  
+Wirkung: LLM listet Driftstellen strukturiert auf.  
+Risiken: Unentdeckte Abweichungen gelangen in Folgearbeit.  
+Prozessbezug: Konsolidierung (Phase 4).  
+
 ``` md
 Vergleiche deine letzte Antwort mit der Version aus <Dokument>.
 Liste alle Abweichungen auf.
 ```
+
+Zweck: Erzwingt eine driftfreie Neufassung gemäß Repository.  
+Wirkung: LLM baut Text streng entlang der gespeicherten Struktur neu auf. 
+Risiken: Vermischung alter und neuer Versionen.  
+Prozessbezug: Drift-Reparatur, Phase 4.  
 
 ``` md
 Bitte formuliere den Abschnitt neu, strikt entlang der persistierten Struktur aus <Dokument>.
@@ -101,9 +126,19 @@ Bitte formuliere den Abschnitt neu, strikt entlang der persistierten Struktur au
 
 ### 2.4 Reparatur-Workflow
 
+Zweck: Sichtbarmachen aller Driftstellen.  
+Wirkung: LLM markiert strukturiert alle Abweichungen.  
+Risiken: Übersehene Drift, unvollständige Reparatur.  
+Prozessbezug: Drift-Detektion, Mikroprozess D.  
+
 ``` md
 Bitte markiere alle Passagen, die von der persistierten Version abweichen.
 ```
+
+Zweck: Qualitätssicherung nach Driftkorrektur.  
+Wirkung: Reviewer prüft Logik, Terminologie und Struktur.  
+Risiken: verbleibende Inkonsistenzen, fehlerhafte Persistenz.  
+Prozessbezug: Konsolidierung (Phase 4), Mikroprozess D.  
 
 ``` md
 Aktiviere Reviewer.
@@ -114,6 +149,11 @@ Prüfe die Überarbeitung auf Konsistenz und Driftfreiheit.
 
 ### 3.1 Repository-Übergabe vorbereiten
 
+Zweck: Erzeugt persistierbaren Endblock.  
+Wirkung: LLM trennt finalen Inhalt klar vom Chat-Kontext.  
+Risiken: Vermischung mit Chattext, falsche Persistenz.  
+Prozessbezug: Mikroprozess E / Phase 5.  
+
 ``` md
 Bitte liefere den Ergebnisblock als sauberen, getrennten Block.
 Ohne Meta-Text.
@@ -121,6 +161,11 @@ Status: "final für Repository".
 ```
 
 ### 3.2 Persistenz-Check
+
+Zweck: Qualitätssicherung vor Persistenz.  
+Wirkung: LLM validiert Struktur, Terminologie und Versionsbezug.  
+Risiken: fehlerhafte Inhalte gelangen ins Repo.  
+Prozessbezug: Phase 5.  
 
 ``` md
 Bitte prüfe dieses Ergebnis gegen bestehende Dokumente auf:
@@ -132,11 +177,21 @@ Bitte prüfe dieses Ergebnis gegen bestehende Dokumente auf:
 
 ### 3.3 Auswahl der Zielorte
 
+Zweck: Finden des korrekten Ablageorts.  
+Wirkung: LLM prüft Repository-Ordnung & Strukturachsen.  
+Risiken: falsche Ablage, spätere Inkonsistenz.  
+Prozessbezug: Persistenzphase.  
+
 ``` md
 Welcher Abschnitt und welche Datei sind gemäß Informationsarchitektur korrekt für dieses Ergebnis?
 ```
 
 ### 3.4 Übergabeformat
+
+Zweck: Formatkonformität herstellen.  
+Wirkung: LLM erstellt Markdown-kompatible finale Fassung.  
+Risiken: Formatfehler, persistenzuntaugliche Inhalte.  
+Prozessbezug: Phase 5.  
 
 ``` md
 Bitte gib eine Repository-fertige Fassung des Ergebnisblocks gemäß Formatregeln aus.
@@ -146,6 +201,11 @@ Bitte gib eine Repository-fertige Fassung des Ergebnisblocks gemäß Formatregel
 
 ### 4.1 LLM-Methodiker
 
+Zweck: Aktiviert methodische Kontrollrolle.  
+Wirkung: LLM prüft Prozesslogik, Struktur und Zielausrichtung.  
+Risiken: unklare Arbeitsweise, fehlende Struktur.  
+Prozessbezug: Phase A–D.  
+
 ``` md
 Bitte agiere als LLM-Methodiker.
 Prüfe Struktur, Vorgehen, Konsistenz und Zielklarheit dieses Abschnitts.
@@ -153,12 +213,22 @@ Prüfe Struktur, Vorgehen, Konsistenz und Zielklarheit dieses Abschnitts.
 
 ### 4.2 Strukturgeber
 
+Zweck: Struktur erzeugen ohne Inhalte.  
+Wirkung: LLM liefert reine Gliederung/Modelle.  
+Risiken: unstrukturierte Ergebnisse.  
+Prozessbezug: Phase B–D.  
+
 ``` md
 Bitte agiere als Strukturgeber.
 Erstelle eine präzise Gliederung für <Thema>. Kein Fließtext.
 ```
 
 ### 4.3 Reviewer
+
+Zweck: Qualität prüfen ohne Inhaltserweiterung.  
+Wirkung: LLM bewertet neutral Logik & Struktur.  
+Risiken: Rollenvermischung, inhaltliche Eingriffe.  
+Prozessbezug: Mikroprozess D.  
 
 ``` md
 Bitte agiere als Reviewer.
@@ -171,12 +241,22 @@ Prüfe diesen Text ausschließlich auf:
 
 ### 4.4 Prompt-Engineer
 
+Zweck: Verbesserung von Promptstabilität.  
+Wirkung: LLM erkennt Ambiguitäten und behebt sie.  
+Risiken: driftanfällige Prompts.  
+Prozessbezug: Mikroprozess A–C.  
+
 ``` md
 Bitte agiere als Prompt-Engineer.
 Optimiere diesen Prompt für Ambiguitätsresistenz und Rollenstabilität.
 ```
 
 ### 4.5 Domänenexperte
+
+Zweck: Fachliche Präzision.  
+Wirkung: LLM liefert korrekte Inhalte & Beispiele.  
+Risiken: fachliche Ungenauigkeit.  
+Prozessbezug: Phase B–C.  
 
 ``` md
 Bitte agiere als Domänenexperte für <Domäne>.
@@ -187,6 +267,11 @@ Erkläre <Begriff> und gib ein kurzes Beispiel.
 
 ### 5.1 Übergabe an neuen Chat
 
+Zweck: Übergabe an nächste Arbeitseinheit.  
+Wirkung: Sicherer, vollständiger Kontexttransfer.  
+Risiken: Kontextverlust, Fehlinterpretation.  
+Prozessbezug: Phase 6 / Mikroprozess E.  
+
 ``` md
 Bitte erstelle einen Handover-Block mit:
 – Kontext
@@ -196,6 +281,11 @@ Bitte erstelle einen Handover-Block mit:
 ```
 
 ### 5.2 Übergabe an Issue
+
+Zweck: Überführung eines Arbeitspakets in Issue-Form.  
+Wirkung: LLM erzeugt strukturierte Issue-Vorlage.  
+Risiken: unvollständige Issues.  
+Prozessbezug: Phase 6.  
 
 ``` md
 Bitte erstelle einen Handover-Block für ein neues Issue:
@@ -208,6 +298,11 @@ Bitte erstelle einen Handover-Block für ein neues Issue:
 
 ### 5.3 Übergabe zur Persistenz
 
+Zweck: Vollständige Persistenzvorbereitung.  
+Wirkung: LLM bündelt alles Relevante für das Repo.  
+Risiken: Fehlende Inhalte, falsche Ablage.  
+Prozessbezug: Phase 5–6.  
+
 ``` md
 Bitte erstelle den Handover-Block zur Persistenz:
 – Inhalte zur Übertragung
@@ -217,6 +312,11 @@ Bitte erstelle den Handover-Block zur Persistenz:
 ```
 
 ### 5.4 Abschluss eines Chats
+
+Zweck: Sauberer Chat-Abschluss.  
+Wirkung: LLM liefert vollständige Abschlussübersicht.  
+Risiken: offene Enden, Kontextverlust.  
+Prozessbezug: Mikroprozess E.  
 
 ``` md
 Bitte stelle einen Abschlussblock bereit:
@@ -230,16 +330,21 @@ Bitte stelle einen Abschlussblock bereit:
 
 ### 6.1 Drift-Check
 
+Zweck: Führt einen Mini-Drift-Check durch, um die Arbeitseinheit stabil auszurichten.
+Wirkung: LLM synchronisiert Begriffe, Struktur und aktuelles Ziel mit dem Repository-Stand.
+Risiken: Unbemerkte Begriffs-, Struktur- oder Fokusdrift innerhalb des Chats.
+Prozessbezug: Mikroprozess Phase A (Initialisierung) und Phase D (Review).
+
 ``` md
 Bitte bestätige Terminologie, Struktur und Zielrahmen dieser Arbeitseinheit.
 ```
 
 ### 6.2 Rollen-Check
 
-**Zweck:** Rollenklarheit.\
-**Wirkung:** Modell arbeitet bewusst im richtigen Modus.\
-**Risiken:** Rollenvermischung.\
-**Prozessbezug:** Mikroprozess A.
+**Zweck:** Rollenklarheit.  
+**Wirkung:** Modell arbeitet bewusst im richtigen Modus.  
+**Risiken:** Rollenvermischung.  
+**Prozessbezug:** Mikroprozess A.  
 
 ``` md
 In welcher Rolle arbeitest du gerade?
@@ -247,10 +352,10 @@ In welcher Rolle arbeitest du gerade?
 
 ### 6.3 Struktur-Check
 
-**Zweck:** Sicherstellt korrekte Begriffe und Struktur.\
-**Wirkung:** Synchronisation mit Repo.\
-**Risiken:** Begriffs- und Strukturdrift.\
-**Prozessbezug:** Drift-Check.
+**Zweck:** Sicherstellt korrekte Begriffe und Struktur.  
+**Wirkung:** Synchronisation mit Repo.  
+**Risiken:** Begriffs- und Strukturdrift.  
+**Prozessbezug:** Drift-Check.  
 
 ``` md
 Bitte gib die gültige Prozess- oder Dokumentstruktur aus <Dokument> wieder.
@@ -258,21 +363,46 @@ Bitte gib die gültige Prozess- oder Dokumentstruktur aus <Dokument> wieder.
 
 # 7. Quick-Prompts
 
+Zweck: Stoppt thematische Abdrift.  
+Wirkung: LLM richtet Antwort wieder an aktuelle Aufgabe aus.  
+Risiken: Themenverwässerung, Kontextsprünge.  
+Prozessbezug: Mikroprozess B–D.  
+
 ``` md
 Bitte zurück zum Fokus.
 ```
+
+Zweck: Reaktivierung des expliziten Arbeitsziels.  
+Wirkung: LLM stellt Orientierung neu her.  
+Risiken: unklare Zielausrichtung.  
+Prozessbezug: Mikroprozess A.  
 
 ``` md
 Bitte bestätige den aktuellen Zielrahmen.
 ```
 
+Zweck: Strukturvergleich ermöglichen.  
+Wirkung: LLM liefert divergente Strukturansätze.  
+Risiken: unstrukturierter Variantenmix ohne klare Vorgabe.  
+Prozessbezug: Mikroprozess B.  
+
 ``` md
 Bitte gib drei Strukturvarianten.
 ```
 
+Zweck: Markierung eines stabilen Zwischenstands.  
+Wirkung: LLM liefert klaren, sauber benannten Ergebnisblock.  
+Risiken: fehlende Ergebnissicherung.  
+Prozessbezug: Mikroprozess C/E.  
+
 ``` md
 Bitte gib eine stabile Version als Ergebnisblock.
 ```
+
+Zweck: Erfasst alle noch ungelösten Aufgaben und Fragen.  
+Wirkung: LLM extrahiert und strukturiert offene Punkte aus dem gesamten Chatverlauf.  
+Risiken: Aufgaben oder Klärpunkte gehen im Verlauf verloren; Anschlussfehler im nächsten Chat.  
+Prozessbezug: Mikroprozess Phase E (Abschluss), Makroprozess Phase 6 (Übergabe).  
 
 ``` md
 Bitte liste alle offenen Punkte aus diesem Chat.
