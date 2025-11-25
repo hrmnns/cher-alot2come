@@ -12,6 +12,20 @@ Ziel der Sammlung ist es:
 
 Die Prompt Library ist ein struktureller Baustein der Methodik und erleichtert sowohl die Arbeit des Nutzers als auch die Stabilität des LLM durch präzise Steuerimpulse. Alle Prompts sind kategorisiert, methodisch begründet und kompatibel mit Drift-Management, Persistenzmechanismen und Rollenmodell.
 
+# Inhaltsverzeichnis
+
+- [1. Start-Prompts](#Start-Prompts)
+- [2. Drift-Korrektur-Prompts](#2-drift-korrektur-prompts)
+- [3. Persistenz-Prompts](#3-persistenz-prompts)
+- [4. Rollenaktivierungs-Prompts](#Rollenaktivierungs-Prompts)
+- [5. Handover-Prompts](#5-handover-prompts)
+- [6. Mini-Checks](#6-mini-checks)
+- [7. Quick-Prompts](#7-quick-prompts)
+- [8. Arbeitssteuerungs-Prompts](#8-arbeitssteuerungs-prompts)
+- [Zusammenfassung](#zusammenfassung)
+- [Fazit](#fazit)
+
+<a name="Start-Prompts"></a>
 # 1. Start-Prompts (Chat-Start / Mikroprozess Phase A)
 
 ### 1.1 Standard-Start-Prompt
@@ -197,6 +211,7 @@ Prozessbezug: Phase 5.
 Bitte gib eine Repository-fertige Fassung des Ergebnisblocks gemäß Formatregeln aus.
 ```
 
+<a name="Rollenaktivierungs-Prompts"></a>
 # 4. Rollenaktivierungs-Prompts
 
 ### 4.1 LLM-Methodiker
@@ -570,10 +585,3 @@ Durch die klare Kategorisierung und konsequente Verwendung von Code-Blöcken erm
 Die Prompt Library ist ein essenzielles Werkzeug der Methodik. Sie schafft Klarheit, Wiederholbarkeit und hohe Stabilität im Umgang mit dem LLM und reduziert typische Fehlerquellen wie Drift, Rollenvermischung oder unklare Aufgabenformulierung.
 
 Mit ihr steht ein kompakter, belastbarer und sofort einsetzbarer Prompt-Baukasten zur Verfügung, der den gesamten Arbeitsfluss unterstützt und die Qualität der Ergebnisse nachhaltig verbessert.
-
-# Weiterführende Dokumente
-
--- Drift-Management\
--- Persistenzmechanismen\
--- Mikroprozess\
--- Rollenmodell
