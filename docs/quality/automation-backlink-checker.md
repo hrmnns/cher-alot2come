@@ -101,19 +101,73 @@ node scripts/check_backlinks.js
 
 ### 5.4 Beispielausgabe
 ```
-Scanning docs/ ...
+PS C:\...\Repositories\cher-alot2come> python .\docs\tools\check_backlinks.py
+Scanning 20 Markdown-Dateien...
 
-[ERROR] docs/processes/process-macro.md
+=== FEHLER ===
+
+[ERROR] foundations\chatgpt-projects.md
   - Backlink-Sektion fehlt
 
-[ERROR] docs/quality/drift-management.md
-  - Broken Link: '../meta/unknown-file.md'
+[ERROR] foundations\methodology-foundations.md
+  - Backlink-Sektion fehlt
 
-[OK] docs/meta/information-architecture.md
+[ERROR] foundations\mission-and-scope.md
+  - Backlink-Sektion fehlt
+
+[ERROR] foundations\preparation-summary.md
+  - Backlink-Sektion fehlt
+
+[ERROR] meta\decision-log-method.md
+  - Backlink-Sektion enthält keine Links
+
+[ERROR] planning\roadmap-phase1.md
+  - Backlink-Sektion fehlt
+
+[ERROR] processes\handover-and-closure.md
+  - Backlink-Sektion fehlt
+
+[ERROR] processes\process-macro.md
+  - Backlink-Sektion enthält keine Links
+
+[ERROR] processes\process-micro-chat.md
+  - Backlink-Sektion enthält keine Links
+
+[ERROR] quality\automation-backlink-checker.md
+  - Backlink-Sektion fehlt
+
+[ERROR] quality\drift-management.md
+  - Backlink-Sektion fehlt
+
+[ERROR] quality\persistence-mechanisms.md
+  - Backlink-Sektion fehlt
+
+[ERROR] README.md
+  - Backlink-Sektion fehlt
+
+[ERROR] structure\document-types-and-storage.md
+  - Backlink-Sektion fehlt
+
+[ERROR] structure\glossary.md
+  - Backlink-Sektion fehlt
+
+[ERROR] structure\information-architecture.md
+  - Backlink-Sektion enthält keine Links
+
+[ERROR] structure\methodology-building-blocks.md
+  - Backlink-Sektion fehlt
+
+[ERROR] structure\prompt-library.md
+  - Backlink-Sektion fehlt
+
+[ERROR] structure\roles-llm.md
+  - Backlink-Sektion enthält keine Links
+
+[ERROR] tools\start-prompt-generator.md
+  - Backlink-Sektion fehlt
 
 Summary:
-  2 Dateien mit Fehlern
-  1 Datei OK
+  20 Dateien mit Fehlern
 Exit-Code: 1
 ```
 
