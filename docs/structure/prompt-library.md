@@ -408,7 +408,156 @@ Prozessbezug: Mikroprozess Phase E (Abschluss), Makroprozess Phase 6 (Übergabe)
 Bitte liste alle offenen Punkte aus diesem Chat.
 ```
 
-Hier ist eine **kurze, präzise und methodisch saubere Zusammenfassung + ein kompaktes Fazit**, passend zum Stil der bestehenden Dokumentation:
+# 8. Arbeitssteuerungs-Prompts
+
+Diese Kategorie ergänzt alle Promptarten, die im Mikroprozess und Drift-Management vorgesehen sind, aber bisher nicht in der Prompt-Library enthalten waren.
+
+## 8.1 Zielpräzisierung
+
+### 8.1.1 Prompt: Ziel wiederholen
+
+**Zweck:** Sicherstellung korrekter Zielinterpretation.\
+**Wirkung:** Das LLM formuliert das Ziel in eigenen Worten.\
+**Risiken:** Fehlinterpretation des Arbeitsziels.\
+**Prozessbezug:** Mikroprozess Phase A.
+
+``` md
+Bitte wiederhole das Ziel dieser Arbeitseinheit in deinen eigenen Worten.
+```
+
+### 8.1.2 Prompt: Zielpräzisierung
+
+**Zweck:** Verfeinert das Arbeitsziel.\
+**Wirkung:** Das LLM erzeugt eine präzisierte Zieldefinition.\
+**Risiken:** unscharfe Aufgabenstellung.\
+**Prozessbezug:** Mikroprozess Phase A.
+
+``` md
+Bitte gib eine präzisierte Version der Zieldefinition aus.
+```
+
+## 8.2 Kontextpräzisierung
+
+### 8.2.1 Prompt: Kontext kurz zusammenfassen
+
+**Zweck:** Aktiviert den relevanten Kontext für die Arbeitseinheit.\
+**Wirkung:** Das LLM fasst Kontext knapp und korrekt zusammen.\
+**Risiken:** Kontextdrift.\
+**Prozessbezug:** Mikroprozess Phase A.
+
+``` md
+Bitte gib den relevanten Kontext dieser Arbeitseinheit in 3 Sätzen wieder.
+```
+
+### 8.2.2 Prompt: Kontext-Reset
+
+**Zweck:** Setzt Arbeitskontext aktiv neu.\
+**Wirkung:** LLM rekonstruiert Ziel und Begriffe aus Projektanweisung &
+Glossar.\
+**Risiken:** fortgeschriebene Kontextdrift.\
+**Prozessbezug:** Drift-Management, Phase A/D.
+
+``` md
+Bitte aktualisiere deinen Kontext: Ziel ist <Ziel>.
+Formuliere in 2–3 Sätzen, wie du dieses Ziel auf Basis der Projektanweisung und des Glossars interpretierst.
+```
+
+## 8.3 Iterationssteuerung
+
+### 8.3.1 Prompt: Überarbeitung entlang Feedback
+
+**Zweck:** Steuert gezielte Iteration.\
+**Wirkung:** LLM arbeitet Feedback präzise ein.\
+**Risiken:** zu breite Überarbeitungen.\
+**Prozessbezug:** Mikroprozess Phase C/D.
+
+``` md
+Bitte überarbeite die letzte Version entlang der folgenden Punkte: <Liste>.
+```
+
+### 8.3.2 Prompt: Variante präzisieren
+
+**Zweck:** Verfeinert eine Variante.\
+**Wirkung:** LLM erzeugt präzisere Nachfolgeversion.\
+**Risiken:** Varianten vermischen sich.\
+**Prozessbezug:** Mikroprozess Phase C.
+
+``` md
+Bitte verfeinere Variante <Nummer> entlang der zentralen Argumentationslinie.
+```
+
+## 8.4 Variantenvergleich
+
+### 8.4.1 Prompt: Unterschiede markieren
+
+**Zweck:** Identifiziert Unterschiede zwischen Varianten.\
+**Wirkung:** LLM vergleicht strukturiert.\
+**Risiken:** fehlende Trennschärfe.\
+**Prozessbezug:** Mikroprozess Phase C/D.
+
+``` md
+Bitte markiere die Unterschiede zwischen Variante <A> und Variante <B>.
+```
+
+### 8.4.2 Prompt: Vergleichende Bewertung
+
+**Zweck:** Bewertet Varianten anhand Kriterien.\
+**Wirkung:** LLM erstellt vergleichende Analyse.\
+**Risiken:** unklare Entscheidungsgrundlagen.\
+**Prozessbezug:** Mikroprozess Phase D.
+
+``` md
+Bitte vergleiche Variante <A> und <B> anhand der folgenden Kriterien: <Liste>.
+```
+
+## 8.5 Fokusgrenzen
+
+### 8.5.1 Prompt: Fokus auf Struktur
+
+**Zweck:** Einschränkung auf Strukturebene.\
+**Wirkung:** Modell arbeitet ohne Fließtext.\
+**Risiken:** Vermischung von Struktur & Inhalt.\
+**Prozessbezug:** Mikroprozess Phase B/D.
+
+``` md
+Bitte bleibe ausschließlich auf Strukturebene und formuliere nicht im Fließtext.
+```
+
+### 8.5.2 Prompt: Fokus auf Abschnitt
+
+**Zweck:** Begrenzung des Arbeitsbereichs.\
+**Wirkung:** LLM fokussiert auf definierten Teilbereich.\
+**Risiken:** zu breiter Scope.\
+**Prozessbezug:** Mikroprozess Phase C/D.
+
+``` md
+Bitte konzentriere dich ausschließlich auf den Abschnitt <Name>.
+```
+
+## 8.6 Ergebnisbenennungen
+
+### 8.6.1 Prompt: Zwischenergebnis benennen
+
+**Zweck:** Eindeutige Benennung eines Ergebnisses.\
+**Wirkung:** LLM markiert Ergebnis klar referenzierbar.\
+**Risiken:** Verwechslungen späterer Iterationen.\
+**Prozessbezug:** Mikroprozess Phase C/E.
+
+``` md
+Bitte benenne dieses Ergebnis als „<Name des Zwischenergebnisses> – stabil“.
+```
+
+### 8.6.2 Prompt: Finale Version benennen
+
+**Zweck:** Kennzeichnet eine finale Fassung.\
+**Wirkung:** LLM markiert stabilen Endstand.\
+**Risiken:** Unklarheit über finale Version.\
+**Prozessbezug:** Mikroprozess Phase E.
+
+``` md
+Bitte markiere diese Version als „Finale Fassung <Bezeichnung>“.
+```
+
 
 # **Zusammenfassung**
 
