@@ -60,6 +60,16 @@ Meta-Chat  →  Projekt-Chat  →  Meta-Chat  →  Projekt-Chat  → …
 
 # 4. Ablaufschritte im Detail
 
+Die Grafik zeigt, wie bei cher-alot2come zwei getrennte Chats zusammenarbeiten:
+Der **Meta-Chat** strukturiert das Vorgehen, definiert Aufgaben und erstellt Startprompts.
+Der **Projekt-Chat** führt diese Aufgaben operativ aus und liefert Ergebnisblöcke zurück.
+
+Der Nutzer wechselt zwischen beiden Chats, indem er Startprompts in den Projekt-Chat überträgt und Ergebnisblöcke zur Überprüfung in den Meta-Chat zurückführt.
+Dieser zyklische Ablauf — Strukturierung → Umsetzung → Review — wird für jede Phase wiederholt und sorgt für Klarheit, Driftsicherheit und saubere Ergebnisse.
+
+![Prozessablauf](./data/parallel-chat-coordination.png)
+(vgl. [Prozessablauf](./data/parallel-chat-coordination.uml))
+
 ## Schritt 1 – Strukturierte Aufgabe im Meta-Chat formulieren
 Meta-Chat erstellt:
 - Ziel der Phase  
