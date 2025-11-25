@@ -16,6 +16,11 @@ Die Prompt Library ist ein struktureller Baustein der Methodik und erleichtert s
 
 ### 1.1 Standard-Start-Prompt
 
+**Zweck:** Setzt methodischen Rahmen und Ziel.\
+**Wirkung:** Aktiviert korrekten Rollenmodus, verhindert frühen Drift.\
+**Risiken:** Unklare Ziele, Rollendrift.\
+**Prozessbezug:** Mikroprozess A.
+
 ``` md
 Bitte agiere als LLM-Methodiker.
 Wir starten eine neue Arbeitseinheit.
@@ -28,6 +33,11 @@ Bitte bestätige den Start-Prompt.
 
 ### 1.2 Start-Prompt für Issue-Bearbeitung
 
+**Zweck:** Richtet den Chat sauber am Issue aus.\
+**Wirkung:** Verhindert Abweichungen.\
+**Risiken:** Fehlinterpretation.\
+**Prozessbezug:** Mikroprozess A / Phase 3.
+
 ``` md
 Neuer Chat zur Bearbeitung von Issue <Nummer>.
 Bitte als Methodiker arbeiten.
@@ -38,6 +48,11 @@ Bitte bestätige Rollen, Ziel und Vorgehen.
 
 ### 1.3 Start-Prompt für Dokumentüberarbeitung
 
+**Zweck:** Schützt persistierte Struktur.\
+**Wirkung:** Strukturarbeit ohne Inhaltserweiterung.\
+**Risiken:** Strukturdrift.\
+**Prozessbezug:** Phase 4--5.
+
 ``` md
 Bitte agiere als Strukturgeber.
 Wir überarbeiten Abschnitt <Name> aus <Dokument>.
@@ -47,7 +62,12 @@ Arbeitsmodus: Strukturierung.
 
 # 2. Drift-Korrektur-Prompts
 
-### 2.1 Sofortkorrekturen
+### 2.1 Begriffsdrift korrigieren
+
+**Zweck:** Stoppt semantische Drift.\
+**Wirkung:** Rückführung auf Glossardefinition.\
+**Risiken:** Verwässerte Terminologie.\
+**Prozessbezug:** Drift-Korrektur.
 
 ``` md
 Wir haben eine Begriffsdrift: Der definierte Begriff ist "<Begriff>".
@@ -216,11 +236,21 @@ Bitte bestätige Terminologie, Struktur und Zielrahmen dieser Arbeitseinheit.
 
 ### 6.2 Rollen-Check
 
+**Zweck:** Rollenklarheit.\
+**Wirkung:** Modell arbeitet bewusst im richtigen Modus.\
+**Risiken:** Rollenvermischung.\
+**Prozessbezug:** Mikroprozess A.
+
 ``` md
 In welcher Rolle arbeitest du gerade?
 ```
 
 ### 6.3 Struktur-Check
+
+**Zweck:** Sicherstellt korrekte Begriffe und Struktur.\
+**Wirkung:** Synchronisation mit Repo.\
+**Risiken:** Begriffs- und Strukturdrift.\
+**Prozessbezug:** Drift-Check.
 
 ``` md
 Bitte gib die gültige Prozess- oder Dokumentstruktur aus <Dokument> wieder.
