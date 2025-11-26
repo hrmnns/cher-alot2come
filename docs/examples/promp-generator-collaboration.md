@@ -484,6 +484,8 @@ Die Kernlogik steht, die Module sind sauber getrennt und erweiterbar.
 
 Details, UX, Qualität und Robustheit werden verbessert, letzte Lücken geschlossen. Das Projekt wird reif für Abschluss und Übergabe gemacht.
 
+> Phase 5 des Beispielprojekts entspricht nicht 1:1 der Phase 5 des Makroprozesses. Im technischen Kontext war ein zusätzlicher Feinschliff vor der formalen Persistenz notwendig. Die Persistenzanteile des Makroprozesses verschieben sich daher in Phase 6 des Beispielprojekts.
+
 ### Prompt
 
 ``` md
