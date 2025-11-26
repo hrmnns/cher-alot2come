@@ -86,6 +86,11 @@ Das Beispielprojekt wurde vollständig entlang des cher-alot2come-Makroprozesses
 
 **Ergebnis:** benutzerfreundliche, stabile App.
 
+**Hinweis:** Die Phase 5 des Beispielprojekts („Feinschliff & Optimierung“) unterscheidet sich funktional von Phase 5 des Makroprozesses („Persistenz“). Da das Beispielprojekt ein technisches Softwareprojekt ist, fügt es eine projektspezifische Feinschliffphase zwischen Konsolidierung und Abschluss ein. Persistenz und Projektabschluss entsprechen im Beispielprojekt der Phase 6. Damit ergibt sich folgende Zuordnung:
+- Beispiel Phasen 1–4 ↔ Makroprozess Phasen 1–4
+- Beispiel Phase 5 ↔ operative/konsolidierende Vertiefung (Phase 3/4)
+- Beispiel Phase 6 ↔ Makroprozess Phase 5–6
+
 ## **Phase 6 – Abschluss & Übergabe**
 
 * Finaler UI-Check
