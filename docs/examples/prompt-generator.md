@@ -1,7 +1,6 @@
 # 📘 Beispielprojekt: Prompt-Generator (V1)
 
-Dieses Kapitel beschreibt das vollständige Beispielprojekt **„Prompt-Generator“**, das die Anwendung der cher-alot2come-Methodik exemplarisch demonstriert.
-Der Prompt-Generator ist ein kleines, rein clientseitiges WebTool, mit dem strukturierte Prompts auf Basis der Methodik erzeugt werden können.
+Dieses Kapitel beschreibt das vollständige Beispielprojekt **„Prompt-Generator“**, das die Anwendung der ALOT2COME-Methodik exemplarisch demonstriert. Der Prompt-Generator ist ein kleines, rein clientseitiges WebTool, mit dem strukturierte Prompts auf Basis der Methodik erzeugt werden können.
 
 Die **technische Umsetzung** befindet sich im separaten Repository:
 
@@ -12,11 +11,13 @@ Dieses Kapitel konzentriert sich ausschließlich auf die **methodische Durchfüh
 
 # 1. Projektsteckbrief
 
-**Titel:** Prompt-Generator WebApp
-**Projektart:** Demonstrator / Beispielprojekt
-**Technologie:** HTML, Tailwind CSS, Vanilla JavaScript
-**Ziel:** Zeigen, wie ein reales Mini-Projekt vollständig nach dem Makro- und Mikroprozess der cher-alot2come-Methodik durchgeführt wird.
-**Ergebnis:** Funktionale WebApp, vollständige Dokumentation, Release-Bundle.
+Das Beispielprojekt ist bewusst kompakt gehalten. Es eignet sich ideal, um das Zusammenspiel von Makroprozess, Mikroprozess, Rollenmodell, Persistenz und Drift-Management an einem greifbaren Artefakt zu demonstrieren.
+
+- Titel: Prompt-Generator WebApp
+- Projektart: Beispielprojekt / Demonstrator
+- Technologie: HTML, Tailwind CSS, Vanilla JavaScript
+- Ziel: Praxisbeispiel für die Anwendung von ALOT2COME über alle relevanten Phasen hinweg
+- Ergebnis: Eine funktionale WebApp inkl. Release-Bundle und veröffentlichter Version
 
 # 2. Zweck des Beispielprojekts
 
@@ -24,7 +25,7 @@ Das Beispielprojekt dient dazu zu demonstrieren:
 
 * wie man ein Thema **methodisch sauber** von Phase 1–6 durchführt,
 * wie man **Drift-Kontrolle**, **Persistenz**, **Rollenmodell** und **Startprompts** nutzt,
-* wie man zwei parallele Chats (Meta/Projekt) koordiniert,
+* wie man zwei [parallele Chats](../processes/parallel-chat-coordination.md) (Meta/Projekt) koordiniert,
 * wie man Ergebnisse sauber ins Repo überführt,
 * und wie aus einem abstrakten Problem eine strukturierte Lösung entsteht.
 
@@ -32,57 +33,59 @@ Das Projekt ist bewusst **klein, überschaubar und vollständig dokumentiert**, 
 
 # 3. Vorgehen gemäß Makroprozess
 
-Das Beispielprojekt wurde vollständig entlang des cher-alot2come-Makroprozesses durchgeführt:
+Die Durchführung folgt eng den Makrophasen von ALOT2COME. Jede Phase erzeugt klar benannte Zwischenstände, die teilweise direkt ins Repo übertragen werden.
 
 ## **Phase 1 – Vorbereitung**
 
-* Projektziel geklärt
-* Scope / Nicht-Scope definiert
-* erste funktionale Anforderungen gesammelt
-* Projektanweisung im Projekt-Chat formuliert
-* initialer Projektaufbau erarbeitet
+Zu Beginn wurde definiert, was der Prompt-Generator leisten soll und welchen Rahmen das Projekt hat. Kontext, Ziele und Nicht-Ziele wurden präzisiert, ebenso wie die grundlegende Arbeitsweise im Projektchat und das Format des Startprompts. In dieser Phase entsteht außerdem die Projektanweisung für den Meta-Chat.
 
-**Persistiert als:**
-`docs/examples/prompt-generator/phase-1.md` *(empfohlen)*
+Ergebnis: ein sauber abgegrenzter Projektstart, der später Drift verhindert.
 
 ## **Phase 2 – Problemrahmen definieren**
 
-* Definition der Prompt-Typen (5 Typen)
-* Definition aller Felder je Typ
-* Datenmodell (PromptType, Field, PromptInstance)
-* Auswahlwerte (Rollen, Driftarten etc.)
-* UI-Flows und Wizard-Konzept
+In dieser Phase wurden alle notwendigen Begriffe, Modelle und Strukturen erarbeitet:
+- Definition der fünf Prompt-Typen
+- Festlegung der Felder pro Typ
+- Datentypen für die generierenden Elemente
+- UI-Abläufe und Wizard-Logik
+- Rollen und Auswahlwerte für die spätere Nutzung
+
+Diese Phase stellt sicher, dass das Projekt fachlich sauber fundamentiert ist und dass spätere Entscheidungen auf einer stabilen Basis aufsetzen.
 
 **Ergebnis:** vollständige funktionale Spezifikation.
 
 ## **Phase 3 – Operative Bearbeitung**
 
-* Grundstruktur der WebApp angelegt
-* Projektstruktur definiert (`src/`, `js/`, `ui/`)
-* HTML-Skeleton + Header/Footer
-* State-Management eingerichtet
-* dynamische Formfelder & Preview-Placeholder
+Anschließend wurde die technische Basis der WebApp aufgebaut. Der Chat diente dabei als Ort für Iterationen über Struktur, Komponenten, Datenfluss und Architektur. Die Ergebnisse dieser Phase waren:
+- ein HTML-Grundgerüst
+- klare Projektstruktur im Repository
+- dynamische Formfelder und erste Vorschaukomponenten
+
+Hier zeigt sich der Mikroprozess besonders deutlich: jeder Arbeitsschritt beginnt mit Fokus-Setzung, Rollenaktivierung und kleinschrittigen Iterationen.
 
 **Ergebnis:** funktionierendes Grundgerüst.
 
 ## **Phase 4 – Konsolidierung**
+In dieser Phase wurde die technische Logik stabilisiert:
+- Event-Handling vereinheitlicht
+- State-Management geklärt
+- Markdown-Generator integriert
+- Prompt-Templates konsolidiert
 
-* Event-Handling
-* Live-State-Updates
-* Markdown-Generator
-* Prompt-Templates
-* Copy-to-Clipboard
-* Modulgrenzen bereinigt
+Die Konsolidierung ist ein wiederkehrender Mechanismus im Makroprozess: hier werden Strukturen vereinheitlicht und driftanfällige Stellen bereinigt.
 
 **Ergebnis:** voll funktionsfähige Kernlogik.
 
 ## **Phase 5 – Feinschliff & Optimierung**
 
-* UI-Polishing
-* Responsive Design
-* Markdown-to-HTML-Ansicht
-* Validierung & Error-Handling
-* Wizard-Grundstruktur
+Diese Phase war notwendig, da es sich um ein Softwareprojekt handelt. Sie entspricht einer operativen Vertiefung zwischen Phase 3 und 4 des Makroprozesses:
+
+- UI-Optimierung
+- Responsivität / Responsive Design
+- Validierung
+- bessere Bedienbarkeit
+
+Dies ist ein gutes Beispiel dafür, wie ALOT2COME flexibel mit projektspezifischen Ergänzungen umgehen kann, ohne die Prozesslogik zu verwässern.
 
 **Ergebnis:** benutzerfreundliche, stabile App.
 
@@ -92,12 +95,14 @@ Das Beispielprojekt wurde vollständig entlang des cher-alot2come-Makroprozesses
 - Beispiel Phase 6 ↔ Makroprozess Phase 5–6
 
 ## **Phase 6 – Abschluss & Übergabe**
+Zum Ende wurden:
+- finale Templates konsolidiert
+- ein Release-Bundle erzeugt
+- UI- und Funktionsprüfung durchgeführt
+- Version 1.0.0 bereitgestellt
+- in strukturierter Handover erstellt
 
-* Finaler UI-Check
-* konsolidierte Templates
-* Dokumentationspaket erstellt
-* Release-Bundle generiert
-* V1.0.0 bereit
+Dies entspricht den Phasen 5 & 6 des Makroprozesses: Persistenz + Abschluss.
 
 **Ergebnis:** Projekt abgeschlossen & release-ready.
 
@@ -107,18 +112,15 @@ Während des Projekts wurden mehrere Formen von Drift aktiv identifiziert und ko
 
 ### **Begriffliche Drift**
 
-* unterschiedliche Bezeichnungen für Prompt-Typen
-* wurde korrigiert durch Abgleich mit Phase-2-Datenmodell
+Frühe Entwürfe verwendeten unterschiedliche Bezeichnungen für Prompt-Typen. Durch Abgleich mit dem Datenmodell (Phase 2) wurde dies korrigiert.
 
 ### **Strukturdrift**
 
-* UI-Ablauf war uneindeutig (Wizard vs. Single-Page)
-* wurde durch klare Priorisierung (Single-Page als Standard) behoben
+UI-Abläufe wurden während der Iterationen unterschiedlich interpretiert. Durch eine bewusste Entscheidung (Single-Page statt Wizard-Zwang) wurde die Struktur stabilisiert.
 
 ### **Rollen-/Zieldrift**
 
-* der Projektchat neigte teilweise dazu, zusätzliche Features vorzuschlagen
-* wurde per Prompt-Korrektur gestoppt („kein Backend, keine neuen Prompt-Typen“)
+Der Implementierungs-Chat schlug gelegentlich zusätzliche Features vor. Durch Mini-Drift-Checks und klar formulierte Fokusbegrenzungen wurde die Zielausrichtung wiederhergestellt. Das Projekt zeigt damit, wie Drift-Erkennung, Drift-Check und Drift-Korrektur praktisch funktionieren.
 
 Das Projekt demonstriert damit aktiv **Erkennung & Reparatur von Drift**, ein zentraler Bestandteil von cher-alot2come.
 
