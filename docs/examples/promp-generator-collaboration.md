@@ -1,4 +1,5 @@
-# Collaboration
+# Beispielprojekt: Prompt-Generator - Collaboration in den Phasen
+
 Das Beispiel zeigt, wie bei ALOT2COME zwei getrennte Chats zusammenarbeiten:
 - Der Meta-Chat strukturiert das Vorgehen, definiert Aufgaben und erstellt Startprompts.
 - Der Projekt-Chat führt diese Aufgaben operativ aus und liefert Ergebnisblöcke zurück.
