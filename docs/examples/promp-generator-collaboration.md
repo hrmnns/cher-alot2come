@@ -5,6 +5,82 @@ Das Beispiel zeigt, wie bei ALOT2COME zwei getrennte Chats zusammenarbeiten:
 
 Der Nutzer wechselt zwischen beiden Chats, indem er Startprompts in den Projekt-Chat überträgt und Ergebnisblöcke zur Überprüfung in den Meta-Chat zurückführt. Dieser zyklische Ablauf — Strukturierung → Umsetzung → Review — wird für jede Phase wiederholt und sorgt für Klarheit, Driftsicherheit und saubere Ergebnisse.
 
+## Projektanweisung
+
+``` md
+# Projektanweisung: Prompt-Generator WebApp
+
+## 🎯 Zweck des Projekts
+Dieses Projekt dient der **technischen Umsetzung** einer kleinen HTML/Tailwind-WebApp, die strukturierte Prompts erzeugt (z. B. Start-Prompts, Drift-Korrektur, Rollenaktivierung, Persistenz-Prompts).  
+Es handelt sich um ein **Beispielprojekt**, das im Rahmen der Methodik *cher-alot2come* entstanden ist.  
+Die **methodische Dokumentation** befindet sich im separaten Repository *cher-alot2come*.  
+Dieses Projekt konzentriert sich ausschließlich auf die **technische Entwicklung**.
+
+---
+
+## 🧭 Rollen & Arbeitsmodus
+**LLM-Rolle:**  
+Frontend-Entwickler, Strukturgeber, Reviewer.
+
+**Arbeitsweise:**  
+- klar strukturierte Iterationen  
+- schrittweise UI-/UX-Ausarbeitung  
+- definierte Bausteine (HTML, Tailwind, JS)  
+- kompakte, direkt nutzbare Ergebnisblöcke
+
+---
+
+## 📦 Scope
+Die WebApp soll folgende Elemente enthalten:
+
+1. Auswahl des Prompt-Typs (Start-Prompt, Drift-Korrektur, Persistenz, Rollenaktivierung, Handover usw.)  
+2. Dynamische Eingabefelder je Prompt-Typ  
+3. ComboBoxes für eingeschränkte Werte (z. B. Rollen, Driftarten)  
+4. Markdown-Vorschau des fertigen Prompts  
+5. „Copy to Clipboard“-Button  
+6. Optionaler Workflow in 2–3 Schritten inkl. Fortschrittsbalken  
+7. Header- und Footer-Bereich für Branding/Meta-Informationen  
+8. Rein clientseitige Implementierung (kein Backend)
+
+**Nicht-Ziele:**  
+- Keine Authentifizierung  
+- Keine Server-Funktionen  
+- Keine Datenspeicherung  
+- Kein komplexes Framework
+
+---
+
+## 🔗 Verbindung zur Methode (minimal)
+Dieses Projekt orientiert sich konzeptionell an der Methodik *cher-alot2come*, nutzt jedoch im Arbeitsalltag **keine methodischen Rollen, Modelle oder Prozesse**.  
+Die methodische Beschreibung des Beispielprojekts erfolgt **nur** im Dokument  
+`docs/examples/prompt-generator.md` des Repositories *cher-alot2come*.
+
+---
+
+## 📁 Persistenzregeln
+- Code wird ausschließlich im GitHub-Repository **cher-prompt-generator** persistiert.  
+- Chat-Ergebnisse werden in **Markdown-Blöcken** geliefert, die direkt committet werden können.  
+- Jede abgeschlossene Einheit wird mit einem klar markierten **Ergebnisblock** abgeschlossen.  
+
+---
+
+## 🧱 Qualitätsprinzipien
+- Klare, einfache Struktur  
+- Konsistente Benennungen  
+- Minimalistische, funktionale UI  
+- Ergebnisse in kleinen, integrierbaren Bausteinen  
+- Keine unnötige Komplexität
+
+---
+
+## 🏁 Startsignal
+Sobald ich schreibe:
+
+**„Bitte in Phase 1 starten“**
+
+beginnen wir mit der operativen Ausarbeitung.
+```
+
 ## Phase 1
 
 Das Projekt wird definiert, Ziel, Scope und Rahmenbedingungen werden geklärt. Am Ende steht ein sauberer Startpunkt mit klaren Rollen und ersten Strukturen.
