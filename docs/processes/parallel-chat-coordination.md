@@ -1,11 +1,9 @@
 # Parallel Chat Coordination  
-## Arbeiten mit Meta-Chat und Projekt-Chat im cher-alot2come-Framework
 
-Dieses Dokument beschreibt den strukturierten Einsatz zweier paralleler ChatGPT-Kontexte im Rahmen der cher-alot2come-Methodik. Dieses Vorgehen wurde erfolgreich im Beispielprojekt *Prompt-Generator WebApp* demonstriert.
+Dieses Dokument beschreibt den strukturierten Einsatz **zweier paralleler ChatGPT-Kontexte** im Rahmen der ALOT2COME-Methodik. Dieses Vorgehen wurde erfolgreich im Beispielprojekt *Prompt-Generator WebApp* demonstriert.
 
 # 1. Zweck des Ansatzes
-Komplexere Vorhaben profitieren von einer klaren Trennung der Rollen und Aufgaben, die ein LLM übernehmen soll.  
-Das wird durch die Nutzung zweier paralleler Chats erreicht:
+Komplexere Vorhaben profitieren von einer klaren Trennung der Rollen und Aufgaben, die ein LLM übernehmen soll. Das wird durch die Nutzung zweier paralleler Chats erreicht:
 
 - **Meta-Chat:** Denkraum für Struktur, Qualität, Methode  
 - **Projekt-Chat:** Ausführender Arbeitsraum für Umsetzung, Code, UI, Inhalte
@@ -13,8 +11,11 @@ Das wird durch die Nutzung zweier paralleler Chats erreicht:
 Dies verhindert Drift, Scope-Vermischung und Kontextüberladung.
 
 # 2. Rollenverteilung
+In diesem Beispiel wird die Zusammenarbeit mit dem LLM bewusst in zwei getrennte Chat-Formen aufgeteilt: einen Meta-Chat und einen Project-Chat. Diese Trennung verhindert Rollen- und Kontextdrift und stellt sicher, dass methodische Entscheidungen nicht mit der operativen Arbeit vermischt werden. Während der Meta-Chat den Rahmen setzt, steuert und stabilisiert, konzentriert sich der Project-Chat ausschließlich auf die inhaltliche oder technische Umsetzung. Dadurch bleibt die Arbeit in beiden Chats klar strukturiert, kontrolliert und reproduzierbar.
 
 ## Meta-Chat
+Der Meta-Chat dient der methodischen Steuerung eines Projekts: Hier werden Struktur, Vorgehen, Rollen, Drift-Kontrolle, Startprompts, Persistenz und Qualitätsentscheidungen besprochen und geklärt. Er definiert den Rahmen, in dem der Project-Chat operativ arbeitet.
+
 Verantwortlich für:
 - Strukturierung des Vorhabens  
 - Definition von Phasen, Startprompts und Aufgaben  
@@ -31,6 +32,8 @@ Nicht zuständig für:
 - operative Ausführung  
 
 ## Projekt-Chat
+Der Project-Chat ist der operative Arbeitsraum, in dem die eigentliche inhaltliche oder technische Umsetzung erfolgt — etwa die Entwicklung einer WebApp, das Schreiben eines Textes oder die Ausarbeitung eines Modells. Er folgt den methodischen Leitplanken des Meta-Chats und konzentriert sich ausschließlich auf die konkrete Aufgabe.
+
 Verantwortlich für:
 - operative Umsetzung  
 - Code, UI, Logik  
@@ -114,6 +117,8 @@ Basierend auf dem Review generiert der Meta-Chat:
 | Phase 5 | Feinschliff | UX, Responsiveness |
 | Phase 6 | Abschlussrahmen | Finalisierung, Release |
 
+Die detaillierte Kommunikation zwischen diesen beiden Chats wurde [hier](../../docs/examples/promp-generator-collaboration.md) aufgezeichnet.
+
 # 6. Drift-Management in parallelen Chats
 
 Typische Drifts:
@@ -160,6 +165,4 @@ Beide landen getrennt:
 
 # 10. Fazit
 
-Das Parallel-Chat-Modell ist ein entscheidender Baustein der cher-alot2come-Methode.  
-Es verbessert Fokus, Klarheit, Qualität und Reproduzierbarkeit komplexer KI-gestützter Projekte.  
-Das Beispielprojekt *Prompt-Generator* bestätigt die Praxistauglichkeit dieses Ansatzes.
+Das Parallel-Chat-Modell ist ein entscheidender Baustein der cher-alot2come-Methode. Es verbessert Fokus, Klarheit, Qualität und Reproduzierbarkeit komplexer KI-gestützter Projekte. Das Beispielprojekt *Prompt-Generator* bestätigt die Praxistauglichkeit dieses Ansatzes.
