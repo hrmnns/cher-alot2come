@@ -82,7 +82,7 @@ Sobald ich schreibe:
 beginnen wir mit der operativen Ausarbeitung.
 ```
 
-## Phase 1
+## Phase 1 – Vorbereitung
 
 Das Projekt wird definiert, Ziel, Scope und Rahmenbedingungen werden geklärt. Am Ende steht ein sauberer Startpunkt mit klaren Rollen und ersten Strukturen.
 
@@ -188,7 +188,7 @@ Eine minimalistische, rein clientseitige HTML/Tailwind/JS-WebApp, die strukturie
 - UX bei langen Prompts
 ```
 
-## Phase 2
+## Phase 2 – Problemrahmen definieren
 
 Die fachlichen und technischen Anforderungen werden präzisiert, Begriffe geklärt und Modelle erstellt. Damit entsteht ein stabiles Fundament für alle späteren Entscheidungen.
 
@@ -324,7 +324,7 @@ offen, implizit
 - Minimierung der visuellen Überladung
 ```
 
-## Phase 3
+## Phase 3 – Operative Bearbeitung
 
 Die eigentliche Umsetzung beginnt: Module, Strukturen, Inhalte oder Funktionen werden iterativ entwickelt. Der Fokus liegt auf greifbaren Ergebnissen und funktionsfähigen Artefakten.
 
@@ -412,7 +412,7 @@ cher-prompt-generator
 - Ausarbeitung der finalen Prompt-Templates  
 ```
 
-## Phase 4
+## Phase 4 – Konsolidierung
 
 Die bisherigen Ergebnisse werden überprüft, bereinigt, vereinheitlicht und stabilisiert. Strukturen werden geradegezogen, Inkonsistenzen behoben und der Gesamtstand gesichert.
 
@@ -480,7 +480,7 @@ Die Kernlogik steht, die Module sind sauber getrennt und erweiterbar.
 - Mobile-Optimierung  
 ```
 
-## Phase 5
+## Phase 5 – Feinschliff & Optimierung
 
 Details, UX, Qualität und Robustheit werden verbessert, letzte Lücken geschlossen. Das Projekt wird reif für Abschluss und Übergabe gemacht.
 
@@ -573,7 +573,7 @@ Die App hat nun:
 Bereit für Phase 6 (Abschluss, Review und Vorbereitung auf Release).
 ```
 
-## Phase 6
+## Phase 6 – Abschluss & Übergabe
 
 ### Prompt
 
