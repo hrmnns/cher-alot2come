@@ -108,18 +108,23 @@ Dieses Zusammenspiel macht die Methode skalierbar, klar strukturiert und langfri
 
 ## 7. Historische Ableitung und Umsetzung
 
-Die in diesem Dokument beschriebenen Grundlagen bildeten die Ausgangsbasis für die heutige Methodologie. In Phase 1 wurden diese Prinzipien in konkrete Dokumentstrukturen überführt:
+Dieses Kapitel zeigt, wie sich die heutigen Methodendokumente aus den in diesem Foundations-Dokument beschriebenen Prinzipien entwickelt haben. Es dient der Einordnung und hilft insbesondere neuen Leserinnen und Lesern zu verstehen, wie die ALOT2COME-Methodologie entstanden ist und welche Schritte zu ihrer heutigen Form geführt haben.
 
-- Makroprozess: `process-macro.md`  
-- Mikroprozess: `process-micro-chat.md`  
-- Rollenmodell: `roles-llm.md`  
-- Drift-Management: `drift-management.md`  
-- Persistenzmechanismen: `persistence-mechanisms.md`  
-- Parallel-Chat-Modell: `parallel-chat-coordination.md`  
-- Prompt Library: `prompt-library.md`  
-- Informationsarchitektur: `information-architecture.md`  
+Die hier beschriebenen Grundprinzipien – etwa Persistenz, Drift-Management, klare Rollenlogik, strukturierte Chats und die Trennung von Meta- und Projektebene – bildeten in Phase 1 den methodischen Ausgangspunkt. Aus diesen Grundlagen wurden anschließend die konkreten Bausteine, Prozesse und Dokumentstrukturen abgeleitet, die heute den Kern der Methodik ausmachen.
 
-Damit ist dieses Foundations-Dokument heute weniger eine To-do-Liste, sondern eine **Referenz** für die Entstehung, Logik und Grundprinzipien der Methode.
+Im Verlauf von Phase 1 wurden diese konzeptionellen Grundlagen systematisch in operative Dokumente überführt, unter anderem in:
+
+* **Makroprozess:** `process-macro.md`
+* **Mikroprozess:** `process-micro-chat.md`
+* **Rollenmodell:** `roles-llm.md`
+* **Drift-Management:** `drift-management.md`
+* **Persistenzmechanismen:** `persistence-mechanisms.md`
+* **Parallel-Chat-Modell:** `parallel-chat-coordination.md`
+* **Prompt Library:** `prompt-library.md`
+* **Informationsarchitektur:** `information-architecture.md`
+* **Methodology Building Blocks:** `methodology-building-blocks.md`
+
+Diese Dokumente konkretisieren, operationalisieren und systematisieren die in diesem Foundations-Dokument dargestellten Prinzipien. Dadurch fungiert dieses Kapitel heute nicht mehr als To-Do-Liste, sondern als **konzeptionelle Referenz**, die die Entstehung und Logik des gesamten Methodensystems nachvollziehbar macht.
 
 ## 8. Fazit
 
