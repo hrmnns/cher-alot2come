@@ -66,7 +66,7 @@ Im Projekt-Chat agiert das LLM daher vor allem als **Entwickler**, **Designer**,
 
 Die klare Trennung von Meta-Chat und Projekt-Chat verhindert, dass Rollen unbewusst vermischt werden. Der Meta-Chat trifft Entscheidungen über *wie* gearbeitet wird, während der Projekt-Chat sich auf das *Was* und *Wie genau* der Umsetzung konzentriert. Dadurch bleiben Struktur, Qualität und Ablauf jederzeit stabil.
 
-# **3. Ablauf**
+# 3. Ablauf
 
 Der Arbeitsablauf im Parallel-Chat-Modell folgt einem klaren, wiederkehrenden Zyklus. Der Meta-Chat bereitet die nächste Arbeitseinheit vor, der Projekt-Chat setzt sie um, und anschließend führt der Meta-Chat die Ergebnisse wieder in den strukturellen Rahmen zurück. Dieser Wechsel erzeugt eine stabile, verständliche und reproduzierbare Arbeitsdynamik, die sowohl Methode als auch Umsetzung klar voneinander trennt.
 
@@ -126,7 +126,7 @@ Dieser Schritt sorgt dafür, dass operative Ergebnisse nicht isoliert bleiben, s
 Auf Basis des geprüften und konsolidierten Ergebnisses formuliert der Meta-Chat die nächste Aufgabe.
 Damit beginnt der Zyklus erneut — klar strukturiert, driftfrei und reproduzierbar.
 
-# **4. Ablaufschritte im Detail**
+# 4. Ablaufschritte im Detail
 
 Die folgende Darstellung zeigt, wie Meta-Chat und Projekt-Chat im praktischen Ablauf zusammenwirken. Während der High-Level-Zyklus bereits den Gesamtfluss erklärt, beschreibt dieser Abschnitt die konkreten Schritte, Übergaben und Verantwortlichkeiten innerhalb eines einzelnen Arbeitszyklus. Dadurch wird sichtbar, wie beide Chat-Kontexte gemeinsam ein konsistentes, driftfreies und reproduzierbares Arbeiten ermöglichen.
 
@@ -178,7 +178,7 @@ Dieser Schritt stellt sicher, dass operative Ergebnisse nicht unkontrolliert for
 Auf Grundlage des geprüften Ergebnisses definiert der Meta-Chat den nächsten Arbeitsschritt.
 Damit beginnt der Zyklus erneut und führt schrittweise zu konsistenten, reproduzierbaren und qualitativ stabilen Ergebnissen.
 
-# **5. Beispiel aus dem Prompt-Generator-Projekt (überarbeitet)**
+# 5. Beispiel aus dem Prompt-Generator-Projekt (überarbeitet)
 
 Um den praktischen Nutzen des Parallel-Chat-Modells zu verdeutlichen, zeigt das folgende Beispiel, wie Meta-Chat und Projekt-Chat in einem realen Mini-Projekt zusammenwirken. Im Rahmen der Entwicklung des Prompt-Generators für Start-Prompts wurde das Doppel-Chat-Modell konsequent angewendet und hat sich als äußerst stabil, nachvollziehbar und effizient erwiesen.
 
@@ -239,7 +239,7 @@ Beim Wechsel zwischen den beiden Chat-Kontexten besteht die höchste Driftgefahr
    * klarstellen, was aus dem vorherigen Chat übernommen wird (konkreter Ergebnisblock)
    * klarstellen, was *nicht* übernommen wird (Meta-Entscheidungen ≠ operative Umsetzung)
 
-Diese Drift-Checkpunkte orientieren sich an den Regeln im Dokument *drift-management.md* (vgl. ) und sind fester Bestandteil des Parallel-Chat-Modells.
+Diese Drift-Checkpunkte orientieren sich an den Regeln im Dokument docs/quality/drift-management.md und sind fester Bestandteil des Parallel-Chat-Modells.
 
 ## **6.3 Korrekturmechanismen**
 
@@ -271,17 +271,16 @@ Der systematische Einsatz dieser Drift-Checks und Korrekturmechanismen:
 
 Damit bleibt der parallele Chat-Betrieb klar, stabil und anschlussfähig – selbst bei komplexen Projekten mit vielen Iterationen.
 
-# **7. Persistenz & Ergebnisblöcke**
+# 7. Persistenz & Ergebnisblöcke
 
 Die parallele Nutzung von Meta-Chat und Projekt-Chat erzeugt zwei unterschiedliche Arten von Ergebnissen, die sauber getrennt verarbeitet werden müssen. Persistenz sorgt dafür, dass diese Ergebnisse nicht im Chatverlauf verschwinden, sondern dauerhaft im Repository abgelegt werden. Sie gewährleistet Nachvollziehbarkeit, verhindert Drift und macht die Ergebnisse anschlussfähig für spätere Arbeitsschritte. Dieser Abschnitt beschreibt, wie Ergebnisblöcke identifiziert, zugeordnet und in den passenden Repository-Kontext überführt werden.
 
 
 ## **7.1 Verteilung der Ergebnisarten**
 
-Die beiden Chat-Kontexte erzeugen unterschiedliche Ergebnisformen, die jeweils unterschiedliche Repository-Bereiche benötigen.
-Der Meta-Chat liefert methodische Ergebnisse, also Inhalte wie Strukturentscheidungen, Prozesslogik, Rollenregeln oder Qualitätsleitlinien. Diese Ergebnisse müssen im Methoden-Repository abgelegt werden, da sie den Rahmen der gesamten Methodik betreffen und nicht projektspezifisch sind.
+Die beiden Chat-Kontexte erzeugen unterschiedliche Ergebnisformen, die jeweils unterschiedliche Repository-Bereiche benötigen. Der Meta-Chat liefert methodische Ergebnisse, also Inhalte wie Strukturentscheidungen, Prozesslogik, Rollenregeln oder Qualitätsleitlinien. Diese Ergebnisse müssen im Methoden-Repository (also diesem Methoden-Repo) abgelegt werden, da sie den Rahmen der gesamten Methodik betreffen und nicht projektspezifisch sind.
 
-Der Projekt-Chat erzeugt hingegen operative oder technische Ergebnisse, beispielsweise Code, UI-Komponenten, Funktionsmodule, Datenmodelle oder konkrete Textbausteine. Diese Inhalte gehören in das jeweilige Projekt- oder Code-Repository, damit technische Artefakte und methodische Inhalte nicht vermischt werden.
+Der Projekt-Chat erzeugt hingegen operative oder technische Ergebnisse, beispielsweise Code, UI-Komponenten, Funktionsmodule, Datenmodelle oder konkrete Textbausteine. Diese Inhalte gehören in das jeweilige Projekt- oder Code-Repository des Implementierungsprojekts, damit technische Artefakte und methodische Inhalte nicht vermischt werden.
 
 Die klare Zuordnung stellt sicher, dass Methode und Umsetzung getrennt bleiben und jeweils ihren spezifischen Speicher- und Versionslogiken folgen.
 
@@ -290,7 +289,7 @@ Die klare Zuordnung stellt sicher, dass Methode und Umsetzung getrennt bleiben u
 Persistenz folgt im Parallel-Chat-Modell einigen grundlegenden Prinzipien, die Stabilität und Reproduzierbarkeit sicherstellen.
 Zunächst müssen alle Ergebnisblöcke eindeutig benannt sein, damit sie im Projektverlauf referenzierbar bleiben. Jeder Block sollte einen klaren Titel tragen und vollständig frei von Meta-Kommentaren sein.
 
-Darüber hinaus erfolgt Persistenz immer bewusst und nur dann, wenn Ergebnisse in Phase D des Mikroprozesses als stabil oder final bewertet wurden. Dies verhindert, dass Entwürfe ungeprüft in das Repository gelangen. Gleichzeitig muss die klare Trennung zwischen Meta-Chat und Projekt-Chat strikt eingehalten werden: Methodische Entscheidungen werden ausschließlich im Methoden-Repository persistiert, operative Inhalte ausschließlich im Projekt-/Code-Repository.
+Darüber hinaus erfolgt Persistenz immer bewusst und nur dann, wenn Ergebnisse in Phase D des Mikroprozesses als stabil oder final bewertet wurden. Dies verhindert, dass Entwürfe ungeprüft in das Repository gelangen. Gleichzeitig muss die klare Trennung zwischen Meta-Chat und Projekt-Chat strikt eingehalten werden: Methodische Entscheidungen werden ausschließlich im Methoden-Repository (also diesem Methoden-Repo) persistiert, operative Inhalte ausschließlich im Projekt-/Code-Repository.
 
 Zudem müssen alle persistierten Inhalte versioniert werden. Das bedeutet, dass jeder persistierte Ergebnisblock mindestens einen Commit erzeugt, damit Änderungen nachvollziehbar bleiben.
 
@@ -315,7 +314,7 @@ Die getrennte Persistenz verhindert diese Vermischung, schützt die Struktur der
 Persistenz sorgt dafür, dass sowohl methodische als auch operative Ergebnisse dauerhaft gesichert und klar zugeordnet bleiben.
 Durch die Trennung zwischen Methoden-Repository und Projekt-/Code-Repository bleibt die Methodik stabil, während die technische Umsetzung flexibel weiterentwickelt werden kann. Persistenz ist damit der verbindende Mechanismus, der beide Chat-Kontexte strukturell zusammenhält und die Qualität des Gesamtprozesses sicherstellt.
 
-# **8. Vorteile des Parallel-Chat-Modells (angepasst)**
+# 8. Vorteile des Parallel-Chat-Modells (angepasst)
 
 Wie bereits in der Einleitung sichtbar wurde, stößt die Arbeit in einem einzigen Chat bei komplexeren Vorhaben schnell an methodische und organisatorische Grenzen. Das Parallel-Chat-Modell setzt genau hier an und überwindet diese Einschränkungen, indem es Methode und Umsetzung sauber voneinander trennt. Dadurch entsteht ein klarer Arbeitsfluss, der sowohl die Qualität als auch die Geschwindigkeit der Zusammenarbeit deutlich verbessert.
 
