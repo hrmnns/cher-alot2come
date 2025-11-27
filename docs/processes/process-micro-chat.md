@@ -200,6 +200,15 @@ Explizite Fokusgrenzen (optional):
 Dieser Chat umfasst ausschließlich Phase A.
 ```
 
+### Drift-Check vor Phase B (Pflichtschritt)
+
+Bevor der strukturierte Arbeitszyklus beginnt, führt das LLM einen Drift-Check aus, z. B.:
+
+```md
+„Bitte bestätige Ziel, Rollen, Terminologie und relevante Dokumente.“
+```
+Dieser Check stellt sicher, dass der Chat korrekt initialisiert ist.
+
 ## Phase B – Strukturierter Arbeitszyklus
 
 ### Ziel der Phase
@@ -342,7 +351,10 @@ Die Ergebnissicherung ist keine einmalige Aktion, sondern läuft parallel und be
    Wenn es für die spätere Übergabe relevant ist, wird kurz erklärt, wie der Block entstanden ist oder wozu er dient.
 
 6. **Bestätigung des Ergebnisses**\
-   Der Prompt-Autor entscheidet explizit, dass der Block final oder stabil genug ist, um für Phase D bereit zu sein.
+   Der Prompt-Autor entscheidet explizit, dass der Block final oder stabil genug ist, um für Phase D bereit zu sein. Bevor ein Ergebnisblock ins Repository überführt werden darf, erfolgt ein verpflichtender Drift-Check:\
+   ```Bitte prüfe Terminologie, Struktur und konsolidierte Inhalte gegen Glossar und Repository. ```\
+   Nur driftfreie Inhalte dürfen in Phase D übergeben werden.
+
 
 ### Was der Prompt-Autor in dieser Phase tun muss (Kernverantwortungen)
 
@@ -377,21 +389,6 @@ Die Ergebnissicherung ist keine einmalige Aktion, sondern läuft parallel und be
 * **Dokumentation vermeiden, die zu ausführlich ist.**\
   Sicherung heißt Klarheit, nicht ausufernde Historie. Ergebnisblöcke kurz, präzise und eindeutig halten.
 
-### Ergebnisse und Artefakte
-
-* klar benannte und sauber abgegrenzte Ergebnisblöcke
-* definierte Versionen oder Statusangaben (z. B. „stabil“, „final“)
-* Zwischenergebnisse, die als Grundlage für spätere Bearbeitung dienen
-* konsistente und nachvollziehbare Dokumentationspunkte innerhalb des Chats
-* Ergebnisblöcke, die für Phase D (Übergabe ins Repository) vorbereitet sind
-* eindeutige Referenzen, die eine spätere Wiederverwendung sicherstellen
-
-### Beispiel für eine Ergebnissicherung
-
-* Der Prompt-Autor erkennt, dass ein Strukturentwurf aus Phase B nun stabil ist.
-* Er bittet das LLM: „Bitte stelle diesen Strukturentwurf als sauberen, separaten Ergebnisblock bereit.“
-* Das LLM liefert den Block; der Prompt-Autor prüft und ergänzt einen Status wie „Zwischenergebnis C.3 – stabil“.
-* Der Block wird bestätigt und später in Phase D für das Repository genutzt.
 
 ### Ergebnisse und Artefakte
 
@@ -413,6 +410,14 @@ Die Ergebnissicherung ist keine einmalige Aktion, sondern läuft parallel und be
 
 
 ## Phase D – Übergabe ins Repository
+
+Phase C erzeugt die stabilen, sauber abgegrenzten Ergebnisblöcke. Phase D übernimmt ausschließlich die Übertragung dieser geprüften Blöcke ins Repository. Phase D enthält keine Ergebniserstellung mehr.
+
+| Phase                           | Zweck                                      | Output                        | Nicht enthalten          |
+| ------------------------------- | ------------------------------------------ | ----------------------------- | ------------------------ |
+| **Phase C – Ergebnissicherung** | Ergebnisblöcke klar benennen und abgrenzen | stabil/final markierte Blöcke | keine Repo-Arbeit        |
+| **Phase D – Übergabe**          | Übertrag in Repository + Abschlussarbeiten | persistierte Inhalte          | keine Ergebniserstellung |
+
 
 ### Ziel der Phase
 
