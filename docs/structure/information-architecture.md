@@ -1,29 +1,58 @@
-# Informationsarchitektur für das Dokumentationssystem
-
-## Version
-v0.1 – Erstfassung der Informationsarchitektur
+# Informationsarchitektur des Dokumentationssystems
+**Version:** v0.2  
+**Status:** überarbeitet  
+**Geltungsbereich:** Methoden-Repository *cher-alot2come*  
+**Verantwortung:** Dokumentationsverantwortlicher · LLM-Methodiker
 
 ## 1. Zweck dieses Dokuments
+Die Informationsarchitektur definiert die Struktur, Ablageorte und Navigationsregeln für alle Dokumente des Projekts *cher-alot2come*.  
+Sie bildet die methodische Grundlage für eine **konsistente, versionierte und skalierbare Wissensbasis**, die über alle Phasen des Makro- und Mikroprozesses hinweg stabil bleibt.
 
-Dieses Dokument beschreibt die Informationsarchitektur für das `docs/`-Verzeichnis des Projekts *cher-alot2come*. Es legt fest, wie die Dokumentation strukturiert, gruppiert, versioniert und navigierbar gehalten wird, um auch bei wachsender Anzahl von Markdown-Dateien dauerhaft Übersicht und Konsistenz sicherzustellen.
+Die IA ist ein zentraler Baustein der **Persistenzmechanismen (Makroprozess Phase 5)** und stellt sicher, dass:
 
+- alle Inhalte wiederauffindbar und nachvollziehbar abgelegt sind  
+- thematisch verwandte Dokumente logisch gruppiert sind  
+- Redundanzen, Widersprüche und Drift vermieden werden  
+- Nutzer:innen (Mensch + LLM) zielgerichtet navigieren können  
+- Skalierung des Wissensraums auch bei vielen Dateien gewährleistet ist  
 
-## 2. Anforderungen an die Informationsarchitektur
+## 2. Rolle der Informationsarchitektur in der Methodik
 
-Die Architektur muss sicherstellen, dass:
+Die Informationsarchitektur ist nicht nur eine Ordnerstruktur — sie ist ein methodischer Kontrollmechanismus, der eng mit den Prozessen der Methodik verknüpft ist.
 
-- thematisch verwandte Inhalte gemeinsam abgelegt sind  
-- alle Dokumente leicht auffindbar sind  
-- die Navigation innerhalb des Wissensraums klar und verlässlich ist  
-- Redundanzen und Widersprüche vermieden werden  
-- alle Inhalte Versionierung und Pflege ermöglichen  
-- das System langfristig skalierbar bleibt  
+### Makroprozess-Bezug
+| Phase | Bedeutung der IA |
+|-------|-------------------|
+| **Phase 1 – Vorbereitung** | Grundstruktur anlegen, erste Zuordnung der Dokumenttypen |
+| **Phase 2 – Problemrahmen** | Strukturachsen definieren, Begriffe stabilisieren |
+| **Phase 3 – Operative Bearbeitung** | Arbeitsdokumente korrekt einsortieren |
+| **Phase 4 – Konsolidierung** | Inhalte harmonisieren, redundante Dateien identifizieren |
+| **Phase 5 – Persistenz** | finale Versionierung & Ablage gemäß IA |
+| **Phase 6 – Abschluss** | IA-Stand prüfen, Backlinks aktualisieren |
 
-Die Architektur dient damit als Grundlage für alle folgenden Dokumentationsarbeiten.
+### Mikroprozess-Bezug
+- **Phase A (Start):** Relevante Artefakte werden über IA gezielt benannt.  
+- **Phase C (Ergebnissicherung):** Ergebnisblöcke werden anhand der IA zugeordnet.  
+- **Phase D (Persistenz):** Speicherung erfolgt *ausschließlich* entlang der IA.  
+- **Phase E (Abschluss):** Referenzen, Backlinks, Ordnerzuordnung aktualisieren.
 
-## 3. Struktur des `docs/`-Verzeichnisses
+### Parallel-Chat-Modell
+- **Meta-Chat:** Pflege, Anpassung, Strukturentscheidungen  
+- **Projekt-Chat:** reine Nutzung der bestehenden Struktur, keine Änderungen  
 
-Die Dokumente werden nach funktionaler Zugehörigkeit gruppiert. Vorgeschlagene Ordnerstruktur:
+Dadurch bleibt die Dokumentation auch über viele Arbeitszyklen driftfrei.
+
+## 3. Grundprinzipien der Informationsarchitektur
+
+Die IA folgt fünf stabilen Leitprinzipien:
+
+1. **Funktionale Ordnung**  
+2. **Eindeutige Zuständigkeiten**  
+3. **Skalierbarkeit**  
+4. **Versionierbarkeit**  
+5. **Navigierbarkeit**
+
+## 4. Ordnerstruktur des `docs/`-Verzeichnisses
 
 ```
 docs/
@@ -34,114 +63,70 @@ docs/
 ├── processes/
 │   ├── process-macro.md
 │   ├── process-micro-chat.md
-│   └── handover-and-closure.md
+│   ├── handover-and-closure.md
+│   └── parallel-chat-coordination.md
 │
 ├── structure/
 │   ├── methodology-building-blocks.md
 │   ├── roles-llm.md
-│   └── document-types-and-storage.md
+│   ├── document-types-and-storage.md
+│   └── information-architecture.md
 │
 ├── quality/
 │   ├── persistence-mechanisms.md
-│   └── drift-management.md
+│   ├── drift-management.md
+│
+├── library/
+│   ├── prompt-library.md
+│   └── start-prompt-generator.md
 │
 └── meta/
-    └── decision-log-method.md
+    ├── decision-log-method.md
+    └── changelog.md
 ```
 
-Diese Struktur ordnet Dateien sowohl thematisch als auch funktional.
+### Erläuterung der Kategorien
+*(gekürzt für Klarheit in der Datei)*
 
+## 5. Zentrales Inhaltsverzeichnis (`docs/README.md`)
+Beschreibt Übersicht, Statusanzeigen, Navigationslogik und Pflegehinweise.
 
-## 4. Zentrales Inhaltsverzeichnis (`docs/README.md`)
-
-Zur Übersicht über alle Dokumente wird eine zentrale Einstiegsseite gepflegt.  
-Diese Datei enthält:
-
-- eine thematisch gruppierte Übersicht aller Dokumente  
-- direkte Links auf jedes Dokument  
-- Statusanzeigen (✔ fertig, 🚧 in Arbeit, ⏳ geplant)  
-- Regeln zur Aktualisierung der Struktur  
-- Verweise auf verwandte Dokumente  
-
-Beispielstruktur:
-
-```md
-# Dokumentationsübersicht
-
-## Foundations
-- [methodology-foundations.md](foundations/methodology-foundations.md) ✔
-
-## Prozesse
-- [process-macro.md](processes/process-macro.md) 🚧
-- [process-micro-chat.md](processes/process-micro-chat.md) 🚧
-- [handover-and-closure.md](processes/handover-and-closure.md) ⏳
-
-## Struktur & Rollen
-- [methodology-building-blocks.md](structure/methodology-building-blocks.md) ⏳
-- [roles-llm.md](structure/roles-llm.md) ⏳
-- [document-types-and-storage.md](structure/document-types-and-storage.md) ⏳
-
-## Qualitätssicherung
-- [persistence-mechanisms.md](quality/persistence-mechanisms.md) ⏳
-- [drift-management.md](quality/drift-management.md) ⏳
-
-## Meta
-- [decision-log-method.md](meta/decision-log-method.md) ⏳
-```
-
-## 5. Backlink-System
-
-Um Zusammenhänge deutlich zu machen, enthält jedes Dokument am Ende einen Abschnitt:
+## 6. Backlink-System
+Jedes Dokument endet mit:
 
 ```
 **Weiterführende Dokumente:**
-- Drift Management
-- Persistenzmechanismen
-- Makroprozess
+- …
 ```
 
-Dies schafft einen „Wiki-artigen“ Workflow und reduziert das Risiko, Inhalte zu verlieren oder zu isolieren.
+Regeln:
+- mind. 3 Backlinks  
+- sinnvolle Querverweise  
+- Aktualisierung bei Dokumentänderungen  
 
-## 6. Regeln für `docs/` vs. Wiki
+## 7. Dokumenttypen & Verantwortlichkeiten
 
-### `docs/`  
-- Arbeitsdokumente  
-- iterativ  
-- versioniert  
-- detailreich  
-- veränderlich  
-- Grundlage der Methodikentwicklung  
+| Rolle | Verantwortungsbereich |
+|-------|------------------------|
+| LLM-Methodiker | Strukturentscheidungen |
+| Dokumentationsverantwortlicher | Ablage, Versionierung |
+| Reviewer | Konsistenzprüfung, Driftkontrolle |
+| Prompt-Autor | Zuweisung im Mikroprozess |
+| Projekt-Chat | nutzt Struktur, verändert sie nicht |
 
-### Wiki  
-- stabile, belastbare Endfassung  
-- Orientierung für Nutzer:innen  
-- Zusammenfassungen, Übersichten, Leitfäden  
-- keine Entwürfe oder Work-in-Progress  
+## 8. Pflege & Weiterentwicklung
 
-Diese Abgrenzung verhindert, dass sich Arbeitsstand und Finaldokumentation vermischen.
+Regeln:
+- neue Dateien → Kategorie + README + Backlinks + Versionsheader  
+- Änderungen → Mini-Issue + Commit  
+- größere Anpassungen → strukturierte Konsolidierung (Makroprozess Phase 4+5)
 
-
-## 7. Pflege & Weiterentwicklung
-
-- Änderungen an der Struktur werden zunächst im `docs/README.md` erfasst.  
-- Jedes neue Dokument muss:
-  - in der passenden Kategorie abgelegt werden  
-  - im Inhaltsverzeichnis verlinkt werden  
-  - Backlinks enthalten  
-- Größere Strukturänderungen müssen in einem eigenen Issue behandelt werden.
-
-## 8. Ausblick
-
-Diese Informationsarchitektur bildet die Grundlage für:
-
-- die Erstellung der einzelnen Methodologie-Dokumente  
-- spätere Automatisierung (z. B. Dokumentlinks generieren)  
-- Integration in das Wiki  
-- langfristige Skalierung des Projekts  
+## 9. Ausblick
+Automatisierung, Wiki-Integration, Link-Generatoren, weitere Bibliotheken.
 
 ## Weiterführende Dokumente
-– (werden im Verlauf ergänzt)
-
----
-
-*Ende des Dokuments.*
+- process-macro.md  
+- persistence-mechanisms.md  
+- drift-management.md  
+- document-types-and-storage.md  
+- methodology-building-blocks.md
