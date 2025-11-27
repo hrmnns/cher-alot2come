@@ -95,6 +95,15 @@ Diese Kriterien erzwingen einen neuen Chat. Sobald eine dieser Situationen eintr
 
 Diese Grenzen verhindern, dass Persistenz, Verantwortlichkeiten oder Arbeitsphasen ineinanderlaufen.
 
+### 2.5 Mini-Heuristik: Wann ein neuer Chat gestartet werden sollte
+
+Die Mini-Heuristik ergänzt die „absoluten Grenzen“ aus Abschnitt 2.4. Während 2.4 verbindliche Regeln beschreibt, die zwingend einen neuen Chat erfordern, bietet die Mini-Heuristik leicht merkbare Entscheidungsregeln für typische Alltagssituationen. Sie ist nicht verpflichtend, erleichtert aber schnelle und driftfreie Entscheidungen im praktischen Arbeiten.
+
+* Wenn ein Ergebnis ins Repository übertragen wurde → neuer Chat.  
+* Wenn Ziel, Thema oder Abstraktionsebene wechselt → neuer Chat.  
+* Wenn eine andere LLM-Rolle benötigt wird → neuer Chat.  
+* Wenn der Chat zu lang oder unübersichtlich wird → neuer Chat.  
+
 
 ## 3. Übergabevorlagen (Handover-Templates)
 
