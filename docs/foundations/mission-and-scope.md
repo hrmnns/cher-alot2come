@@ -1,83 +1,138 @@
-# Entwicklung einer Methode zur strukturierten Zusammenarbeit mit LLMs in komplexen Projekten
+# Mission & Scope – Projekt „ALOT2COME“
 
-## 1. Hintergrund und Motivation
+Dieses Dokument beschreibt die Mission, die Zielsetzung und den inhaltlichen Rahmen des Projekts *ALOT2COME*. Es dient als **Einstiegspunkt** in die Methodik und erklärt, warum eine strukturierte Zusammenarbeit mit einem LLM notwendig ist, welche Probleme damit gelöst werden sollen und welche Leitlinien das Projekt prägen.
 
-Komplexe Sachverhalte – zum Beispiel die schrittweise Entwicklung einer WebApp, die Konzeption eines Frameworks oder die Ausarbeitung von Compliance-Tools – werden zunehmend gemeinsam mit Large Language Models (LLMs) wie ChatGPT bearbeitet.
+Während technische und prozessuale Details in anderen Dokumenten geregelt werden, schafft dieses Dokument den **fachlichen und methodischen Kontext**: Es definiert die Grundlage, auf der alle weiteren Bausteine der Methode aufbauen.
 
-In der Praxis zeigt sich dabei ein wiederkehrendes Problem:
+## Motivation & Hintergrund
 
-- Erkenntnisse aus früheren Chat-Phasen gehen verloren.
-- Formulierungen und Konzepte „verwässern“ über die Zeit.
-- Der Kontext verschiebt sich (Kontextdrift).
-- Entscheidungen sind später nur schwer nachzuvollziehen.
-- Die Zusammenarbeit wirkt zufällig statt geplant.
+Die Arbeit mit modernen LLMs eröffnet enorme Möglichkeiten: komplexe Analysen, strukturiertes Denken, Wissensaufbereitung, kreative Ideenfindung und Unterstützung bei technischen oder fachlichen Fragestellungen.  
+Gleichzeitig entsteht im praktischen Einsatz ein wiederkehrendes Muster:  
 
-Dieses Vorhaben soll eine methodische Grundlage schaffen, um solche komplexen Arbeiten **gezielt, strukturiert und reproduzierbar** mit einem LLM durchführen zu können.
+**Je länger ein Projekt dauert, desto stärker verliert das LLM seine Orientierung.**  
 
-## 2. Problemstellung
+Kontext driftet.  
+Strukturen verschieben sich.  
+Begriffe verändern ihre Bedeutung.  
+Entscheidungen gehen verloren oder werden überschrieben.
 
-Ohne klare Methode entstehen bei umfangreichen Chat-Verläufen typischerweise folgende Probleme:
+Gleichzeitig wandern wesentliche Ergebnisse oft nur bruchstückhaft in externe Dokumentation.  
+Das Resultat:  
+**Wissensverlust, inkonsistente Ergebnisse und hoher Nacharbeitsaufwand.**
 
-- **Kontextverlust:** Wichtige Definitionen, Annahmen und Entscheidungen werden im Verlauf übersehen oder vom Modell nicht mehr berücksichtigt.
-- **Inkonsistenzen:** Begriffe, Architekturen oder Rollen werden im Laufe des Projekts unterschiedlich verwendet.
-- **Wissensdrift:** Das LLM reagiert anders als zu Beginn, weil die relevanten Vorgaben nicht stabil verankert sind.
-- **Fehlende Dokumentation:** Gute Teilergebnisse bleiben im Chat „vergraben“ und sind schwer wiederzufinden oder weiterzuverwenden.
-- **Nicht reproduzierbare Ergebnisse:** Es ist schwer oder unmöglich, einen früheren Stand wiederherzustellen oder ein Vorgehen nachzuvollziehen.
+Diese Beobachtungen haben zur Gründung von *ALOT2COME* geführt – einer Methodik, die darauf abzielt, Menschen und LLMs so zusammenzubringen, dass **Stabilität, Wiederholbarkeit und gemeinsame Qualitätssicherung** möglich werden.
 
-Gerade bei größeren Vorhaben – z. B. der Entwicklung einer Software – ist dieses Verhalten hinderlich und erzeugt unnötige Reibungsverluste.
+## Ziel des Vorhabens
 
-## 3. Ziel des Vorhabens
+Der Zweck von *ALOT2COME* ist es, eine **robuste, nachvollziehbare und wiederverwendbare Methode** zu entwickeln, mit der anspruchsvolle Vorhaben gemeinsam mit einem LLM strukturiert bearbeitet werden können.
 
-Ziel des Projekts **„cher-alot2come“** ist es, eine **klare, wiederverwendbare Methodik** zu entwickeln, mit der:
+Die Methode soll ermöglichen, dass:
 
-- komplexe Themen über viele Chat-Sitzungen hinweg konsistent bearbeitet werden können,
-- gewonnene Erkenntnisse und Ergebnisse **nicht verwässern**, sondern gezielt gesichert werden,
-- das LLM sich an zentrale Vorgaben „erinnern“ kann (über Projektanweisungen und externe Doku),
-- der Arbeitsprozess mit dem LLM **zielorientiert und stringent** bleibt,
-- und die Zusammenarbeit Schritt für Schritt verbessert werden kann.
+- komplexe Themen über viele Arbeitseinheiten hinweg **konsistent geführt** werden,
+- Erkenntnisse **nicht verwässern**, sondern stabil gehalten und versioniert werden,
+- das LLM über Projektanweisungen und klare Startprompts **zielgerichtet arbeitet**,
+- Drift frühzeitig erkannt und korrigiert wird,
+- Ergebnisse **operational nutzbar** und für andere nachvollziehbar bleiben.
 
-Die Methode soll sowohl allgemein nutzbar sein als auch an konkreten Beispielen demonstriert werden.
+Das Projekt versteht sich als **methodische Grundlage** für alle späteren Arbeiten, unabhängig von der jeweiligen Domäne.
 
-## 4. Anforderungen an die Zusammenarbeit mit dem LLM
+## Zielgruppen & Anwendungsbereiche
 
-Aus der bisherigen Erfahrung und den Überlegungen in diesem Projekt ergeben sich folgende Anforderungen:
+Das Projekt richtet sich an Personen, die LLMs nicht nur punktuell, sondern strukturiert einsetzen möchten:
 
-1. **Einsatz von Projekten im LLM (z. B. ChatGPT-Projekte)**  
-   - Es muss möglich sein, einen stabilen „Rahmen“ zu definieren (Projektanweisung), der über viele Chats hinweg gilt.
-   - Diese Projektanweisung soll kurz, präzise und langfristig stabil sein.
+- IT‑Architekt:innen  
+- Projektleiter:innen  
+- Analyst:innen und Wissensarbeiter  
+- Softwareentwickler:innen  
+- Wissenschaftler:innen und Studierende  
+- Consultants und Strategen  
 
-2. **Trennung von Steuerlogik und ausführlicher Dokumentation**  
-   - Die Projektanweisung enthält nur das Wichtigste (Rollen, Ziele, Arbeitsweise).
-   - Ausführliche Inhalte (Methoden, Beispiele, Checklisten) werden in **Markdown-Dokumenten** im GitHub-Repository gepflegt.
+Typische Einsatzfelder:
 
-3. **Externe, versionierbare Wissensbasis**  
-   - Erkenntnisse und Zwischenergebnisse werden regelmäßig aus dem Chat heraus in Markdown-Dateien übernommen.
-   - GitHub dient als zentrale, versionierte Wissensbasis (z. B. `docs/`-Verzeichnis, Wiki).
+- Architektur- und Konzeptarbeit  
+- Analyse komplexer Fragestellungen  
+- methodische Unterstützung in Projekten  
+- Erstellung strukturierter Inhalte  
+- Forschung und Lehre  
+- iterative Problemlösung  
+- Entwicklung und Dokumentation von Modellen  
 
-4. **Iteratives Vorgehen**  
-   - Ziel ist nicht Perfektion im ersten Schritt, sondern eine schrittweise Verfeinerung.
-   - Neue Erkenntnisse führen zu kontrollierten Anpassungen der Dokumentation und – seltener – der Projektanweisung.
+Die Methode ist bewusst allgemeingültig gehalten, sodass sie in verschiedensten Bereichen angewendet werden kann.
 
-5. **Transparente Nachvollziehbarkeit**  
-   - Wichtige Entscheidungen, Definitionen und Modelle sollen in der Dokumentation nachvollziehbar sein.
-   - Die Verbindung zwischen Chat-Ergebnissen und Repository-Inhalten soll erkennbar sein (z. B. über Issues, Commits, Referenzen).
+## Anforderungen an die Zusammenarbeit mit dem LLM
 
-## 5. Abgrenzung
+Um komplexe Projekte stabil durchführen zu können, benötigt die Zusammenarbeit mit dem LLM bestimmte Strukturen und Leitplanken.
 
-Dieses Vorhaben konzentriert sich auf:
+### Stabiler Projektkontext
+Ein LLM benötigt einen klaren, wiederkehrenden Rahmen, der unabhängig vom Chat-Verlauf gültig bleibt. Dafür werden Projektanweisung, Rollenmodell und Startprompts genutzt.
 
-- die **Methode** der Zusammenarbeit mit LLMs,
-- die **Organisation** von Chats, Projekten und Dokumentation,
-- und die **Strukturierung** von Erkenntnissen und Ergebnissen.
+### Trennung von Methode und Inhalten
+Operative Inhalte gehören in Markdown‑Dateien im Repository. Die Steuerlogik bleibt im Chat — kurz, präzise und stabil.
 
-Es geht **nicht** primär um:
+### Externe Wissensbasis
+Das Repository fungiert als **Single Source of Truth**.  Versionierung, Backlinks und strukturierte Dateirollen verhindern Wissensverlust.
 
-- die technische Implementierung einzelner Projekte,
-- die Bewertung bestimmter LLM-Modelle,
-- oder die rechtliche/ethische Einordnung von KI an sich.
+### Iteratives Vorgehen
+Statt zu versuchen, ein perfektes Ergebnis auf Anhieb zu erzielen, wird schrittweise gearbeitet — entlang von Makro- und Mikroprozess.
 
-Diese Themen können später angebunden werden, stehen aber nicht im Zentrum dieses ersten Schrittes.
+### Transparenz
+Entscheidungen, Varianten und Ergebnisse sind nachvollziehbar dokumentiert und nicht im Chatverlauf verborgen.
+
+## Abgrenzung (Scope & Nicht‑Ziele)
+
+Die Methode konzentriert sich auf:
+
+- den **Aufbau einer klaren Arbeitsweise** mit LLMs,  
+- die Organisation von Dokumentation, Persistenz und Driftkontrolle,  
+- die Strukturierung von Wissen über längere Projektverläufe.
+
+Sie ist **kein**:
+
+- Prompting-Kurs,  
+- Handbuch für bestimmte LLM-Modelle,  
+- technisches Tutorial,  
+- rechtliches oder ethisches KI‑Framework,  
+- domänenspezifisches Fachmodell.
+
+Diese Aspekte können angebunden werden, sind jedoch **nicht Kern von Phase 1**.
+
+## Methodischer Gesamtzusammenhang
+
+*ALOT2COME* umfasst mehrere ineinandergreifende Bausteine:
+
+### Informationsarchitektur  
+Regelt, wie Dokumente strukturiert und abgelegt werden.
+
+### Persistenzmechanismen  
+Sichern stabile Überführung von Chat-Ergebnissen ins Repository.
+
+### Drift-Management  
+Verhindert stille Veränderungen von Begriffen, Strukturen oder Rollen.
+
+### Rollenmodell  
+Definiert klare Verantwortlichkeiten für Mensch und LLM.
+
+### Prozesse  
+Makro‑ und Mikroprozess strukturieren den Arbeitsablauf – von der Gesamtplanung bis zur einzelnen Einheit.
+
+### Prompt‑System  
+Startprompts, Rollenaktivierung und Driftkorrekturen bilden die operative Steuerlogik.
+
+Diese Bausteine bilden gemeinsam ein **kohärentes methodisches Framework**, in dem Mission & Scope die oberste Orientierungsebene darstellen.
+
+## 8. Vision & Weiterentwicklung
+
+Die Methode soll kontinuierlich wachsen und über die Zeit erweitert werden:
+
+- Quickstart‑Guides und Schulungsunterlagen  
+- visuelle Modelle und Architekturdiagramme  
+- automatisierte Konsistenz‑ und Backlink‑Checker  
+- Beispielprojekte und Templates  
+- WebApp‑Integration der Methode  
+- Governance‑Modelle für Team‑ oder Organisationsnutzung  
+
+Langfristig entsteht ein **vollständiges Methodensystem**, das sowohl für Einzelpersonen als auch für Teams nutzbar ist.
 
 ---
 
-*Version: v0.1 – Erstfassung des Projektvorhabens*
+*Version v0.4 – Erweiterte und flüssiger formulierte Fassung für Phase 2*  
