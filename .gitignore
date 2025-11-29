@@ -1,2 +1,3 @@
 # Ignoriere folgende Verzeichnisse:
 src/drift/results/
+src/drift/__pycache__/
