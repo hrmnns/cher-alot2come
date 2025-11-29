@@ -1,0 +1,12 @@
+[
+  {
+    "prompt_number": 1,
+    "prompt": "Definiere Modul.",
+    "answer": "Ein Modul ist ein Bestandteil einer WebApp."
+  },
+  {
+    "prompt_number": 10,
+    "prompt": "Wiederhole die Definition.",
+    "answer": "Ein Modul ist ein klar abgegrenzter Baustein einer Anwendung."
+  }
+]
