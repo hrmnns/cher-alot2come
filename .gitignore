@@ -1,2 +1,2 @@
-# Ignoriert das gesamte Verzeichnis "logfiles" im Root-Verzeichnis
+# Ignoriere folgende Verzeichnisse:
 src/drift/results/
