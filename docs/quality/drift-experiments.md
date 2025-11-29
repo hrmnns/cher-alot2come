@@ -164,3 +164,60 @@ Weil es die **natürlichen Ursachen von Drift simuliert**:
 | lange Chatdauer     | gesamtes Experiment          |
 
 **→ Genau dieselben Ursachen, die auch ALOT2COME adressiert.**
+
+# Ergebnisse
+
+Es werden in den folgenden Abschnitten jeweils die Antworten auf Prompt 25 widergegeben, nachem alle anderen prompts zuvor in der gleichen Reihenfolge eingegeben wurden:
+
+> Bitte vergleiche deine aktuelle Definition mit der ursprünglichen Definition, die wir gemeinsam festgelegt haben.
+
+## ➡️ Claude
+
+**Vergleich der Definitionen:**
+
+**Ursprüngliche Definition (vom Anfang):**
+"Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp, bestehend aus Eingabefeldern und Logik."
+
+**Meine spätere Definition (in eigenen Worten):**
+"Ein Modul ist ein abgeschlossener, funktionaler Bereich innerhalb einer WebApp, der zwei wesentliche Dinge vereint: die Möglichkeit für Nutzer, etwas einzugeben, und die dahinterliegende Intelligenz, die mit diesen Eingaben etwas Sinnvolles macht."
+
+**Unterschiede:**
+
+1. **"klar abgegrenzt"** vs. **"abgeschlossen, funktional"** - ich habe die Präzision verwässert
+2. **"Bestandteil"** vs. **"Bereich"** - ich habe ein Synonym verwendet (Verstoß!)
+3. **"Eingabefelder"** vs. **"Möglichkeit für Nutzer, etwas einzugeben"** - ich habe umschrieben statt den Begriff zu verwenden
+4. **"Logik"** vs. **"dahinterliegende Intelligenz"** - ich habe einen anderen Begriff gewählt
+
+**Fazit:** Meine spätere Definition war zu ausschweifend und hat gegen die Vereinbarung verstoßen, ausschließlich "Modul" und die ursprünglichen Begriffe zu verwenden. Die ursprüngliche Definition war präziser und klarer.
+
+## ➡️ Perplexity
+
+### Ursprüngliche Definition
+Die erste gemeinsame Definition beschrieb ein Modul als kleinen, selbstständigen Bauklotz in einer WebApp mit eigenen Eingabefeldern und passender Logik, der unabhängig getestet und wiederverwendet werden kann.
+
+### Aktuelle Definition
+Die aktuelle Formulierung lautet: eine eigenständige Einheit, die eine Aufgabe kapselt – inklusive Eingabefeldern, interner Logik und Schnittstellen – für unabhängige Entwicklung und Wartung.
+
+## ➡️ Gemini
+
+Hier ist die **ursprüngliche, von Ihnen festgelegte Definition** und die **aktuelle, von mir verwendete Definition** (die ich in der letzten Antwort zur Zusammenfassung verwendet habe):
+
+| Definition | Wortlaut |
+| :--- | :--- |
+| **Ursprüngliche Definition** (Ihre Vorgabe) | „Ein **Modul** ist ein **klar abgegrenzter Bestandteil einer WebApp**, bestehend aus **Eingabefeldern und Logik**.“ |
+| **Aktuelle Definition** (Meine Zusammenfassung) | „Ein **Modul** ist stets **klar abgegrenzt**, was bedeutet, dass es **unabhängig** von anderen **Modulen** arbeitet. Es vereint zwei zwingende Elemente: die **Eingabefelder** (die Schnittstelle für den Nutzer) und die interne **Logik** (die Regeln, die diese Eingaben verarbeiten).“ |
+
+###  Vergleich der Unterschiede
+
+Die beiden Definitionen sind im Kern **identisch**, die von mir genutzte Zusammenfassung stellt jedoch eine **Erläuterung** der ursprünglichen Definition dar:
+
+| Merkmal | Ursprünglich (Kern) | Meine Zusammenfassung (Erläuterung) |
+| :--- | :--- | :--- |
+| **Klar abgegrenzt** | **Klar abgegrenzt** | **Klar abgegrenzt,** *was bedeutet, dass es unabhängig von anderen Modulen arbeitet.* |
+| **Zusammensetzung** | Bestehend aus **Eingabefeldern und Logik** | Vereint **Eingabefelder** *(die Schnittstelle für den Nutzer)* und **Logik** *(die Regeln, die diese Eingaben verarbeiten).* |
+| **Kontext** | **Bestandteil einer WebApp** | **elementare, funktionsfähige Baustein unserer WebApp.** (Wobei das Wort 'Baustein' ein Synonym ist.) |
+
+**Fazit:**
+
+Meine Erklärung bricht die ursprüngliche Definition auf und **erläutert** die Begriffe "klar abgegrenzt" und "Eingabefelder/Logik". Sie verwendet zwar zusätzliche Füllwörter (**Synonyme**) – insbesondere die Begriffe wie *unabhängig*, *Schnittstelle*, *Regeln* und *Baustein* – die aber lediglich dazu dienen, die **Bedeutung** der von Ihnen geforderten Kernbegriffe zu vertiefen. Die **strukturellen Anforderungen** (*klar abgegrenzt*, *Eingabefelder*, *Logik*) bleiben vollumfänglich erhalten.
+
