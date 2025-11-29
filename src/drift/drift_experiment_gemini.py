@@ -1,7 +1,10 @@
-# --------------------------------------------------------
+# -----------------------------------------------------------------------
 # Doku: docs/dev/drift-tests.md
 #       docs/quality/drift-experiments.md
-# --------------------------------------------------------
+#
+# Start:
+#       python drift_experiment_gemini.py prompts/prompts.json
+# -----------------------------------------------------------------------
 
 import google.generativeai as genai
 import json
