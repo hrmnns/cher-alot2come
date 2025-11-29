@@ -1,3 +1,7 @@
+# --------------------------------------------------------
+# Doku: docs/dev/drift-tests.md
+# --------------------------------------------------------
+
 import google.generativeai as genai
 import json
 import sys
