@@ -1,0 +1,2 @@
+# Ignoriert das gesamte Verzeichnis "logfiles" im Root-Verzeichnis
+src/drift/results/
