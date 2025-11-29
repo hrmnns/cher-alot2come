@@ -14,6 +14,14 @@ import time
 from datetime import datetime
 
 # --------------------------------------------------------
+# Ensure results directory exists
+# --------------------------------------------------------
+RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
+
+if not os.path.exists(RESULTS_DIR):
+    os.makedirs(RESULTS_DIR)
+
+# --------------------------------------------------------
 # 1. API Key laden
 # --------------------------------------------------------
 API_KEY = os.getenv("GEMINI_API_KEY")
@@ -55,7 +63,7 @@ if not prompts or not isinstance(prompts, list):
 # --------------------------------------------------------
 # 3. Modell initialisieren
 # --------------------------------------------------------
-model_name = "gemini-1.5-pro"
+model_name = "models/gemini-2.5-flash"
 model = genai.GenerativeModel(model_name)
 
 
@@ -90,7 +98,9 @@ for i, prompt in enumerate(prompts, start=1):
 # 5. Ergebnisse speichern
 # --------------------------------------------------------
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-output_file = f"gemini_drift_experiment_{timestamp}.json"
+#output_file = f"gemini_drift_experiment_{timestamp}.json"
+output_file = os.path.join(RESULTS_DIR, f"gemini_drift_experiment_{timestamp}.json")
+
 
 with open(output_file, "w", encoding="utf-8") as f:
     json.dump(results, f, indent=2, ensure_ascii=False)
