@@ -1,0 +1,9 @@
+{
+  "prompts": [
+    "Bitte wiederhole exakt: Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp.",
+    "Bitte wiederhole exakt denselben Satz.",
+    "Bitte wiederhole erneut exakt denselben Satz.",
+    "Bitte wiederhole erneut exakt denselben Satz UNVERÄNDERT.",
+    "Bitte wiederhole den Satz ohne jegliche Variation."
+  ]
+}
