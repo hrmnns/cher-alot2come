@@ -1,0 +1,12 @@
+{
+  "prompts": [
+    "Wir definieren den Begriff Modul wie folgt: Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp. Bitte wiederhole diese Definition exakt.",
+    "Bitte erkläre die Definition eines Moduls erneut – diesmal etwas ausführlicher.",
+    "Wie würdest du den Begriff Modul einem Anfänger erklären?",
+    "Welche typischen Merkmale hat ein Modul in modernen WebApps?",
+    "Kann man sagen, dass ein Modul eher ein Baustein, eine Komponente oder ein Subsystem ist? Begründe.",
+    "Bitte gib eine vereinfachte Definition des Begriffs Modul.",
+    "Bitte fasse die Definition des Begriffs Modul in drei Stichpunkten zusammen.",
+    "Wenn du den Begriff heute neu definieren würdest: Wie würdest du ihn formulieren?"
+  ]
+}
