@@ -1,0 +1,33 @@
+{
+  "prompts": [
+    "Wir definieren den Begriff Modul wie folgt: Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp. Bitte wiederhole diese Definition exakt.",
+    "Bitte erkläre die Definition in deinen eigenen Worten, ohne den Inhalt zu verändern.",
+    "Welche typischen Eigenschaften hat ein Modul? Erkläre in 3–4 Stichpunkten.",
+    "Bitte erweitere die vorherige Liste um zusätzliche Eigenschaften.",
+    "Fasse die Definition des Begriffs Modul in einem Satz zusammen.",
+    "Bitte gib eine kindgerechte Erklärung des Begriffs Modul.",
+    "Bitte gib eine wissenschaftliche Definition des Begriffs Modul.",
+    "Formuliere die Definition noch einmal in sehr einfachen Worten.",
+    "Bitte gib ein konkretes Beispiel für ein Modul in einer modernen WebApp.",
+    "Bitte gib ein Beispiel für ein Modul außerhalb der Softwarewelt.",
+    "Bitte wiederhole die ursprüngliche Definition so exakt wie möglich.",
+    "Was sind die wichtigsten Bestandteile eines Moduls? Antworte mit einer Liste.",
+    "Bitte sortiere die Liste der Bestandteile nach Wichtigkeit.",
+    "Bitte formuliere die Bestandteile nun als Fließtext.",
+    "Wie unterscheidet sich ein Modul von einer Komponente?",
+    "Wie unterscheidet sich ein Modul von einem Subsystem?",
+    "Bitte gib eine kurze Zusammenfassung aller bisherigen Definitionen.",
+    "Bitte formuliere die Definition eines Moduls kreativ und ungewöhnlich.",
+    "Bitte formuliere die Definition eines Moduls neutral und technisch.",
+    "Bitte gib die Definition als Vergleich oder Analogie wieder.",
+    "Bitte gib die Definition als kurze Metapher wieder.",
+    "Bitte erkläre einem 10-jährigen Kind, was ein Modul ist.",
+    "Bitte erkläre einem Softwarearchitekten, was ein Modul ist.",
+    "Bitte erkläre einem Projektmanager, was ein Modul ist.",
+    "Bitte definiere den Begriff Modul noch einmal vollständig neu.",
+    "Bitte gib eine alternative, aber zutreffende Definition.",
+    "Bitte gib eine sehr kurze Definition (max. 10 Wörter).",
+    "Bitte gib eine ausführliche Definition (mindestens 5 Sätze).",
+    "Bitte wiederhole zum Abschluss noch einmal unsere allererste Definition."
+  ]
+}
