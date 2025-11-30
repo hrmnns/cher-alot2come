@@ -1,168 +1,183 @@
-
 """
 drift_analysis_core.py
 ----------------------
 
-Zentrale Analyse-Engine für Drift-Experimente.
-Dieses Modul ist vollständig unabhängig vom Experimentcode und bildet die
-methodische Grundlage zur Bewertung von Drift in LLM-Antworten.
+Erweiterter Analyse-Core für Driftmessungen.
+Implementiert quantitative Metriken (Phase 2a):
 
-Funktionen:
-- Normalisierung von Texten
-- Ähnlichkeitsanalyse (SequenceMatcher)
-- Erkennung von hinzugekommenen / entfernten Wörtern
-- Strukturdrift (Nummerierte Listen)
-- Automatische Driftinterpretation
-- Erzeugung eines formatierungssicheren Markdown-Reports
-
-Kann von:
-- drift_analysis.py
-- drift_experiment_gemini.py (bei Nutzung von --analyze)
-- zukünftigen Multi-LLM-Tools
-verwendet werden.
+- Similarity Metriken
+- Wortbasierte Driftmetriken
+- Strukturklassifikation
+- Strukturdrift
+- Analyse-Metadaten
 """
 
-import re
 from difflib import SequenceMatcher
-from collections import Counter
+import re
+import statistics
+
+# ------------------------------------------------------------
+# Hilfsfunktionen
+# ------------------------------------------------------------
+
+def tokenize(text: str):
+    """Einfache Tokenisierung: Wörter extrahieren, klein schreiben."""
+    return re.findall(r"\b\w+\b", text.lower())
 
 
-# --------------------------------------------------------
-# Normalisierung
-# --------------------------------------------------------
-def normalize(text: str) -> str:
-    """Bereitet Text für Vergleichsanalysen vor (kleine Schrift, reduzierte Zeichen)."""
-    text = text.lower()
-    text = re.sub(r"[^a-zA-ZäöüÄÖÜ0-9\s]", "", text)
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
-
-
-# --------------------------------------------------------
-# Ähnlichkeitsanalyse
-# --------------------------------------------------------
-def similarity(a: str, b: str) -> float:
-    """Gibt eine Similarität zwischen 0 und 1 zurück."""
-    return SequenceMatcher(None, a, b).ratio()
-
-
-# --------------------------------------------------------
-# Wortdifferenzen (Begriffsdrift)
-# --------------------------------------------------------
-def word_diff(a: str, b: str):
+def classify_format(text: str):
     """
-    Liefert hinzugekommene und entfernte Wörter.
-    Grundlage zur Erkennung von Begriffsdrift.
+    Klassifiziert den Strukturtyp eines Textes.
+    Rückgabe:
+        'list-numbered', 'list-bullet', 'definition', 'text'
     """
-    words_a = Counter(a.split())
-    words_b = Counter(b.split())
+    lines = [l.strip() for l in text.split("\n") if l.strip()]
 
-    added = list((words_b - words_a).elements())
-    removed = list((words_a - words_b).elements())
+    if any(re.match(r"^\d+\.", l) for l in lines):
+        return "list-numbered"
+    if any(l.startswith("- ") or l.startswith("* ") for l in lines):
+        return "list-bullet"
+    if "ist" in text.lower() and "ein" in text.lower() and text.lower().strip().endswith("."):
+        return "definition"
+    return "text"
 
-    return added, removed
 
+# ------------------------------------------------------------
+# Similarity Analyse
+# ------------------------------------------------------------
 
-# --------------------------------------------------------
-# Strukturdrift-Erkennung (Listen)
-# --------------------------------------------------------
-def detect_structure_changes(a: str, b: str):
+def compute_similarity_metrics(results):
     """
-    Prüft auf nummerierte Listen 1., 2., 3. ...
-    und gibt Unterschiede zurück.
+    Berechnet Similarity pro Prompt, Mittelwert, Varianz und Trend.
     """
-    pattern = r"(\d+\.\s+[^\n]+)"
+    baseline = results[0]["answer"]
+    similarities = []
 
-    list_a = re.findall(pattern, a)
-    list_b = re.findall(pattern, b)
+    for entry in results:
+        s = SequenceMatcher(None, baseline, entry["answer"]).ratio()
+        similarities.append(s)
 
-    return list_a, list_b
+    mean_val = statistics.mean(similarities)
+    var_val = statistics.pvariance(similarities) if len(similarities) > 1 else 0.0
 
+    # Trend: Differenz Zwischen letztem und erstem Wert
+    trend = similarities[-1] - similarities[0]
 
-# --------------------------------------------------------
-# Automatische Interpretation
-# --------------------------------------------------------
-def interpret_similarity(score: float) -> str:
-    """Textliche Einschätzung der Driftstärke."""
-    if score > 0.90:
-        return "Kaum Drift erkennbar."
-    if score > 0.75:
-        return "Leichte Drift – Definition wurde verändert oder erweitert."
-    if score > 0.50:
-        return "Deutliche Drift – semantische Verschiebung oder neue Synonyme."
-    return "Starke Drift – Definition ist inhaltlich wesentlich verändert."
+    return {
+        "similarities": similarities,
+        "mean": mean_val,
+        "variance": var_val,
+        "trend": trend
+    }
 
 
-# --------------------------------------------------------
-# Markdown-Report erzeugen
-# --------------------------------------------------------
-def create_report(data, baseline_index=0, control_index=-1) -> str:
+# ------------------------------------------------------------
+# Wortbasierte Driftmetriken
+# ------------------------------------------------------------
+
+def compute_word_drift(results):
     """
-    Erzeugt einen vollständigen Markdown-Driftbericht.
-    data: Liste von Prompt/Antwort-Dictionaries aus einem Experiment.
+    Berechnet Added Words, Removed Words und Drift Ratios.
     """
+    baseline_tokens = set(tokenize(results[0]["answer"]))
 
-    baseline = data[baseline_index]["answer"]
-    control = data[control_index]["answer"]
+    added_list = []
+    removed_list = []
+    drift_ratios = []
 
-    base_norm = normalize(baseline)
-    ctrl_norm = normalize(control)
+    baseline_len = max(1, len(baseline_tokens))
 
-    sim = similarity(base_norm, ctrl_norm)
-    added_words, removed_words = word_diff(base_norm, ctrl_norm)
-    list_a, list_b = detect_structure_changes(baseline, control)
-    interpretation = interpret_similarity(sim)
+    for entry in results:
+        tokens = set(tokenize(entry["answer"]))
 
-    report = f"""
-# 🧪 Drift-Analyse Bericht
+        added = tokens - baseline_tokens
+        removed = baseline_tokens - tokens
 
-## Vergleich
-- Baseline: Antwort {baseline_index + 1}
-- Kontrollpunkt: Antwort {control_index + 1}
-- Ähnlichkeitswert: **{sim:.2f}**
+        added_list.append(list(added))
+        removed_list.append(list(removed))
 
----
+        drift_ratio = (len(added) + len(removed)) / baseline_len
+        drift_ratios.append(drift_ratio)
 
-## 🔍 Originalantworten
+    return {
+        "added_words": added_list,
+        "removed_words": removed_list,
+        "drift_ratio": drift_ratios
+    }
 
-### Baseline
-```
-{baseline}
-```
 
-### Kontrollantwort
-```
-{control}
-```
+# ------------------------------------------------------------
+# Strukturdrift
+# ------------------------------------------------------------
 
----
+def compute_structure_drift(results):
+    """
+    Klassifiziert Format pro Antwort und zählt Strukturwechsel.
+    """
+    formats = []
+    for entry in results:
+        fmt = classify_format(entry["answer"])
+        formats.append(fmt)
 
-## 📘 Begriffliche Drift
+    structure_changes = sum(1 for i in range(1, len(formats)) if formats[i] != formats[i-1])
 
-### Neu hinzugekommene Wörter:
-{added_words if added_words else "Keine"}
+    return {
+        "formats": formats,
+        "structure_changes": structure_changes
+    }
 
-### Entfernte Wörter:
-{removed_words if removed_words else "Keine"}
 
----
+# ------------------------------------------------------------
+# Gesamtauswertung & Report
+# ------------------------------------------------------------
 
-## 📐 Strukturdrift
+def analyze(results):
+    """
+    Führt alle quantitativen Analysen durch und gibt Metadaten zurück.
+    """
+    similarity = compute_similarity_metrics(results)
+    word_drift = compute_word_drift(results)
+    structure = compute_structure_drift(results)
 
-### Liste in Baseline:
-{list_a if list_a else "Keine nummerierte Liste"}
+    return {
+        "similarity": similarity,
+        "word_drift": word_drift,
+        "structure": structure
+    }
 
-### Liste in Kontrollantwort:
-{list_b if list_b else "Keine nummerierte Liste"}
 
----
+def create_report(results):
+    """
+    Erzeugt einen Markdown-Report basierend auf den quantitativen Metriken.
+    """
+    analysis = analyze(results)
 
-## 🧩 Interpretation
-**{interpretation}**
+    sim = analysis["similarity"]
+    drift = analysis["word_drift"]
+    struct = analysis["structure"]
 
----
+    md = []
+    md.append("# Driftanalyse – Quantitative Ergebnisse\n")
 
-_Ende des Berichts._
-"""
+    # Similarity
+    md.append("## Similarity\n")
+    md.append(f"- Mittelwert: {sim['mean']:.3f}")
+    md.append(f"- Varianz: {sim['variance']:.4f}")
+    md.append(f"- Trend: {sim['trend']:.3f}")
+    md.append("\n### Similarity pro Prompt:")
+    for i, val in enumerate(sim["similarities"], 1):
+        md.append(f"- Prompt {i}: {val:.3f}")
 
-    return report
+    # Wortdrift
+    md.append("\n\n## Wortbasierte Drift\n")
+    for i, ratio in enumerate(drift["drift_ratio"], 1):
+        md.append(f"- Prompt {i}: Drift Ratio = {ratio:.3f}")
+
+    # Strukturdrift
+    md.append("\n\n## Strukturdrift\n")
+    md.append(f"- Strukturwechsel: {struct['structure_changes']}")
+    md.append("\n### Formate:")
+    for i, fmt in enumerate(struct["formats"], 1):
+        md.append(f"- Prompt {i}: {fmt}")
+
+    return "\n".join(md)
