@@ -1,0 +1,10 @@
+{
+  "prompts": [
+    "Bitte liste die drei wichtigsten Eigenschaften eines Moduls nummeriert auf.",
+    "Erweitere die Liste um zwei weitere Eigenschaften.",
+    "Bitte sortiere die Liste nach Wichtigkeit und formuliere sie neu.",
+    "Ersetze zwei der Eigenschaften durch modernere Begriffe.",
+    "Fasse die Eigenschaften nun als Fließtext zusammen.",
+    "Erstelle erneut eine Liste, diesmal aber in fünf Schritten gegliedert."
+  ]
+}
