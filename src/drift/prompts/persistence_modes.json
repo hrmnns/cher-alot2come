@@ -1,0 +1,18 @@
+{
+  "persist-soft": {
+    "prepend": "Bitte beachte für alle Antworten die folgende zentrale Definition:\n„Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp.“\nDu darfst diese Definition ergänzen, aber nicht verändern.",
+    "append": ""
+  },
+  "persist-hard": {
+    "prepend": "WICHTIG: Du MUSST folgende Definition unverändert beibehalten:\n„Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp.“\nWenn deine Antwort davon abweicht, korrigiere sie sofort.",
+    "append": ""
+  },
+  "role-locked": {
+    "prepend": "Du agierst dauerhaft als Softwarearchitekt.\nDu darfst deine Rolle während der gesamten Interaktion NICHT ändern.",
+    "append": ""
+  },
+  "watchdog": {
+    "prepend": "Bitte prüfe, ob deine Antwort die ursprüngliche Definition verändert:\n„Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp.“\nWenn ja, schreibe deine Antwort so um, dass die Definition unverändert gültig bleibt.",
+    "append": "Falls deine Antwort abweicht, stelle bitte selbstständig die korrekte Definition wieder her."
+  }
+}
