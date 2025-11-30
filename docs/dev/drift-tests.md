@@ -1,221 +1,219 @@
-# 📄 **Drift-Testsystem – Technische Dokumentation**
-
-**Ort:** `docs/dev/drift-tests.md`
-**Bereich:** Developer Documentation
-**Zweck:** Technische Nutzung, Aufbau und Erweiterung der Skript-basierten Drift-Analyse
+# Drift-Testsystem – Technische Dokumentation
+**Ort:** `docs/dev/drift-tests.md`  
+**Bereich:** Developer Documentation  
+**Zweck:** Nutzung, Aufbau und Erweiterung der automatisierten Drift-Test-Engine
 
 # 1. Überblick
 
-Dieses Dokument beschreibt die **technische Implementierung, Nutzung und Struktur** des skriptbasierten Drift-Testsystems.
-Ziel ist es, **Promptsequenzen automatisiert an ein LLM (Gemini)** zu senden, die Ergebnisse reproduzierbar zu speichern und anschließend automatisch auszuwerten.
+Dieses Dokument beschreibt die technische Funktionsweise des Drift-Testsystems.  
+Ziel ist es, Promptsequenzen automatisiert an Gemini zu senden, Ergebnisse nachvollziehbar zu speichern und anschließend eine Drift-Analyse durchzuführen.
 
-Das System dient als Grundlage für:
+Das System besteht aus drei Kernelementen:
 
-* empirischen Drift-Nachweis
-* Vergleichsexperimente
-* Qualitätsanalyse im Kontext von ALOT2COME
-* reproduzierbare LLM-Interaktionen
+- **Experimentskript:** `drift_experiment_gemini.py`
+- **Analysemodul:** `drift_analysis_core.py`
+- **CLI-Analyse:** `drift_analysis.py` (optional)
 
-Die methodische Einordnung erfolgt separat unter
-`docs/quality/drift-experiments.md`.
+Die methodische Einbettung erfolgt in `docs/quality/drift-experiments.md`.
 
 # 2. Verzeichnisstruktur
 
-Die gesamte Drift-Test-Engine befindet sich unter:
+Die Drift-Testumgebung liegt vollständig unter:
 
 ```
 src/drift/
-├── drift_experiment_gemini.py       # Experiment-Runner
-├── drift_analysis.py                # CLI Report Generator
+├── drift_experiment_gemini.py       # Experiment-Runner (CLI)
+├── drift_analysis.py                # Optionales Analyse-CLI
 ├── drift_analysis_core.py           # Analysemodul
 ├── prompts/                         # Promptsets (JSON)
 │   └── prompts.json
-└── results/                         # Ausgabedateien (.json/.md)
+└── results/                         # Ergebnisse (.json/.md)
     └── .gitignore
 ```
 
-**Hinweise:**
+### Hinweise
 
-* Der Ordner `results/` wird **nicht** versioniert (durch `.gitignore`).
-* Alle Promptsets werden in `prompts/` versioniert.
-* Die Analyse ist modular und unabhängig vom Experiment-Skript.
+- `results/` wird automatisch erstellt und nicht versioniert.
+- Promptdateien liegen ausschließlich unter `prompts/`.
 
 # 3. Promptsets (JSON)
 
-Die Skripte erwarten eine JSON-Datei mit folgender Struktur:
+Promptdateien steuern das Drift-Experiment.  
+Struktur:
 
 ```json
 {
   "prompts": [
     "Wir definieren den Begriff Modul wie folgt...",
     "Welche Eigenschaften hat ein Modul?",
-    "Bitte beschreibe ein Beispiel-Modul."
+    "Bitte wiederhole die Definition."
   ]
 }
 ```
 
-**Wichtige Merkmale:**
+### Eigenschaften
 
-* Promptdateien sind **frei erweiterbar**, ohne Codeänderungen.
-* Für jeden Testlauf kann eine eigene Datei verwendet werden.
-* Die Dateien sind versionierbar und erlauben systematische Drift-Experimente.
+- Beliebig erweiterbar.
+- JSON liegt in `src/drift/prompts/`.
+- Wenn keine Datei angegeben wird, lädt das Skript automatisch:
 
-# 4. Experiment-Skript: `drift_experiment_gemini.py`
+```
+prompts/prompts.json
+```
+
+# 4. Experimentskript: drift_experiment_gemini.py
 
 Das Skript:
 
-* lädt die Promptdatei
-* führt jeden Prompt sequenziell an Gemini aus
-* sammelt alle Antworten
-* speichert sie als JSON
-* nutzt das Gemini Free Tier
-* enthält Fehlerbehandlung für fehlende Dateien und API-Keys
+- führt Prompts sequenziell an ein Gemini-Modell aus,
+- speichert Antworten als JSON,
+- unterstützt CLI-Argumente für flexiblen Betrieb,
+- kann optional die Analyse direkt im Anschluss ausführen.
 
-### **Ausführung**
+## 4.1 CLI-Parameter
 
-Mit eigener Promptdatei:
+### `--prompts <datei>`
+Verwendet eine bestimmte JSON-Promptdatei:
 
-```bash
-python drift_experiment_gemini.py prompts/custom_prompts.json
+```
+python drift_experiment_gemini.py --prompts prompts/moduldrift.json
 ```
 
-Oder mit Standarddatei (`prompts.json`):
+Ohne Angabe wird `prompts/prompts.json` geladen.
 
-```bash
+### `--model <modellname>`
+Setzt das gewünschte Gemini-Modell:
+
+```
+python drift_experiment_gemini.py --model models/gemini-2.5-flash
+```
+
+Standardmodell:
+
+```
+models/gemini-2.5-flash
+```
+
+### `--analyze`
+Erzeugt nach dem Experiment automatisch einen Markdown-Driftreport:
+
+```
+python drift_experiment_gemini.py --analyze
+```
+
+## 4.2 Ausführung (Beispiele)
+
+Minimal:
+
+```
 python drift_experiment_gemini.py
 ```
 
-### **API-Key setzen**
+Mit spezifischer Promptdatei:
 
-Windows PowerShell:
-
-```powershell
-setx GEMINI_API_KEY "DEIN_API_KEY"
+```
+python drift_experiment_gemini.py --prompts prompts/experiment1.json
 ```
 
-Dann neues PowerShell-Fenster öffnen.
+Mit Modellwahl:
 
-Test:
+```
+python drift_experiment_gemini.py --model models/gemini-2.5-flash
+```
 
-```powershell
-echo $Env:GEMINI_API_KEY
+Experiment + Analyse:
+
+```
+python drift_experiment_gemini.py --prompts prompts/moduldrift.json --analyze
 ```
 
 # 5. Ergebnisdateien (JSON)
 
-Das Experiment erzeugt eine Datei im Ordner `src/drift/`:
+Jedes Experiment erzeugt eine Datei wie:
 
 ```
-gemini_drift_experiment_2025-01-05_12-33-12.json
+results/gemini_drift_experiment_2025-02-03_19-33-22.json
 ```
 
-Diese Datei enthält:
+Inhalt:
 
-* alle Prompts
-* alle Antworten in Reihenfolge
-* vollständiges Drift-Testprotokoll
+- Promptnummer
+- Prompttext
+- LLM-Antwort
 
-Sie dient als **Rohdatenbasis** für die Analyse.
+Diese Datei dient als Grundlage für die Driftanalyse.
 
-# 6. Analyse-Engine: `drift_analysis_core.py`
+# 6. Analysemodul: drift_analysis_core.py
 
-Dieses Modul enthält alle wesentlichen Analysefunktionen:
+Dieses Modul ist unabhängig vom Experimentskript.
 
-* **Normalisierung** für Textvergleich
-* **Ähnlichkeitsanalyse** (SequenceMatcher)
-* **Wort-Differenzen** (added / removed words → Begriffsdrift)
-* **Strukturprüfungen** (Listen → Strukturdrift)
-* **automatische Textinterpretation**
-* **Markdown-Report-Generator**
+### Funktionen
 
-Das Modul wird sowohl vom
+- Normalisierung von Texten
+- Ähnlichkeitsanalyse (SequenceMatcher)
+- Wortdifferenzen (Begriffsdrift)
+- Strukturdrift (nummerierte Listen)
+- automatische Driftinterpretation
+- Markdown-Report-Generator
 
-* CLI-Analyzer
-* Experiment-Skript (optional)
+Das Modul wird sowohl vom Analyse-CLI als auch optional vom Experimentskript genutzt.
 
-verwendet.
+# 7. Analyse-CLI: drift_analysis.py
 
-# 7. CLI-Analyse: `drift_analysis.py`
-
-Dieses Skript analysiert jede Ergebnis-JSON-Datei und erzeugt einen Markdown-Bericht.
-
-### **Ausführung:**
-
-```bash
-python drift_analysis.py gemini_drift_experiment_2025-01-05_12-33-12.json
-```
-
-Ergebnis:
+Optionales Tool zur nachträglichen Analyse einer Ergebnisdatei:
 
 ```
-drift_report_2025-01-05_12-33-12.md
+python drift_analysis.py results/gemini_drift_experiment_<timestamp>.json
 ```
 
-Der Bericht enthält:
+→ erzeugt:
 
-* Vergleich Baseline ↔ Kontrollpunkt
-* Ähnlichkeitswert (0–1)
-* neu hinzugekommene Wörter
-* entfernte Wörter
-* Listenveränderungen
-* automatische Interpretation
-* Originalantworten
+```
+results/drift_report_<timestamp>.md
+```
 
-# 8. Optional: Auto-Analyse
+# 8. Optional: Auto-Analyse per CLI-Flag
 
-Das Experiment-Skript unterstützt ein optionales `--analyze` Flag:
+Das Experimentskript kann die Analyse direkt ausführen:
 
-```bash
-python drift_experiment_gemini.py prompts.json --analyze
+```
+python drift_experiment_gemini.py --analyze
 ```
 
 Erzeugt:
 
-* `gemini_drift_experiment_*.json`
-* `drift_report_*.md`
-
-Damit sind **Experiment und Analyse in einem Schritt** möglich.
+- `.json` Datei (Ergebnisse)
+- `.md` Datei (Driftreport)
 
 # 9. Troubleshooting
 
-### **„GEMINI_API_KEY ist nicht gesetzt.“**
+### „GEMINI_API_KEY ist nicht gesetzt“
+→ API-Key als Umgebungsvariable setzen.
 
-→ API-Key als Umgebungsvariable setzen und Terminal neu starten.
+### „Promptdatei nicht gefunden“
+→ Existenz der Datei prüfen oder `--prompts` verwenden.
 
-### **„JSON-Datei nicht gefunden.“**
+### „JSON enthält keine gültige prompts-Liste“
+→ JSON-Struktur prüfen.
 
-→ Pfad prüfen oder Promptdatei in `/prompts/` ablegen.
+### „Rate Limit“
+→ längeres Delay einbauen (`time.sleep(1)`).
 
-### **„Kein gültiges Prompts-Array.“**
+# 10. Erweiterungsideen
 
-→ JSON prüfen (Liste unter `prompts`).
+- Multi-LLM-Unterstützung (Claude, Mistral, OpenAI)
+- GitHub Actions für automatische Driftchecks
+- Visualisierung der Drift über mehrere Experimente
+- HTML-/PDF-Reports
 
-### **„Fehler: Rate Limit“**
+# 11. Verbindung zur Methode ALOT2COME
 
-→ längeres Delay einbauen (z. B. `time.sleep(1)`).
+Das Drift-Testsystem ist ein technischer Baustein zur Sicherung:
 
-# 10. Erweiterungsmöglichkeiten
+- von Kontextstabilität,
+- von Persistenz,
+- von Qualitätsmanagement,
+- von Reproduzierbarkeit langer LLM-Kollaborationen.
 
-* Multi-LLM-Unterstützung (Claude, OpenAI, Mistral)
-* Batch-Experimente
-* GitHub Actions für nächtliche Drift-Checks
-* HTML-Reporting
-* semantische Analyse per Embeddings
-* Drift-Trendvisualisierungen
-
-# 11. Bezug zur Methode ALOT2COME
-
-Dieses Drift-Testsystem ist ein **technisches Werkzeug**, das folgende methodische Konzepte unterstützt:
-
-* Drift-Management
-* Persistenzmechanismen
-* Qualitätskontrolle
-* Reproduzierbarkeit
-* evidenzbasierte Experimente
-
-Die methodische Doku findest du unter:
-
-```
-docs/quality/drift-experiments.md
-```
-
+Methodische Einordnung in:  
+`docs/quality/drift-experiments.md`
