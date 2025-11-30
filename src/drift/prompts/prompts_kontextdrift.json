@@ -1,0 +1,12 @@
+{
+  "prompts": [
+    "Wir definieren: Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp. Bitte bestätige.",
+    "Bitte erkläre ohne die Definition zu verändern, warum Module wichtig sind.",
+    "Gibt es Module auch im Maschinenbau? Bitte beantworte, ohne unsere ursprüngliche Definition zu verändern.",
+    "Bitte definiere erneut, was ein Modul ist.",
+    "Was ist ein Modul in der Elektrotechnik?",
+    "Gib eine allgemeine Definition des Begriffs Modul.",
+    "Wie definierst du Modul in einem Satz?",
+    "Bitte wiederhole unsere allererste Definition unverändert."
+  ]
+}
