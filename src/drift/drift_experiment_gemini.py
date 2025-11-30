@@ -1,10 +1,15 @@
-# -----------------------------------------------------------------------
-# Doku: docs/dev/drift-tests.md
-#       docs/quality/drift-experiments.md
-#
-# Start:
-#       python drift_experiment_gemini.py prompts/prompts.json
-# -----------------------------------------------------------------------
+"""
+drift_experiment_gemini.py
+--------------------------
+
+Automatisierter Drift-Test-Runner für Gemini.
+Unterstützt CLI-Parameter für Prompts, Modell und automatische Analyse.
+
+Beispiele:
+    python drift_experiment_gemini.py --prompts prompts/modul.json
+    python drift_experiment_gemini.py --analyze
+    python drift_experiment_gemini.py --model gemini-1.5-flash --analyze
+"""
 
 import google.generativeai as genai
 import json
@@ -14,15 +19,24 @@ import time
 from datetime import datetime
 
 # --------------------------------------------------------
-# Ensure results directory exists
+# Hilfsfunktion: CLI-Argumente parsen
 # --------------------------------------------------------
-RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
+def get_arg(flag: str, default=None):
+    """Liest einen Wert nach einem Flag, z. B. --prompts datei.json."""
+    if flag in sys.argv:
+        idx = sys.argv.index(flag)
+        if idx + 1 < len(sys.argv):
+            return sys.argv[idx + 1]
+    return default
 
-if not os.path.exists(RESULTS_DIR):
-    os.makedirs(RESULTS_DIR)
+
+def has_flag(flag: str) -> bool:
+    """Prüft, ob ein Flag vorhanden ist."""
+    return flag in sys.argv
+
 
 # --------------------------------------------------------
-# 1. API Key laden
+# 1. API-Key prüfen
 # --------------------------------------------------------
 API_KEY = os.getenv("GEMINI_API_KEY")
 if not API_KEY:
@@ -30,47 +44,60 @@ if not API_KEY:
 
 genai.configure(api_key=API_KEY)
 
-
 # --------------------------------------------------------
-# 2. JSON-Promptdatei laden
+# 2. Ordner: results/ sicherstellen
 # --------------------------------------------------------
-def load_prompts_file():
-    """Lädt die Prompts-Datei aus den CLI-Argumenten oder sucht prompts.json."""
-    if len(sys.argv) > 1:
-        file_path = sys.argv[1]
-        if not os.path.exists(file_path):
-            raise SystemExit(f"❌ Fehler: Die Datei '{file_path}' existiert nicht.")
-        return file_path
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.join(BASE_DIR, "results")
+PROMPTS_DIR = os.path.join(BASE_DIR, "prompts")
 
-    default_file = "prompts.json"
-    if os.path.exists(default_file):
-        return default_file
-
-    raise SystemExit("❌ Keine JSON-Datei angegeben und 'prompts.json' wurde nicht gefunden.")
-
-
-prompts_file = load_prompts_file()
-
-# JSON öffnen
-with open(prompts_file, "r", encoding="utf-8") as f:
-    config = json.load(f)
-
-prompts = config.get("prompts")
-if not prompts or not isinstance(prompts, list):
-    raise SystemExit("❌ Fehler: Die JSON-Datei enthält keine gültige 'prompts'-Liste.")
+os.makedirs(RESULTS_DIR, exist_ok=True)
 
 
 # --------------------------------------------------------
-# 3. Modell initialisieren
+# 3. Promptdatei bestimmen
 # --------------------------------------------------------
-model_name = "models/gemini-2.5-flash"
+prompts_path = get_arg("--prompts")
+
+if prompts_path is None:
+    # Standardpfad: prompts/prompts.json
+    prompts_path = os.path.join(PROMPTS_DIR, "prompts.json")
+
+# Absolutpfad erzeugen
+prompts_path = os.path.abspath(prompts_path)
+
+if not os.path.exists(prompts_path):
+    raise SystemExit(f"❌ Promptdatei nicht gefunden: {prompts_path}")
+
+print(f"📄 Verwende Promptdatei: {prompts_path}")
+
+
+# --------------------------------------------------------
+# 4. Modell bestimmen
+# --------------------------------------------------------
+model_name = get_arg("--model", "models/gemini-2.5-flash")
+print(f"🧠 Verwende Modell: {model_name}")
+
 model = genai.GenerativeModel(model_name)
 
 
 # --------------------------------------------------------
-# 4. Drift-Experiment ausführen
+# 5. Prompts laden
 # --------------------------------------------------------
-print(f"\n🧪 Starte Drift-Experiment mit Gemini ({model_name}) …\n")
+with open(prompts_path, "r", encoding="utf-8") as f:
+    config = json.load(f)
+
+prompts = config.get("prompts")
+if not isinstance(prompts, list) or len(prompts) == 0:
+    raise SystemExit("❌ Fehler: JSON enthält keine gültigen Prompts.")
+
+print(f"📝 Anzahl Prompts: {len(prompts)}")
+
+
+# --------------------------------------------------------
+# 6. Experiment durchführen
+# --------------------------------------------------------
+print("\n🧪 Starte Drift-Experiment...\n")
 results = []
 
 for i, prompt in enumerate(prompts, start=1):
@@ -91,18 +118,36 @@ for i, prompt in enumerate(prompts, start=1):
         "answer": answer
     })
 
-    time.sleep(0.5)  # minimiert Rate-Limit-Risiko
+    time.sleep(0.5)
 
 
 # --------------------------------------------------------
-# 5. Ergebnisse speichern
+# 7. Ergebnisse speichern
 # --------------------------------------------------------
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-#output_file = f"gemini_drift_experiment_{timestamp}.json"
-output_file = os.path.join(RESULTS_DIR, f"gemini_drift_experiment_{timestamp}.json")
+outfile_json = os.path.join(RESULTS_DIR, f"gemini_drift_experiment_{timestamp}.json")
 
-
-with open(output_file, "w", encoding="utf-8") as f:
+with open(outfile_json, "w", encoding="utf-8") as f:
     json.dump(results, f, indent=2, ensure_ascii=False)
 
-print(f"🏁 Experiment abgeschlossen. Ergebnisse gespeichert in:\n{output_file}\n")
+print(f"\n💾 Ergebnisse gespeichert in:\n{outfile_json}")
+
+
+# --------------------------------------------------------
+# 8. Optional: Analyse durchführen
+# --------------------------------------------------------
+if has_flag("--analyze"):
+    try:
+        from drift_analysis_core import create_report
+    except Exception as e:
+        raise SystemExit(f"❌ Fehler beim Laden von drift_analysis_core: {e}")
+
+    report = create_report(results)
+    outfile_md = os.path.join(RESULTS_DIR, f"drift_report_{timestamp}.md")
+
+    with open(outfile_md, "w", encoding="utf-8") as f:
+        f.write(report)
+
+    print(f"📊 Analyse abgeschlossen: {outfile_md}")
+
+print("\n🏁 Fertig.")
