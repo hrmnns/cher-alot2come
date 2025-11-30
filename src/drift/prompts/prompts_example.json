@@ -1,0 +1,9 @@
+{
+  "prompts": [
+    "Wir definieren den Begriff Modul wie folgt: Ein Modul ist ein klar abgegrenzter Bestandteil einer WebApp. Bitte wiederhole diese Definition exakt.",
+    "Bitte erkläre die Definition eines Moduls in deinen eigenen Worten, ohne sie zu verändern.",
+    "Welche Eigenschaften hat ein Modul? Bitte antworte in 3–5 Stichpunkten.",
+    "Bitte gib eine sehr kurze, vereinfachte Formulierung der Definition des Begriffs Modul.",
+    "Bitte wiederhole noch einmal unsere ursprüngliche Definition so exakt wie möglich."
+  ]
+}
